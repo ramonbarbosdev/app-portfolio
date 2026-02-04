@@ -1,65 +1,60 @@
-<section class="bg-app py-24 md:py-32" observeVisibility (visible)="show = true">
-  
-  @if (show) {
-  <div @fadeSlideUp class="container  m-auto  max-w-6xl px-6 md:px-8">
+<section class="bg-app py-24 md:py-32">
+  <div class="mx-auto max-w-6xl px-6 md:px-8">
 
-    <div class="space-y-12">
+    <!-- Overline -->
+    <span class="block text-xs tracking-widest uppercase text-sky-400 mb-6">
+      Sobre
+    </span>
 
-      <!-- Título -->
-      <span class="block text-xs tracking-widest uppercase text-muted">
-        Sobre
-      </span>
+    <!-- Texto principal -->
+    <p class="max-w-3xl text-base md:text-lg leading-relaxed text-app">
+      Sou desenvolvedor de software com foco em aplicações web e sistemas
+      corporativos, atuando desde a concepção da arquitetura até a entrega
+      final. Tenho experiência no desenvolvimento de APIs, integrações e
+      interfaces modernas, sempre priorizando código limpo, manutenível e
+      escalável.
+    </p>
 
-      <!-- Texto principal -->
-      <p class="max-w-2xl text-base md:text-lg leading-relaxed text-app">
-        Sou desenvolvedor de software com foco em aplicações web e sistemas
-        corporativos, atuando desde a concepção da arquitetura até a entrega
-        final. Tenho experiência no desenvolvimento de APIs, integrações e
-        interfaces modernas, sempre priorizando código limpo, manutenível e
-        escalável.
-      </p>
+    <!-- Divisor -->
+    <div class="w-16 h-px bg-sky-400/60 my-12"></div>
 
-      <!-- Divisor -->
-      <div class="w-16 h-px bg-border"></div>
+    <!-- Destaques -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 
-      <!-- Destaques -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Arquitetura -->
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-sky-400">
+          Arquitetura
+        </h3>
+        <p class="text-sm leading-relaxed text-muted">
+          Estruturação de sistemas bem organizados, com separação clara de
+          responsabilidades e foco em evolução contínua.
+        </p>
+      </div>
 
-        <div class="space-y-2">
-          <h3 class="text-sm font-semibold text-app uppercase tracking-wide">
-            Arquitetura
-          </h3>
-          <p class="text-sm leading-relaxed text-muted">
-            Estruturação de sistemas bem organizados, com separação clara de
-            responsabilidades e foco em evolução contínua.
-          </p>
-        </div>
+      <!-- Qualidade -->
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-400">
+          Qualidade
+        </h3>
+        <p class="text-sm leading-relaxed text-muted">
+          Código limpo, legível e testável, seguindo boas práticas e padrões
+          que facilitam manutenção e colaboração.
+        </p>
+      </div>
 
-        <div class="space-y-2">
-          <h3 class="text-sm font-semibold text-app uppercase tracking-wide">
-            Qualidade
-          </h3>
-          <p class="text-sm leading-relaxed text-muted">
-            Código limpo, legível e testável, seguindo boas práticas e padrões
-            que facilitam manutenção e colaboração.
-          </p>
-        </div>
-
-        <div class="space-y-2">
-          <h3 class="text-sm font-semibold text-app uppercase tracking-wide">
-            Escalabilidade
-          </h3>
-          <p class="text-sm leading-relaxed text-muted">
-            Desenvolvimento de soluções preparadas para crescimento, com
-            desempenho, segurança e confiabilidade.
-          </p>
-        </div>
-
+      <!-- Escalabilidade -->
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-violet-400">
+          Escalabilidade
+        </h3>
+        <p class="text-sm leading-relaxed text-muted">
+          Desenvolvimento de soluções preparadas para crescimento, com
+          desempenho, segurança e confiabilidade.
+        </p>
       </div>
 
     </div>
 
-
   </div>
-  }
 </section>
