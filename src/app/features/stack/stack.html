@@ -1,55 +1,35 @@
-<section class="bg-app py-24 md:py-32">
-  <div class="container   m-auto max-w-6xl  px-6 md:px-8">
-    <div class="space-y-14">
+<section class="bg-app py-28 md:py-36">
+  <div class="mx-auto max-w-6xl px-6 md:px-8">
 
-      <!-- Título -->
-      <span class="block text-xs tracking-widest uppercase text-muted">
-        Stack
-      </span>
+    <!-- Overline -->
+    <p class="mb-20 text-[11px] uppercase tracking-[0.35em] text-sky-400">
+      Stack Overview
+    </p>
 
-      <!-- Grid de tecnologias -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl">
+    <!-- GRID PRINCIPAL -->
+ <div class="flex items-start justify-between gap-24">
 
-        <!-- Frontend -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-app">
-            Frontend
-          </h3>
-          <p class="text-base text-muted leading-relaxed">
-            Angular · React · TypeScript · Tailwind CSS · HTML · CSS
-          </p>
-        </div>
 
-        <!-- Backend -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-app">
-            Backend
-          </h3>
-          <p class="text-base text-muted leading-relaxed">
-            Java · Spring Boot · NestJS · Node.js · PHP (Adianti)
-          </p>
-        </div>
+      <!-- COLUNA ESQUERDA -->
+       <div class="flex flex-col gap-24">
+        <ng-container
+          *ngFor="let section of stackLeft; trackBy: trackByTitle"
+        >
+          <app-section
+            [section]="section"
+          ></app-section>
+        </ng-container>
+      </div>
 
-        <!-- Banco -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-app">
-            Banco de Dados
-          </h3>
-          <p class="text-base text-muted leading-relaxed">
-            PostgreSQL · MySQL · MongoDB
-          </p>
-        </div>
-
-        <!-- Infra -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-app">
-            Infraestrutura
-          </h3>
-          <p class="text-base text-muted leading-relaxed">
-            Docker · Nginx · Linux · Cloud · CI/CD
-          </p>
-        </div>
-
+      <!-- COLUNA DIREITA -->
+       <div class="flex flex-col gap-24">
+        <ng-container
+          *ngFor="let section of stackRight; trackBy: trackByTitle"
+        >
+          <app-section
+            [section]="section"
+          ></app-section>
+        </ng-container>
       </div>
 
     </div>
