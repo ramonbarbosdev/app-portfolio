@@ -1,5 +1,4 @@
 @use 'variables' as *;
-
 .bg-app {
   background-color: $color-bg;
 }
@@ -18,7 +17,7 @@
 
 .btn-primary {
   background-color: $color-primary;
-  color: #fff;
+  color: #020617;
 
   &:hover {
     background-color: $color-primary-hover;
@@ -30,7 +29,7 @@
   color: $color-text;
 
   &:hover {
-    background-color: $color-primary;
-    color: #fff;
+    border-color: $color-primary;
+    color: $color-primary;
   }
 }
