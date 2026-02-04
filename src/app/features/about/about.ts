@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { ObserveVisibilityDirective } from '../../core/directives/observe-visibility.directive.ts/observe-visibility.directive.ts';
+import { fadeSlideUp } from '../../animacao/fadeSlideUp.js';
 
 @Component({
   selector: 'app-about',
-  imports: [],
   templateUrl: './about.html',
   styleUrl: './about.scss',
+  imports: [ObserveVisibilityDirective],
+  animations: [fadeSlideUp],
+  standalone: true,
+
+
 })
 export class About {
-
+  show = false;
 }
