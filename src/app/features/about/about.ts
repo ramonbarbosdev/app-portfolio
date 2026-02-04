@@ -6,7 +6,6 @@ import { fadeSlideUp } from '../../animacao/fadeSlideUp.js';
   selector: 'app-about',
   templateUrl: './about.html',
   styleUrl: './about.scss',
-  imports: [ObserveVisibilityDirective],
   animations: [fadeSlideUp],
   standalone: true,
 
