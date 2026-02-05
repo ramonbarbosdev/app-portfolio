@@ -1,16 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-@use "app/style/variables" as *;
-@use "app/style/theme";
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
+@import '../src/app/style/theme.tokens.scss';
+@import '../src/app/style/theme.utilities.scss';
 
-
-:root {
---bg-glow-primary: 56,189,248;
---bg-glow-secondary: 99,102,241;
-  --bg-glow-neutral: 255,255,255;
-
-}
 
 @keyframes apple-drift-1 {
   0%   { background-position: 20% 40%; }

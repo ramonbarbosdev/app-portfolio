@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Section } from "./section/section";
 import { PremiumSuface } from "../../components/premium-suface/premium-suface";
+import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 export interface StackItem {
   icon: string;
@@ -56,7 +57,7 @@ export const STACK: StackSection[] = [
 
 @Component({
   selector: 'app-stack',
-  imports: [CommonModule, Section, PremiumSuface],
+  imports: [CommonModule, Section, ScrollRevealDirective],
   templateUrl: './stack.html',
   styleUrl: './stack.scss',
 })

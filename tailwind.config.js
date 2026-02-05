@@ -3,9 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        teste: 'red',
-      },
-    },
+        app: 'rgb(var(--color-background) / <alpha-value>)',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)'
+      }
+
+    }
   },
   plugins: [],
 };
