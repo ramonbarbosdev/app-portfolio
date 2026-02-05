@@ -1,51 +1,39 @@
-<div class="flex flex-col items-center space-y-16">
+<div class="flex flex-col items-center space-y-14">
 
   <!-- Header -->
-  <div class="flex items-center gap-6 mt-10">
-    <span class="h-px w-16 bg-white/25"></span>
+  <div class="flex items-center gap-6 mt-8">
+    <span class="h-px w-14 bg-white/25"></span>
 
-    <h3
-      class="text-[12px] font-medium uppercase
-             tracking-[0.32em] text-white/75"
-    >
+    <h3 class="text-[12px] font-medium uppercase
+             tracking-[0.32em] text-white/75">
       {{ section.title }}
     </h3>
 
-    <span class="h-px w-16 bg-white/25"></span>
+    <span class="h-px w-14 bg-white/25"></span>
   </div>
 
-  <!-- Ícones em bloco -->
-  <div
-    class="grid grid-cols-2 gap-x-14 gap-y-10
-           sm:grid-cols-3 md:grid-cols-4"
-  >
-    <div
-      *ngFor="let item of section.items; trackBy: trackByLabel"
-      class="flex flex-col items-center gap-3"
-    >
+  <div class="flex flex-wrap justify-center
+         gap-x-5 gap-y-5
+         max-w-xl">
+    <div *ngFor="let item of section.items; trackBy: trackByLabel" class="flex w-24 flex-col items-center gap-3">
 
-      <!-- Base colorida (cor real) -->
-      <div
-        class="flex h-12 w-12 items-center justify-center rounded-xl"
-        [style.backgroundColor]="
+      <div class="flex items-center justify-center
+               h-12 w-12 md:h-10 md:w-10
+               rounded-2xl" [style.backgroundColor]="
           accent === 'sky'
-            ? 'rgba(56,189,248,0.20)'
+            ? 'rgba(56,189,248,0.18)'
             : accent === 'emerald'
-              ? 'rgba(52,211,153,0.20)'
+              ? 'rgba(52,211,153,0.18)'
               : 'rgba(255,255,255,0.08)'
-        "
-      >
-        <i
-          class="text-[22px] text-white/90"
-          [class]="item.icon"
-        ></i>
+        ">
+        <i class="text-[20px] md:text-[22px]
+                 text-white/90" [class]="item.icon"></i>
       </div>
 
-      <!-- Label -->
-      <span
-        class="text-[10px] font-medium uppercase
-               tracking-[0.32em] text-white/45"
-      >
+      <span class="text-[10px] font-medium uppercase
+               tracking-[0.32em]
+               text-white/45
+               text-center">
         {{ item.label }}
       </span>
 
