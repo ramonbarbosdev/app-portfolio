@@ -8,7 +8,7 @@ import { Contact } from "../../features/contact/contact";
 
 @Component({
   selector: 'app-layout',
-  imports: [Home, About, Projects, Stack, Experience, Contact],
+  imports: [Home, About, Projects, Stack, Experience, Contact,],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
