@@ -1,82 +1,55 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Section } from "./section/section";
-import { PremiumSuface } from "../../components/premium-suface/premium-suface";
+import { Component, signal } from '@angular/core';
+import { CarouselModule } from 'primeng/carousel';
 import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
-
 export interface StackItem {
   icon: string;
   label: string;
+  accent: 'sky' | 'emerald' | 'violet';
 }
-
-export interface StackSection {
-  title: string;
-  items: StackItem[];
-}
-
-// stack.data.ts
-
-export const STACK: StackSection[] = [
-  {
-    title: 'Frontend',
-    items: [
-      { icon: 'devicon-angularjs-plain', label: 'Angular' },
-      { icon: 'devicon-react-original', label: 'React' },
-      { icon: 'devicon-typescript-plain', label: 'TypeScript' },
-      { icon: 'devicon-tailwindcss-plain', label: 'Tailwind' }
-    ]
-  },
-  {
-    title: 'Backend',
-    items: [
-      { icon: 'devicon-java-plain', label: 'Java' },
-      { icon: 'devicon-spring-plain', label: 'Spring Boot' },
-      { icon: 'devicon-nestjs-plain', label: 'NestJS' },
-      { icon: 'devicon-php-plain', label: 'PHP' }
-    ]
-  },
-  {
-    title: 'Banco de Dados',
-    items: [
-      { icon: 'devicon-postgresql-plain', label: 'PostgreSQL' },
-      { icon: 'devicon-mysql-plain', label: 'MySQL' },
-      { icon: 'devicon-mongodb-plain', label: 'MongoDB' }
-    ]
-  },
-  {
-    title: 'Infraestrutura',
-    items: [
-      { icon: 'devicon-docker-plain', label: 'Docker' },
-      { icon: 'devicon-nginx-original', label: 'Nginx' },
-      { icon: 'devicon-linux-plain', label: 'Linux' },
-      { icon: 'devicon-github-original', label: 'CI / CD' }
-    ]
-  }
-];
-
 
 @Component({
   selector: 'app-stack',
-  imports: [CommonModule, Section, ScrollRevealDirective],
   templateUrl: './stack.html',
   styleUrl: './stack.scss',
+  imports:[CarouselModule,ScrollRevealDirective]
 })
 export class Stack {
-  readonly stackLeft: StackSection[] = [
-    STACK.find(s => s.title === 'Frontend')!,
-    STACK.find(s => s.title === 'Banco de Dados')!
+
+  stackItems = signal<StackItem[]>([]);
+
+  responsiveOptions = [
+    { breakpoint: '1400px', numVisible: 6, numScroll: 1 },
+    { breakpoint: '1024px', numVisible: 5, numScroll: 1 },
+    { breakpoint: '768px',  numVisible: 4, numScroll: 1 },
+    { breakpoint: '575px',  numVisible: 3, numScroll: 1 }
   ];
 
-  readonly stackRight: StackSection[] = [
-    STACK.find(s => s.title === 'Backend')!,
-    STACK.find(s => s.title === 'Infraestrutura')!
-  ];
+  ngOnInit() {
+    this.stackItems.set([
+      // Frontend
+      { icon: 'devicon-angularjs-plain', label: 'Angular', accent: 'sky' },
+      { icon: 'devicon-react-original', label: 'React', accent: 'sky' },
+      { icon: 'devicon-typescript-plain', label: 'TypeScript', accent: 'sky' },
+      { icon: 'devicon-tailwindcss-plain', label: 'Tailwind', accent: 'sky' },
 
-  trackByTitle(_: number, section: StackSection) {
-    return section.title;
+      // Backend
+      { icon: 'devicon-java-plain', label: 'Java', accent: 'emerald' },
+      { icon: 'devicon-spring-plain', label: 'Spring', accent: 'emerald' },
+      { icon: 'devicon-nestjs-plain', label: 'NestJS', accent: 'emerald' },
+      { icon: 'devicon-php-plain', label: 'PHP', accent: 'emerald' },
+
+      // Infra / DB
+      { icon: 'devicon-postgresql-plain', label: 'PostgreSQL', accent: 'violet' },
+      { icon: 'devicon-docker-plain', label: 'Docker', accent: 'violet' },
+      { icon: 'devicon-nginx-original', label: 'Nginx', accent: 'violet' }
+    ]);
   }
 
-  trackByLabel(_: number, item: { label: string }) {
-    return item.label;
+  getBg(accent: StackItem['accent']) {
+    switch (accent) {
+      case 'sky': return 'rgba(56,189,248,0.18)';
+      case 'emerald': return 'rgba(52,211,153,0.18)';
+      case 'violet': return 'rgba(167,139,250,0.18)';
+    }
   }
 }

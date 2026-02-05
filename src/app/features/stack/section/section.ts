@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { StackSection } from '../stack';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +9,6 @@ import { CommonModule } from '@angular/common';
 })
 export class Section {
   @Input() accent: string = 'sky';
-  @Input({ required: true }) section!: StackSection;
 
   trackByLabel(_: number, item: { label: string }) {
     return item.label;

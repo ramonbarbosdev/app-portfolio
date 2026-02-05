@@ -1,30 +1,74 @@
-<section class="relative overflow-hidden py-36 md:py-44">
-
-  <div appScrollReveal [animation]="'fade'" class="mx-auto max-w-5xl px-6 md:px-8">
+<section class="py-28 md:py-36">
+  <div
+    appScrollReveal
+    [animation]="'fade-up'"
+    class="mx-auto max-w-6xl px-6 md:px-8"
+  >
 
     <!-- Overline -->
-    <p class="mb-24 text-[11px] font-medium uppercase
-             tracking-[0.48em]
-             text-sky-400/80 text-center md:text-left">
-      Stack Overview
+    <span
+      class="mb-8 block text-[11px] font-medium uppercase
+             tracking-[0.38em] text-sky-400/90"
+    >
+      Tecnologias
+    </span>
+
+    <!-- Texto introdutório -->
+    <p
+      class="max-w-3xl text-[15px] md:text-[17px]
+             leading-[1.75] md:leading-[1.8]
+             text-white/90"
+    >
+      Stack utilizada no desenvolvimento de aplicações modernas, com foco
+      em performance, escalabilidade e manutenibilidade.
     </p>
 
-    <div class="flex ">
+    <!-- Divisor -->
+    <div
+      class="my-16 h-px w-20
+             bg-gradient-to-r from-transparent
+             via-sky-400/70 to-transparent"
+    ></div>
 
-      <div class=" flex flex-col justify-center ">
-        <ng-container *ngFor="let section of stackLeft">
-          <app-section [section]="section" accent="sky"></app-section>
-        </ng-container>
+    <!-- Carousel de tecnologias -->
+    <p-carousel
+      [value]="stackItems()"
+      [numVisible]="5"
+      [numScroll]="1"
+      [circular]="false"
+      [showIndicators]="false"
+      [showNavigators]="true"
+      [responsiveOptions]="responsiveOptions"
+      styleClass="stack-carousel"
+    >
+      <ng-template pTemplate="item" let-item>
+        <div class="flex flex-col items-center gap-3 px-4">
 
-      </div>
+          <!-- Base do ícone -->
+          <div
+            class="flex h-12 w-12 md:h-14 md:w-14
+                   items-center justify-center rounded-2xl"
+            [style.backgroundColor]="getBg(item.accent)"
+          >
+            <i
+              class="text-[20px] md:text-[22px]
+                     text-white/90"
+              [class]="item.icon"
+            ></i>
+          </div>
 
-      <div class=" flex flex-col justify-center ">
-        <ng-container *ngFor="let section of stackRight">
-          <app-section [section]="section" accent="emerald"></app-section>
-        </ng-container>
-      </div>
+          <!-- Label -->
+          <span
+            class="text-[10px] font-medium uppercase
+                   tracking-[0.32em]
+                   text-white/45 text-center"
+          >
+            {{ item.label }}
+          </span>
 
-    </div>
+        </div>
+      </ng-template>
+    </p-carousel>
 
   </div>
 </section>
