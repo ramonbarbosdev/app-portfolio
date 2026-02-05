@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-section',
-  imports: [CommonModule],
+  imports: [CommonModule,],
   templateUrl: './section.html',
   styleUrl: './section.scss',
 })
@@ -15,4 +15,6 @@ export class Section {
   trackByLabel(_: number, item: { label: string }) {
     return item.label;
   }
+
+  
 }
