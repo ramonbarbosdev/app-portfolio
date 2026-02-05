@@ -1,0 +1,35 @@
+<div class="fixed inset-0 -z-10 overflow-hidden">
+
+  <!-- BASE PROFUNDA -->
+  <div class="absolute inset-0 bg-app"></div>
+
+  <!-- VINHETA DIRECIONAL (mais Apple) -->
+  <div class="absolute inset-0
+       bg-[radial-gradient(circle_at_40%_50%,transparent_45%,rgba(0,0,0,0.7)_100%)]">
+  </div>
+
+  <!-- LUZ PRINCIPAL -->
+  <div class="absolute inset-0 animate-apple-1 blur-[180px] mix-blend-screen
+       bg-[radial-gradient(circle_at_30%_40%,rgba(var(--bg-glow-primary),0.20),transparent_65%)]">
+  </div>
+
+  <!-- LUZ SECUNDÁRIA -->
+  <div class="absolute inset-0 animate-apple-2 blur-[200px] mix-blend-screen
+       bg-[radial-gradient(circle_at_70%_60%,rgba(var(--bg-glow-secondary),0.16),transparent_65%)]">
+  </div>
+
+  <!-- AMBIENTE DIFUSO -->
+  <div class="absolute inset-0 animate-apple-ambient blur-[240px] mix-blend-overlay
+       bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10),transparent_70%)]">
+  </div>
+
+  <!-- FOCO LUMINOSO ATRÁS DO TEXTO -->
+  <div class="absolute left-[22%] top-[38%]
+       w-[800px] h-[800px]
+       blur-[260px] opacity-60
+       pointer-events-none
+       animate-apple-focus
+       bg-[radial-gradient(circle,rgba(var(--bg-glow-primary),0.28),transparent_70%)]">
+  </div>
+
+</div>

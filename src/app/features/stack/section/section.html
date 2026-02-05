@@ -1,27 +1,62 @@
-<div class="space-y-4">
-    <div class="flex items-center gap-3">
-        <span class="h-px w-8 bg-sky-400/60"></span>
-        <h3 class="text-xs font-medium uppercase tracking-widest ">
-            {{ section.title }}
-        </h3>
+<div class="relative space-y-8">
+
+  <!-- Linha lateral glow -->
+  <div
+    class="absolute -left-6 top-1 h-8 w-[2px]
+           rounded-full opacity-60"
+    [ngClass]="'bg-' + accent + '-400'"
+  ></div>
+
+  <!-- Header -->
+  <div class="flex items-center gap-4">
+
+    <span class="h-px w-12 bg-white/20"></span>
+
+    <h3 class="text-sm font-semibold uppercase tracking-[0.28em] text-white/80">
+      {{ section.title }}
+    </h3>
+
+  </div>
+
+  <!-- Grid ícones -->
+  <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-10">
+
+    <div
+      *ngFor="let item of section.items; trackBy: trackByLabel"
+      class="group relative flex flex-col items-center gap-3
+             transition-all duration-300
+             hover:-translate-y-1"
+    >
+
+      <!-- Glow hover -->
+      <div
+        class="absolute inset-0 rounded-xl opacity-0
+               blur-xl transition-opacity duration-300"
+        [ngClass]="'group-hover:bg-' + accent + '-400/10'"
+      ></div>
+
+      <!-- Ícone -->
+      <i
+        class="relative text-[28px] text-white/50
+               transition-all duration-300"
+        [ngClass]="'group-hover:text-' + accent + '-400'"
+        [class]="item.icon"
+      ></i>
+
+      <!-- Label -->
+      <span
+        class="text-[10px] uppercase tracking-widest
+               text-white/40
+               opacity-0 translate-y-1
+               group-hover:opacity-100
+               group-hover:translate-y-0
+               transition-all duration-200"
+      >
+        {{ item.label }}
+      </span>
+
     </div>
 
-    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6">
-        <div *ngFor="let item of section.items; trackBy: trackByLabel" class="group flex flex-col items-center gap-2">
-            <i class="text-3xl text-white/50 transition-colors group-hover:text-sky-400" [class]="item.icon"></i>
+  </div>
 
-            <span class="
-    text-[10px] uppercase tracking-widest
-    text-sky-400
-    opacity-0
-    translate-y-1
-    group-hover:opacity-100
-    group-hover:translate-y-0
-    transition-all duration-200
-    pointer-events-none
-  ">
-                {{ item.label }}
-            </span>
-        </div>
-    </div>
 </div>

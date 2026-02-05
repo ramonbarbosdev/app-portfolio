@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Section } from "./section/section";
+import { PremiumSuface } from "../../components/premium-suface/premium-suface";
 
 export interface StackItem {
   icon: string;
@@ -55,7 +56,7 @@ export const STACK: StackSection[] = [
 
 @Component({
   selector: 'app-stack',
-  imports: [CommonModule, Section],
+  imports: [CommonModule, Section, PremiumSuface],
   templateUrl: './stack.html',
   styleUrl: './stack.scss',
 })

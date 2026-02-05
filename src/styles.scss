@@ -5,3 +5,63 @@
 @import "primeicons/primeicons.css";
 
 
+:root {
+--bg-glow-primary: 56,189,248;
+--bg-glow-secondary: 99,102,241;
+  --bg-glow-neutral: 255,255,255;
+
+}
+
+@keyframes apple-drift-1 {
+  0%   { background-position: 20% 40%; }
+  50%  { background-position: 60% 55%; }
+  100% { background-position: 20% 40%; }
+}
+
+@keyframes apple-drift-2 {
+  0%   { background-position: 80% 60%; }
+  50%  { background-position: 40% 45%; }
+  100% { background-position: 80% 60%; }
+}
+
+@keyframes apple-drift-ambient {
+  0%   { background-position: 50% 50%; }
+  50%  { background-position: 48% 60%; }
+  100% { background-position: 50% 50%; }
+}
+
+.animate-apple-1 {
+  animation: apple-drift-1 38s ease-in-out infinite;
+  background-size: 240% 240%;
+}
+
+.animate-apple-2 {
+  animation: apple-drift-2 44s ease-in-out infinite;
+  background-size: 240% 240%;
+}
+
+.animate-apple-ambient {
+  animation: apple-drift-ambient 60s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes apple-focus {
+  0%   { transform: translate(0,0); }
+  50%  { transform: translate(-60px, 40px); }
+  100% { transform: translate(0,0); }
+}
+
+.animate-apple-focus {
+  animation: apple-focus 36s ease-in-out infinite;
+}
+
+
+.text-shadow-glow {
+  text-shadow:
+    0 0 40px rgba(var(--bg-glow-primary), 0.18);
+}
+
+.subtitle-glow {
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.06);
+}

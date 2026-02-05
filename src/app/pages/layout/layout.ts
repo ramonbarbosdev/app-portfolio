@@ -5,10 +5,11 @@ import { Projects } from "../../features/projects/projects";
 import { Stack } from "../../features/stack/stack";
 import { Experience } from "../../features/experience/experience";
 import { Contact } from "../../features/contact/contact";
+import { BackgroundSuface } from "../../components/background-suface/background-suface";
 
 @Component({
   selector: 'app-layout',
-  imports: [Home, About, Projects, Stack, Experience, Contact,],
+  imports: [Home, About, Projects, Stack, Experience, Contact, BackgroundSuface],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })

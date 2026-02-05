@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './section.scss',
 })
 export class Section {
-
-   @Input({ required: true }) section!: StackSection;
+  @Input() accent: string = 'sky';
+  @Input({ required: true }) section!: StackSection;
 
   trackByLabel(_: number, item: { label: string }) {
     return item.label;
