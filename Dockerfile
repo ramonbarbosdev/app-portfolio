@@ -1,4 +1,4 @@
-# Stage 1: Build do Angular
+# Stage 1: Build
 FROM node:lts-alpine as build
 
 WORKDIR /app
@@ -6,15 +6,16 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
-COPY . ./
+COPY . .
+
 RUN npx ng build --configuration production
 
-# Stage 2: Servir via Nginx
+
+# Stage 2: Nginx
 FROM nginx:alpine
 
 COPY --from=build /app/dist/app-portfolio/browser /usr/share/nginx/html
 
-# Copia config nginx customizada para Angular SPA
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 4200
