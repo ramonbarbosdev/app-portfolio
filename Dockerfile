@@ -9,6 +9,6 @@ COPY . .
 
 RUN npm run build -- --configuration production
 
-EXPOSE 4201
+EXPOSE 4200
 
 CMD ["npx", "serve", "dist"]
