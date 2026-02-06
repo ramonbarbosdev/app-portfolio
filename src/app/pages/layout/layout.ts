@@ -3,13 +3,13 @@ import { Home } from "../../features/home/home";
 import { About } from "../../features/about/about";
 import { Projects } from "../../features/projects/projects";
 import { Stack } from "../../features/stack/stack";
-import { Experience } from "../../features/experience/experience";
 import { Contact } from "../../features/contact/contact";
 import { BackgroundSuface } from "../../components/background-suface/background-suface";
+import { Footer } from "../../features/footer/footer";
 
 @Component({
   selector: 'app-layout',
-  imports: [Home, About, Projects, Stack, Experience, Contact, BackgroundSuface],
+  imports: [Home, About, Projects, Stack, Contact, BackgroundSuface, Footer],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })

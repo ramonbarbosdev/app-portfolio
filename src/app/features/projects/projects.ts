@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProjectCard } from "./project-card/project-card";
 import { ProjectDialog } from "./project-dialog/project-dialog";
 import { CommonModule } from '@angular/common';
+import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 export interface Project {
   id: string;
@@ -23,7 +24,7 @@ export interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [ProjectCard, ProjectDialog, CommonModule],
+  imports: [ProjectCard, ProjectDialog, CommonModule, ScrollRevealDirective],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })

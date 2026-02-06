@@ -16,7 +16,6 @@ export interface StackItem {
 })
 export class Stack {
 
-  // Lista única de tecnologias
   stackItems = signal<StackItem[]>([]);
 
   ngOnInit() {
@@ -46,7 +45,6 @@ export class Stack {
 
   }
 
-  // Função para cor de fundo do ícone
   getBg(accent: StackItem['accent']): string {
 
     switch (accent) {

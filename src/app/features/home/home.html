@@ -68,6 +68,8 @@
 
         <!-- Botão Projetos -->
         <button
+         (click)="scrollToId('projetos')"
+        
           class="btn-primary cinematic-button
                  px-6 sm:px-7 py-3 sm:py-3.5
                  rounded-md
@@ -79,8 +81,8 @@
         </button>
 
 
-        <!-- Botão Contato -->
         <button
+        (click)="scrollToId('contato')"
           class="btn-outline
                  px-6 sm:px-7 py-3 sm:py-3.5
                  rounded-md
@@ -92,11 +94,9 @@
         </button>
 
 
-        <!-- Divider horizontal mobile / vertical desktop -->
         <div class="hidden sm:block h-6 w-px bg-white/10 mx-1 sm:mx-2"></div>
 
 
-        <!-- Ícones -->
         <div class="flex items-center gap-4 mt-2 sm:mt-0 justify-center sm:justify-start">
 
 
