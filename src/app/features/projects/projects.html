@@ -1,88 +1,28 @@
-<section class="bg-app py-24 md:py-32">
-  <div class="container  m-auto max-w-6xl  px-6 md:px-8">
-    <div class="space-y-14">
+<section class="py-28 md:py-36 min-h-screen">
 
-      <!-- Título -->
-      <span class="block text-xs tracking-widest uppercase text-muted">
-        Projetos
-      </span>
+  <div class="max-w-6xl mx-auto px-6">
 
-      <!-- Lista de projetos -->
-      <div class="space-y-12">
+    <span class="mb-8 block text-[11px] sm:text-xs font-medium uppercase
+                 tracking-[0.38em] text-sky-400/90">
+      Projetos Destaques
+    </span>
 
-        <!-- Projeto 1 -->
-        <article class="space-y-4">
-          <h3 class="text-xl md:text-2xl font-medium text-app">
-            Sistema de Orçamentos SaaS
-          </h3>
+    <div class="grid
+                grid-cols-1
+                sm:grid-cols-2
+                lg:grid-cols-3
+                gap-6">
 
-          <p class="max-w-2xl text-base leading-relaxed text-muted">
-            Desenvolvimento de uma aplicação SaaS para criação e gestão de
-            orçamentos, com regras de precificação configuráveis, simulação
-            de valores no front-end e cálculo final centralizado no back-end.
-          </p>
+      <app-project-card *ngFor="let project of projects" [project]="project" (view)="openProject(project)">
+      </app-project-card>
 
-          <p class="text-sm text-muted">
-            Angular · Java (Spring Boot) · PostgreSQL · Docker · Nginx
-          </p>
-
-          <div class="flex gap-6 text-sm">
-            <a href="#" class="text-app hover:underline">
-              Ver detalhes →
-            </a>
-            <a href="#" class="text-muted hover:text-app">
-              GitHub
-            </a>
-          </div>
-
-          <div class="w-full h-px bg-border mt-8"></div>
-        </article>
-
-        <!-- Projeto 2 -->
-        <article class="space-y-4">
-          <h3 class="text-xl md:text-2xl font-medium text-app">
-            Portal de Transparência Pública
-          </h3>
-
-          <p class="max-w-2xl text-base leading-relaxed text-muted">
-            Implementação de portal de transparência com sincronização de
-            dados entre PostgreSQL e MongoDB, utilizando cron jobs e
-            arquitetura desacoplada para alta performance em consultas.
-          </p>
-
-          <p class="text-sm text-muted">
-            NestJS · React · PostgreSQL · MongoDB · Docker
-          </p>
-
-          <div class="flex gap-6 text-sm">
-            <a href="#" class="text-app hover:underline">
-              Ver detalhes →
-            </a>
-          </div>
-
-          <div class="w-full h-px bg-border mt-8"></div>
-        </article>
-
-        <!-- Projeto 3 -->
-        <article class="space-y-4">
-          <h3 class="text-xl md:text-2xl font-medium text-app">
-            Sistemas Corporativos sob Medida
-          </h3>
-
-          <p class="max-w-2xl text-base leading-relaxed text-muted">
-            Desenvolvimento e manutenção de sistemas corporativos personalizados,
-            com foco em regras de negócio complexas, integrações e interfaces
-            administrativas eficientes.
-          </p>
-
-          <p class="text-sm text-muted">
-            PHP (Adianti) · Java · Angular · MySQL
-          </p>
-
-        </article>
-
-      </div>
 
     </div>
+
+
   </div>
+
 </section>
+
+<app-project-dialog [(visible)]="dialogVisible" [project]="selectedProject">
+</app-project-dialog>
