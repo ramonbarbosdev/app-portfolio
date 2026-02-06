@@ -2,10 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Project } from '../projects';
 import { DialogModule } from 'primeng/dialog';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-project-dialog',
-  imports: [DialogModule, CommonModule],
+  imports: [DialogModule, CommonModule, ButtonModule],
   templateUrl: './project-dialog.html',
   styleUrl: './project-dialog.scss',
 })

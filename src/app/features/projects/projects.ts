@@ -46,7 +46,7 @@ export class Projects {
       incluindo administração, finanças e relatórios.
       `,
 
-      coverImage: '/assets/projects/public.png',
+      coverImage: '/assets/sipec.png',
 
       technologies: [
         'php',
@@ -55,7 +55,7 @@ export class Projects {
       ],
 
       githubUrl: undefined,
-      liveUrl: 'https://cliente.com.br'
+      liveUrl: 'https://sipec.w5i.com.br'
 
     },
 
@@ -72,7 +72,7 @@ export class Projects {
         escalabilidade, além da criação e manutenção de relatórios gerenciais e 
         operacionais utilizando JasperSoft. 
       `,
-      coverImage: '/assets/projects/portal.png',
+      coverImage: '/assets/agrotech.png',
       technologies: [
         'spring',
         'angular',
@@ -97,7 +97,7 @@ export class Projects {
       sua utilidade, foi estendido para uma versão desktop e adotado internamente 
       pela empresa para auxiliar o ambiente de testes.
       `,
-      coverImage: '/assets/projects/portal.png',
+      coverImage: '/assets/syncdb2.png',
       technologies: [
         'spring',
         'angular',
@@ -120,7 +120,7 @@ export class Projects {
       de informações por gestores municipais. Projeto realizado em equipe sob 
       contrato de confidencialidade.
       `,
-      coverImage: '/assets/projects/portal.png',
+      coverImage: '/assets/bi.png',
       technologies: [
         'react',
         'nestjs',
@@ -139,7 +139,7 @@ export class Projects {
       longDescription: `
       Sistema SaaS completo para criação e gestão de orçamentos com arquitetura multi-tenant.
       `,
-      coverImage: '/assets/projects/orcamento.png',
+      coverImage: '/assets/saas.png',
       technologies: [
         'spring',
         'angular',
@@ -162,7 +162,7 @@ export class Projects {
       longDescription: `
       Sistema SaaS completo para criação e gestão de orçamentos com arquitetura multi-tenant.
       `,
-      coverImage: '/assets/projects/portal.png',
+      coverImage: '/assets/portal.png',
       technologies: [
         'nestjs',
         'react',
