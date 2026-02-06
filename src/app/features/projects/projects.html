@@ -2,9 +2,10 @@
 
   <div class="max-w-6xl mx-auto px-6">
 
-    <h2 class="text-3xl font-semibold mb-12">
+    <span class="mb-8 block text-[11px] sm:text-xs font-medium uppercase
+                 tracking-[0.38em] text-sky-400/90">
       Projetos
-    </h2>
+    </span>
 
     <div class="grid
                 grid-cols-1
@@ -12,10 +13,7 @@
                 lg:grid-cols-3
                 gap-6">
 
-      <app-project-card
-        *ngFor="let project of projects"
-        [project]="project"
-        (view)="openProject(project)">
+      <app-project-card *ngFor="let project of projects" [project]="project" (view)="openProject(project)">
       </app-project-card>
 
     </div>
@@ -25,8 +23,5 @@
 
 </section>
 
-
-<app-project-dialog
-  [(visible)]="dialogVisible"
-  [project]="selectedProject">
+<app-project-dialog [(visible)]="dialogVisible" [project]="selectedProject">
 </app-project-dialog>
