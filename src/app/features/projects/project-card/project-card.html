@@ -8,6 +8,31 @@
          hover:shadow-[0_10px_40px_rgba(0,0,0,0.6)]
          cursor-pointer">
 
+
+    <!-- Badge -->
+    <div *ngIf="project.type" class="absolute top-3 left-3 z-10
+         text-[10px]
+         font-semibold
+         uppercase
+         tracking-wider
+         px-2.5 py-1
+         rounded-md
+         backdrop-blur-md
+         border
+
+         transition-all duration-300" [ngClass]="{
+
+    'bg-emerald-500/15 text-emerald-400 border-emerald-400/30':
+      project.type === 'personal',
+
+    'bg-sky-500/15 text-sky-400 border-sky-400/30':
+      project.type === 'professional'
+
+  }">
+        {{ project.type === 'professional' ? 'Profissional' : 'Pessoal' }}
+    </div>
+
+
     <img [src]="project.coverImage" class="w-full h-56 object-cover
            brightness-50
            group-hover:brightness-75

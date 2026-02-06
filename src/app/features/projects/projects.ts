@@ -11,7 +11,8 @@ export interface Project {
 
   coverImage: string;
   videoUrl?: string;
-
+  type?: 'personal' | 'professional';
+  company?: string;
   technologies: string[];
 
   githubUrl?: string;
@@ -31,23 +32,33 @@ export class Projects {
 
     {
       id: '1',
+
       title: 'Sistema de Gestão Pública',
-      description: '',
+
+      type: 'professional',
+
+      company: 'Empresa confidencial',
+
+      description: 'Sistema completo de gestão pública municipal',
+
       longDescription: `
-        Desenvolvimento de um sistema completo para prefeituras, abrangendo módulos 
-      de administração, finanças, RH, Almoxarifado, Patrimônio, Contabilidade, 
-      Relatórios, entre outros. Projeto realizado em equipe sob contrato de confidencialidade. 
+      Desenvolvimento de sistema completo para prefeituras com múltiplos módulos,
+      incluindo administração, finanças e relatórios.
       `,
-      coverImage: '/assets/projects/orcamento.png',
+
+      coverImage: '/assets/projects/public.png',
+
       technologies: [
         'php',
         'postgresql',
         'linux'
       ],
-      githubUrl: 'https://github.com/ramonbarbosdev',
-      liveUrl: 'https://ramoncode.com.br',
-      date: ''
+
+      githubUrl: undefined,
+      liveUrl: 'https://cliente.com.br'
+
     },
+
 
     {
       id: '2',
@@ -70,8 +81,11 @@ export class Projects {
         'postgresql',
 
       ],
+      githubUrl: undefined,
+      liveUrl: 'https://cliente.com.br',
+      type: 'professional',
+      company: 'Cliente privado',
 
-      githubUrl: 'https://github.com/ramonbarbosdev'
 
     },
     {
@@ -90,7 +104,11 @@ export class Projects {
         'mongodb',
 
       ],
-      githubUrl: 'https://github.com/ramonbarbosdev'
+      githubUrl: 'https://github.com/ramonbarbosdev',
+      liveUrl: 'https://cliente.com.br',
+      type: 'personal',
+      company: 'Projeto comercial próprio',
+
     },
     {
       id: '4',
@@ -108,35 +126,57 @@ export class Projects {
         'nestjs',
         'mongodb',
       ],
-      githubUrl: 'https://github.com/ramonbarbosdev'
+      githubUrl: undefined,
+      liveUrl: 'https://cliente.com.br',
+      type: 'professional',
+      company: 'Empresa confidencial',
+
     },
     {
       id: '5',
       title: 'Sistema de Orçamentos SaaS',
-      description: '',
+      description: 'Plataforma SaaS com precificação dinâmica',
       longDescription: `
-      Sistema SaaS completo para criação, simulação e gestão de orçamentos com arquitetura moderna e escalável.
-      A plataforma permite configurar regras de precificação dinâmicas, definir campos personalizados e calcular valores automaticamente com base em diferentes estratégias de precificação.
-      O backend foi desenvolvido em Java com Spring Boot, seguindo princípios de arquitetura limpa e APIs REST robustas, enquanto o frontend foi construído em Angular com foco em experiência do usuário e reatividade.
-      O sistema suporta arquitetura multi-tenant, garantindo isolamento e flexibilidade para múltiplos clientes, além de ter sido projetado para alta escalabilidade, manutenibilidade e evolução contínua.
-      Principais características:
-      • precificação dinâmica baseada em regras  
-      • arquitetura multi-tenant  
-      • APIs REST escaláveis  
-      • frontend moderno e responsivo  
-      • arquitetura modular e extensível  
+      Sistema SaaS completo para criação e gestão de orçamentos com arquitetura multi-tenant.
       `,
-      coverImage: '/assets/projects/portal.png',
+      coverImage: '/assets/projects/orcamento.png',
       technologies: [
         'spring',
         'angular',
         'postgresql',
-        'docker',
-        'typescript'
+        'docker'
       ],
-      githubUrl: 'https://github.com/ramonbarbosdev'
+
+      githubUrl: undefined,
+      liveUrl: 'https://cliente.com.br',
+      type: 'personal',
+      company: 'Projeto comercial próprio',
 
     },
+
+
+    {
+      id: '6',
+      title: 'Portal de Transparência',
+      description: 'Sistema público de consulta de dados',
+      longDescription: `
+      Sistema SaaS completo para criação e gestão de orçamentos com arquitetura multi-tenant.
+      `,
+      coverImage: '/assets/projects/portal.png',
+      technologies: [
+        'nestjs',
+        'react',
+        'postgresql',
+        'mongodb'
+      ],
+
+      githubUrl: undefined,
+      liveUrl: 'https://cliente.com.br',
+      type: 'professional',
+      company: 'Empresa confidencial',
+
+
+    }
 
 
 
