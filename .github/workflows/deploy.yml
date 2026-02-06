@@ -54,6 +54,6 @@ jobs:
               --name ${{ secrets.APP_NAME }} \
               --restart unless-stopped \
               --memory=512m \
-              -p ${{ secrets.APP_PORT }}:${{ secrets.APP_PORT }} \
+              -p 4201:3000 \
               -e NODE_ENV=production \
               ghcr.io/${{ github.repository }}:latest

@@ -9,7 +9,11 @@ COPY . .
 
 RUN npm run build -- --configuration production
 
-EXPOSE 4200
+# instala serve globalmente
+RUN npm install -g serve
+
+
+EXPOSE 3000
 
 
 CMD ["npx", "serve", "dist"]
