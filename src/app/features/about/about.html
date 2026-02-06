@@ -1,64 +1,121 @@
 <section class="py-28 md:py-36">
-  <div appScrollReveal [animation]="'fade-up'" class="mx-auto max-w-6xl px-6 md:px-8">
+  <div
+    appScrollReveal
+    [animation]="'fade-up'"
+    class="mx-auto max-w-6xl px-6 md:px-8"
+  >
 
-    <span class="mb-8 block text-[11px] font-medium uppercase
-             tracking-[0.38em] text-sky-400/90">
-      Sobre
-    </span>
+    <!-- GRID PRINCIPAL: TEXTO + FOTO -->
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-16 items-center">
 
-    <p class="max-w-3xl text-[15px] md:text-[17px]
-         leading-[1.75] md:leading-[1.8]
-         text-white/90">
-      Sou desenvolvedor com foco em
-      <span class="text-white font-medium">Backend</span> e
-      <span class="text-white font-medium">Arquitetura de Sistemas</span>, com experiência na construção de
-      <span class="text-white font-medium">APIs REST</span>,
-      <span class="text-white font-medium">aplicações SaaS</span> e
-      <span class="text-white font-medium">sistemas escaláveis</span>.
+      <!-- COLUNA ESQUERDA -->
+      <div>
 
-      Gosto de trabalhar desde a
-      <span class="text-white font-medium">definição da arquitetura</span>
-      até a
-      <span class="text-white font-medium">implementação e entrega em produção</span>,
-      utilizando tecnologias como
-      <span class="text-white font-medium">Java</span>,
-      <span class="text-white font-medium">Spring Boot</span>,
-      <span class="text-white font-medium">Node.js</span> e
-      <span class="text-white font-medium">Angular</span>.
+        <span class="mb-8 block text-[11px] font-medium uppercase
+                 tracking-[0.38em] text-sky-400/90">
+          Sobre
+        </span>
 
-      Tenho como prioridade escrever
-      <span class="text-white font-medium">código limpo</span>,
-      criar sistemas
-      <span class="text-white font-medium">bem estruturados</span> e desenvolver soluções preparadas para
-      <span class="text-white font-medium">crescer e evoluir</span>.
-    </p>
+        <p class="max-w-3xl text-[15px] md:text-[17px]
+             leading-[1.75] md:leading-[1.8]
+             text-white/90">
+
+          Sou desenvolvedor com foco em
+          <span class="text-white font-medium">Backend</span> e
+          <span class="text-white font-medium">Arquitetura de Sistemas</span>,
+          com experiência na construção de
+          <span class="text-white font-medium">APIs REST</span>,
+          <span class="text-white font-medium">aplicações SaaS</span> e
+          <span class="text-white font-medium">sistemas escaláveis</span>.
+
+          Gosto de trabalhar desde a
+          <span class="text-white font-medium">definição da arquitetura</span>
+          até a
+          <span class="text-white font-medium">implementação e entrega em produção</span>,
+          utilizando tecnologias como
+          <span class="text-white font-medium">Java</span>,
+          <span class="text-white font-medium">Spring Boot</span>,
+          <span class="text-white font-medium">Node.js</span> e
+          <span class="text-white font-medium">Angular</span>.
+
+          Tenho como prioridade escrever
+          <span class="text-white font-medium">código limpo</span>,
+          criar sistemas
+          <span class="text-white font-medium">bem estruturados</span> e
+          desenvolver soluções preparadas para
+          <span class="text-white font-medium">crescer e evoluir</span>.
+        </p>
+
+        <div
+          class="mt-6 flex flex-wrap gap-x-6 gap-y-2
+                 text-[11px] uppercase tracking-[0.28em]
+                 text-white/40"
+        >
+          <span>Backend</span>
+          <span>Java</span>
+          <span>Spring</span>
+          <span>Node.js</span>
+          <span>APIs REST</span>
+          <span>SaaS</span>
+          <span>Arquitetura</span>
+          <span>Escalabilidade</span>
+        </div>
+
+      </div>
 
 
-    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2
-             text-[11px] uppercase tracking-[0.28em]
-             text-white/40">
-      <span>Backend</span>
-      <span>Java</span>
-      <span>Spring</span>
-      <span>Node.js</span>
-      <span>APIs REST</span>
-      <span>SaaS</span>
-      <span>Arquitetura</span>
-      <span>Escalabilidade</span>
+      <!-- COLUNA DIREITA: FOTO -->
+      <div class="flex justify-center md:justify-end">
+
+        <div class="relative">
+
+          <!-- Glow decorativo -->
+          <div
+            class="absolute inset-0 rounded-full
+                   bg-sky-400/10 blur-2xl scale-110">
+          </div>
+
+          <!-- FOTO DE PERFIL -->
+    <img
+  src="/perfil.jpeg"
+  alt="Foto de perfil"
+  class="relative
+         w-48 h-48 md:w-56 md:h-56
+         object-cover
+         object-[center_20%]
+         rounded-full
+         border border-white/10
+         shadow-xl
+         transition duration-500
+         hover:scale-105"
+/>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- Divisor -->
-    <div class="my-16 h-px w-20
-             bg-gradient-to-r from-transparent
-             via-sky-400/70 to-transparent"></div>
 
+    <!-- DIVISOR -->
+    <div
+      class="my-16 h-px w-20
+             bg-gradient-to-r from-transparent
+             via-sky-400/70 to-transparent">
+    </div>
+
+
+    <!-- GRID INFERIOR -->
     <div class="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-16">
 
+      <!-- EXPERIÊNCIA -->
       <div class="space-y-4">
-        <h3 class="text-[12px] font-semibold uppercase tracking-[0.22em]
+        <h3
+          class="text-[12px] font-semibold uppercase tracking-[0.22em]
                  text-sky-400/90">
           Experiência
         </h3>
+
         <p class="text-[13.5px] leading-relaxed text-white/65">
           Desenvolvimento de
           <span class="text-white/90">APIs REST</span>,
@@ -70,11 +127,15 @@
         </p>
       </div>
 
+
+      <!-- INGLÊS -->
       <div class="space-y-4">
-        <h3 class="text-[12px] font-semibold uppercase tracking-[0.22em]
+        <h3
+          class="text-[12px] font-semibold uppercase tracking-[0.22em]
                  text-emerald-400/90">
           Inglês
         </h3>
+
         <p class="text-[13.5px] leading-relaxed text-white/65">
           <span class="text-white/90">Leitura técnica</span>,
           uso diário com
@@ -84,17 +145,22 @@
         </p>
       </div>
 
+
+      <!-- FOCO ATUAL -->
       <div class="space-y-4">
-        <h3 class="text-[12px] font-semibold uppercase tracking-[0.22em]
+        <h3
+          class="text-[12px] font-semibold uppercase tracking-[0.22em]
                  text-violet-400/90">
           Foco atual
         </h3>
+
         <p class="text-[13.5px] leading-relaxed text-white/65">
           <span class="text-white/90">Backend com Java e Spring Boot</span>,
-          desenvolvimento de <span class="text-white/90">APIs REST</span> e
-          aprofundamento em <span class="text-white/90">Inteligência Artificial</span>.
+          desenvolvimento de
+          <span class="text-white/90">APIs REST</span> e
+          aprofundamento em
+          <span class="text-white/90">Inteligência Artificial</span>.
         </p>
-
       </div>
 
     </div>
