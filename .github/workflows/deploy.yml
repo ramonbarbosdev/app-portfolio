@@ -54,6 +54,6 @@ jobs:
               --name ${{ secrets.APP_NAME }} \
               --restart unless-stopped \
               --memory=512m \
-              -p 4201:3000 \
+              -p 4201:4200 \
               -e NODE_ENV=production \
               ghcr.io/${{ github.repository }}:latest
