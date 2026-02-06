@@ -1,5 +1,4 @@
-# Stage 1: Build
-FROM node:lts-alpine as build
+FROM node:lts-alpine AS build
 
 WORKDIR /app
 
@@ -13,6 +12,8 @@ RUN npx ng build --configuration production
 FROM nginx:alpine
 
 COPY --from=build /app/dist/app-portfolio/browser /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 4200
 
