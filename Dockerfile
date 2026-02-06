@@ -11,4 +11,5 @@ RUN npm run build -- --configuration production
 
 EXPOSE 4200
 
+
 CMD ["npx", "serve", "dist"]
