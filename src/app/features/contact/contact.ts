@@ -3,7 +3,6 @@ import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-dire
 
 @Component({
   selector: 'app-contact',
-  imports: [ScrollRevealDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
