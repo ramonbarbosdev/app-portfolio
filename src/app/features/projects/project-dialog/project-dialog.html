@@ -47,13 +47,13 @@
 
   <p
     *ngIf="project?.company"
-    class="text-white/40 text-sm mb-3"
+    class=" text-sm mb-3"
   >
     {{ project?.company }}
   </p>
 
 
-  <p class="text-white/70 mb-6 whitespace-pre-line">
+  <p class=" mb-6 whitespace-pre-line">
     {{ project?.longDescription }}
   </p>
 
@@ -63,7 +63,7 @@
     <i
       *ngFor="let tech of project?.technologies"
       [class]="'devicon-' + tech + '-plain text-[22px]'"
-      class="text-white/80"
+      class=""
     ></i>
 
   </div>
@@ -93,7 +93,7 @@
 
     <span
       *ngIf="project?.type === 'professional' && !project?.githubUrl"
-      class="text-white/40 text-sm border border-white/10 px-3 py-2 rounded-md"
+      class=" text-sm border border-white/10 px-3 py-2 rounded-md"
     >
       Código privado
     </span>
