@@ -1,0 +1,43 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '800px' }"
+   (onHide)="onClose()"
+>
+
+  <img
+    [src]="project?.coverImage"
+    class="w-full rounded mb-4"
+  />
+
+  <h2 class="text-2xl font-semibold mb-2">
+    {{ project?.title }}
+  </h2>
+
+  <p class="text-white/70 mb-4">
+    {{ project?.longDescription }}
+  </p>
+
+  <div class="flex gap-2">
+
+    <a
+      *ngIf="project?.liveUrl"
+      [href]="project?.liveUrl"
+      target="_blank"
+      class="btn-primary"
+    >
+      Ver projeto
+    </a>
+
+    <a
+      *ngIf="project?.githubUrl"
+      [href]="project?.githubUrl"
+      target="_blank"
+      class="btn-outline"
+    >
+      GitHub
+    </a>
+
+  </div>
+
+</p-dialog>
