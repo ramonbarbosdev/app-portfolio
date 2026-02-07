@@ -83,7 +83,7 @@ export class Projects {
 
       ],
       githubUrl: undefined,
-      liveUrl: 'https://cliente.com.br',
+      liveUrl: 'https://sistema.agrotechcredito.com.br',
       type: 'professional',
       company: 'Cliente privado',
 
@@ -105,8 +105,8 @@ export class Projects {
         'mongodb',
 
       ],
-      githubUrl: 'https://github.com/ramonbarbosdev',
-      liveUrl: 'https://cliente.com.br',
+      githubUrl: 'https://github.com/ramonbarbosdev/app-sincdb',
+      liveUrl: undefined,
       type: 'personal',
       company: 'Projeto comercial próprio',
 
@@ -128,7 +128,7 @@ export class Projects {
         'mongodb',
       ],
       githubUrl: undefined,
-      liveUrl: 'https://cliente.com.br',
+      liveUrl: 'https://bi.w5i.com.br',
       type: 'professional',
       company: 'Empresa confidencial',
 
@@ -138,7 +138,7 @@ export class Projects {
       title: 'Sistema de Orçamentos SaaS',
       description: 'Plataforma SaaS com precificação dinâmica',
       longDescription: `
-      Sistema SaaS completo para criação e gestão de orçamentos com arquitetura multi-tenant.
+      Sistema SaaS de geração e gestão de orçamentos desenvolvido para permitir que empresas criem, simulem e gerenciem orçamentos de forma estruturada, rápida e escalável.
       `,
       coverImage: '/assets/saas.png',
       technologies: [
@@ -148,8 +148,8 @@ export class Projects {
         'docker'
       ],
 
-      githubUrl: undefined,
-      liveUrl: 'https://cliente.com.br',
+      githubUrl: 'https://github.com/ramonbarbosdev/api-orcafacil',
+      liveUrl: undefined,
       type: 'personal',
       company: 'Projeto comercial próprio',
 
@@ -160,9 +160,7 @@ export class Projects {
       id: '6',
       title: 'Portal de Transparência',
       description: 'Sistema público de consulta de dados',
-      longDescription: `
-      Sistema SaaS completo para criação e gestão de orçamentos com arquitetura multi-tenant.
-      `,
+      longDescription: 'Sistema público de consulta de dados',
       coverImage: '/assets/portal.png',
       technologies: [
         'nestjs',
@@ -172,7 +170,7 @@ export class Projects {
       ],
 
       githubUrl: undefined,
-      liveUrl: 'https://cliente.com.br',
+      liveUrl: 'https://apresentacao.w5i.com.br',
       type: 'professional',
       company: 'Empresa confidencial',
 
