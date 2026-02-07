@@ -31,7 +31,7 @@ export class ScrollRevealDirective implements OnInit {
 
     const element = this.el.nativeElement;
 
-    this.renderer.setStyle(element, 'display', 'block');
+    // this.renderer.setStyle(element, 'display', 'block');
     this.renderer.setStyle(
       element,
       'transition',

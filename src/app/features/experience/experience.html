@@ -1,50 +1,176 @@
-<section class="bg-app py-24 md:py-32">
-  <div class="container  m-auto max-w-6xl  px-6 md:px-8">
-    <div class="space-y-14">
+<section class="py-24 md:py-36  md:min-h-[100svh]">
 
-      <!-- Título -->
-      <span class="block text-xs tracking-widest uppercase text-muted">
-        Experiência
+  <div  appScrollReveal [animation]="'fade-up'" class="mx-auto max-w-5xl px-6">
+
+    <!-- título -->
+    <div class="text-center mb-16 md:mb-20">
+
+      <span class="block text-[11px] uppercase tracking-[0.35em]
+                   text-sky-400 mb-4">
+        Experiência profissional
       </span>
 
-      <!-- Experiência 1 -->
-      <article class="space-y-4 max-w-3xl">
-        <h3 class="text-xl md:text-2xl font-medium text-app">
-          Desenvolvedor Full Stack
-        </h3>
-
-        <p class="text-sm text-muted">
-          Empresa XYZ · 2022 — Atual
-        </p>
-
-        <p class="text-base leading-relaxed text-muted">
-          Atuação no desenvolvimento de sistemas web e corporativos, com foco
-          em back-end Java (Spring Boot) e PHP (Adianti), além de front-end com
-          Angular e React. Responsável por decisões de arquitetura, integração
-          entre sistemas e evolução contínua das aplicações.
-        </p>
-
-        <div class="w-full h-px bg-border mt-8"></div>
-      </article>
-
-      <!-- Experiência 2 -->
-      <article class="space-y-4 max-w-3xl">
-        <h3 class="text-xl md:text-2xl font-medium text-app">
-          Desenvolvedor de Sistemas
-        </h3>
-
-        <p class="text-sm text-muted">
-          Empresa ABC · 2020 — 2022
-        </p>
-
-        <p class="text-base leading-relaxed text-muted">
-          Desenvolvimento e manutenção de sistemas administrativos e
-          aplicações web sob medida, atuando em análise de requisitos,
-          implementação de regras de negócio e melhorias de desempenho.
-        </p>
-
-      </article>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
+        Minha trajetória
+      </h2>
 
     </div>
+
+
+    <!-- timeline -->
+    <div class="relative">
+
+      <!-- linha mobile -->
+      <div class="absolute left-3 top-0 h-full w-px
+                  bg-gradient-to-b
+                  from-transparent
+                  via-white/20
+                  to-transparent
+                  md:hidden">
+      </div>
+
+      <!-- linha desktop -->
+      <div class="hidden md:block absolute left-1/2 top-0 h-full w-px
+                  bg-gradient-to-b
+                  from-transparent
+                  via-white/20
+                  to-transparent
+                  -translate-x-1/2">
+      </div>
+
+
+      <!-- ITEM -->
+      <div class="relative mb-14 md:mb-16">
+
+        <!-- ponto mobile -->
+        <div class="absolute left-3 top-1.5 w-2.5 h-2.5
+                    bg-emerald-400 rounded-full
+                    shadow-md shadow-emerald-400/40
+                    md:hidden">
+        </div>
+
+        <!-- ponto desktop -->
+        <div class="hidden md:block absolute left-1/2 top-1.5
+                    -translate-x-1/2
+                    w-3 h-3
+                    bg-emerald-400
+                    rounded-full
+                    shadow-lg shadow-emerald-400/50">
+        </div>
+
+
+        <!-- conteúdo -->
+        <div class="pl-10 md:pl-0 md:mr-[55%] md:text-right">
+
+          <span class="text-[11px] text-white/40 tracking-wider uppercase">
+            2025 — Atual
+          </span>
+
+          <h3 class="text-base md:text-lg font-semibold text-white mt-1">
+            Desenvolvedor Freelancer
+          </h3>
+
+          <p class="text-emerald-400 text-sm mb-2">
+            Projetos independentes • Remoto
+          </p>
+
+          <p class="text-white/70 text-[14px] leading-relaxed max-w-md md:max-w-none">
+            Desenvolvimento de APIs com Java e Spring Boot e aplicações frontend
+            com Angular, incluindo modelagem de dados e arquitetura completa.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ITEM -->
+      <div class="relative mb-14 md:mb-16">
+
+        <div class="absolute left-3 top-1.5 w-2.5 h-2.5
+                    bg-sky-400 rounded-full
+                    shadow-md shadow-sky-400/40
+                    md:hidden">
+        </div>
+
+        <div class="hidden md:block absolute left-1/2 top-1.5
+                    -translate-x-1/2
+                    w-3 h-3
+                    bg-sky-400
+                    rounded-full
+                    shadow-lg shadow-sky-400/50">
+        </div>
+
+
+        <div class="pl-10 md:pl-0 md:ml-[55%]">
+
+          <span class="text-[11px] text-white/40 tracking-wider uppercase">
+            2024 — Atual
+          </span>
+
+          <h3 class="text-base md:text-lg font-semibold text-white mt-1">
+            Programador de Internet
+          </h3>
+
+          <p class="text-sky-400 text-sm mb-2">
+            W5i Tecnologia • Salvador/BA
+          </p>
+
+          <p class="text-white/70 text-[14px] leading-relaxed max-w-md">
+            Desenvolvimento de sistemas web utilizando PHP e Adianti,
+            criação de ferramentas auxiliares e participação ativa
+            em processos Scrum e entregas iterativas.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ITEM -->
+      <div class="relative">
+
+        <div class="absolute left-3 top-1.5 w-2.5 h-2.5
+                    bg-violet-400 rounded-full
+                    shadow-md shadow-violet-400/40
+                    md:hidden">
+        </div>
+
+        <div class="hidden md:block absolute left-1/2 top-1.5
+                    -translate-x-1/2
+                    w-3 h-3
+                    bg-violet-400
+                    rounded-full
+                    shadow-lg shadow-violet-400/50">
+        </div>
+
+
+        <div class="pl-10 md:pl-0 md:mr-[55%] md:text-right">
+
+          <span class="text-[11px] text-white/40 tracking-wider uppercase">
+            2022 — 2023
+          </span>
+
+          <h3 class="text-base md:text-lg font-semibold text-white mt-1">
+            Programador Júnior
+          </h3>
+
+          <p class="text-violet-400 text-sm mb-2">
+            GPI Sistemas • Salvador/BA
+          </p>
+
+          <p class="text-white/70 text-[14px] leading-relaxed max-w-md md:max-w-none">
+            Migração de dados, desenvolvimento de scripts ETL e automatização
+            de processos de conversão e homologação de bases.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
   </div>
+
 </section>

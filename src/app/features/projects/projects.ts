@@ -44,7 +44,7 @@ export class Projects {
 
       longDescription: `
       Desenvolvimento de sistema completo para prefeituras com múltiplos módulos,
-      incluindo administração, finanças e relatórios.
+      incluindo administração, finanças e relatórios. Projeto realizado em equipe sob contrato de confidencialidade.
       `,
 
       coverImage: '/assets/sipec.png',
@@ -119,7 +119,7 @@ export class Projects {
       Desenvolvimento de dashboards interativos para análise e visualização de 
       dados públicos. Solução moderna e responsiva, pensada para facilitar a leitura 
       de informações por gestores municipais. Projeto realizado em equipe sob 
-      contrato de confidencialidade.
+      contrato de confidencialidade. Projeto realizado em equipe sob contrato de confidencialidade.
       `,
       coverImage: '/assets/bi.png',
       technologies: [
@@ -158,9 +158,9 @@ export class Projects {
 
     {
       id: '6',
-      title: 'Portal de Transparência',
+      title: 'Portal Transparência',
       description: 'Sistema público de consulta de dados',
-      longDescription: 'Sistema público de consulta de dados',
+      longDescription: 'Sistema público de consulta de dados, solução moderna e responsiva, pensada para facilitar a leitura de informações por gestores municipais. Projeto realizado em equipe sob contrato de confidencialidade.',
       coverImage: '/assets/portal.png',
       technologies: [
         'nestjs',
