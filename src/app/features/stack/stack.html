@@ -1,6 +1,7 @@
-<section class="bg-bg py-20 overflow-hidden">
+<section class=" py-20 overflow-hidden">
 
   <div class="mx-auto max-w-7xl px-6">
+
 
     <!-- HEADER -->
     <div class="mb-10 flex items-end justify-between">
@@ -12,42 +13,26 @@
         </p>
 
         <h2 class="text-3xl sm:text-5xl font-semibold text-white max-w-2xl">
-          Ferramentas <br> que utilizo no desenvolvimento
+          Ferramentas que utilizo no desenvolvimento
         </h2>
 
       </div>
 
 
-      <!-- TOGGLE BUTTONS -->
+      <!-- TOGGLE -->
       <div class="hidden sm:flex items-center gap-2">
 
-        <!-- GRID -->
-        <button
-          (click)="setView('grid')"
-          class="p-2 rounded-lg border transition-all duration-300"
-
-          [ngClass]="
-            viewMode === 'grid'
+        <button (click)="setView('grid')" class="p-2 rounded-lg border transition-all duration-300" [ngClass]="viewMode === 'grid'
             ? 'border-white/20 bg-white/10 text-white'
-            : 'border-white/10 text-white/40 hover:text-white hover:border-white/20'
-          "
-        >
-          <i class="pi pi-th-large text-sm"></i>
+            : 'border-white/10 text-white/40 hover:text-white'">
+          <i class="pi pi-th-large"></i>
         </button>
 
 
-        <!-- CAROUSEL -->
-        <button
-          (click)="setView('carousel')"
-          class="p-2 rounded-lg border transition-all duration-300"
-
-          [ngClass]="
-            viewMode === 'carousel'
+        <button (click)="setView('carousel')" class="p-2 rounded-lg border transition-all duration-300" [ngClass]="viewMode === 'carousel'
             ? 'border-white/20 bg-white/10 text-white'
-            : 'border-white/10 text-white/40 hover:text-white hover:border-white/20'
-          "
-        >
-          <i class="pi pi-bars text-sm"></i>
+            : 'border-white/10 text-white/40 hover:text-white'">
+          <i class="pi pi-bars"></i>
         </button>
 
       </div>
@@ -55,63 +40,75 @@
     </div>
 
 
-    <!-- GRID VIEW -->
-<div
-  class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
-  [ngClass]="viewMode === 'carousel' ? 'sm:hidden' : ''"
->
-      <ng-container *ngFor="let column of stackColumns">
 
-        <ng-container *ngFor="let stack of column">
+    <!-- GRID -->
+    <div *ngIf="viewMode === 'grid'" class="relative overflow-hidden transition-[max-height] duration-700 ease-in-out"
+      [ngClass]="animationClass">
 
-          <div class="
-            aspect-[4/3]
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 
-            flex flex-col justify-end
+        <ng-container *ngFor="let column of stackColumns">
 
-            p-4
+          <ng-container *ngFor="let stack of column">
 
-            rounded-xl
+            <div class="aspect-[4/3] flex flex-col justify-end p-4 rounded-xl
+                     bg-gradient-to-b from-white/[0.06] to-white/[0.02]
+                     border border-white/[0.08]
+                     hover:border-white/[0.18]
+                     hover:shadow-[0_10px_40px_rgba(0,0,0,0.6)]
+                     transition-all duration-300">
 
-            bg-gradient-to-b
-            from-white/[0.06]
-            to-white/[0.02]
+              <i [class]="stack.icon" class="text-lg mb-2"></i>
 
-            border border-white/[0.08]
+              <span class="text-white text-sm font-medium">
+                {{ stack.name }}
+              </span>
 
-            hover:border-white/[0.18]
+              <p class="text-white/50 text-xs mt-1">
+                {{ stack.description }}
+              </p>
 
-            hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]
+            </div>
 
-            transition-all duration-300
-
-            cursor-pointer
-          ">
-
-            <i [class]="stack.icon" class="text-lg mb-2"></i>
-
-            <span class="text-white text-sm font-medium">
-              {{ stack.name }}
-            </span>
-
-            <p *ngIf="stack.description"
-               class="text-white/50 text-xs mt-1">
-              {{ stack.description }}
-            </p>
-
-          </div>
+          </ng-container>
 
         </ng-container>
 
-      </ng-container>
+      </div>
+
+
+      <!-- FADE -->
+      <div *ngIf="!showAllStacks" class="absolute bottom-0 left-0 right-0 h-32
+                  bg-gradient-to-t from-bg to-transparent">
+      </div>
+
+      
+    </div>
+
+
+
+    <!-- BUTTON -->
+    <div *ngIf="viewMode === 'grid'" class="flex justify-center mt-6">
+
+      <button (click)="toggleStacks()" class="px-6 py-3 rounded-xl bg-white/[0.05]
+               border border-white/[0.10]
+               text-white/80
+               hover:bg-white/[0.10]
+               transition-all flex items-center gap-2">
+
+        {{ showAllStacks ? 'Recolher' : 'Ver todas as tecnologias' }}
+
+        <i class="pi" [ngClass]="showAllStacks ? 'pi-chevron-up' : 'pi-chevron-down'">
+        </i>
+
+      </button>
 
     </div>
 
 
 
-    <!-- CAROUSEL VIEW -->
-    <div *ngIf="viewMode === 'carousel'"
-         class="hidden sm:block">
+    <!-- CAROUSEL -->
+    <div *ngIf="viewMode === 'carousel'" class="hidden sm:block mt-16">
 
       <div class="relative">
 
@@ -146,16 +143,11 @@
 
               <div class="flex flex-col gap-6 min-w-[280px]">
 
-                <div
-                  *ngFor="let stack of column"
-
-                  [ngClass]="
+                <div *ngFor="let stack of column" [ngClass]="
                     stack.size === 'lg'
                     ? 'h-[280px]'
                     : 'h-[130px]'
-                  "
-
-                  class="
+                  " class="
                     group flex flex-col justify-end
 
                     p-6
@@ -170,14 +162,13 @@
 
                     transition-all duration-500
 
-                    hover:-translate-y-1
+                    hover:-translate-y-0
                     hover:border-white/[0.18]
 
                     hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
 
                     cursor-pointer
-                  "
-                >
+                  ">
 
                   <i [class]="stack.icon" class="text-xl mb-4"></i>
 
@@ -185,10 +176,7 @@
                     {{ stack.name }}
                   </span>
 
-                  <p
-                    *ngIf="stack.description"
-                    class="text-white/50 text-sm mt-2"
-                  >
+                  <p *ngIf="stack.description" class="text-white/50 text-sm mt-2">
                     {{ stack.description }}
                   </p>
 
@@ -205,16 +193,11 @@
 
               <div class="flex flex-col gap-6 min-w-[280px]">
 
-                <div
-                  *ngFor="let stack of column"
-
-                  [ngClass]="
+                <div *ngFor="let stack of column" [ngClass]="
                     stack.size === 'lg'
                     ? 'h-[280px]'
                     : 'h-[130px]'
-                  "
-
-                  class="
+                  " class="
                     flex flex-col justify-end
 
                     p-6
@@ -226,8 +209,7 @@
                     to-white/[0.02]
 
                     border border-white/[0.08]
-                  "
-                >
+                  ">
 
                   <i [class]="stack.icon" class="text-xl mb-4"></i>
 
@@ -250,6 +232,9 @@
 
     </div>
 
+
   </div>
+
+
 
 </section>

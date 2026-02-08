@@ -1,16 +1,11 @@
-import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 interface StackItem {
-
   name: string;
-
-  description?: string;
-
   icon: string;
-
-  size: 'sm' | 'lg';
-
+  description?: string;
+  size?: 'sm' | 'lg';
 }
 
 @Component({
@@ -22,14 +17,30 @@ interface StackItem {
 })
 export class Stack {
 
-
   viewMode: 'grid' | 'carousel' = 'carousel';
 
-setView(mode: 'grid' | 'carousel') {
-  this.viewMode = mode;
-}
+  showAllStacks = false;
 
-  stackColumns = [
+  animationClass = 'max-h-[520px]';
+
+
+  toggleStacks() {
+
+    this.showAllStacks = !this.showAllStacks;
+
+    this.animationClass = this.showAllStacks
+      ? 'max-h-[2000px]'
+      : 'max-h-[520px]';
+
+  }
+
+
+  setView(mode: 'grid' | 'carousel') {
+    this.viewMode = mode;
+  }
+
+
+  stackColumns: StackItem[][] = [
 
     [
       {
@@ -144,6 +155,4 @@ setView(mode: 'grid' | 'carousel') {
 
   ];
 
-
 }
-
