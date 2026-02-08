@@ -1,10 +1,16 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export interface StackItem {
+interface StackItem {
+
+  name: string;
+
+  description?: string;
+
   icon: string;
-  label: string;
-  url: string;
+
+  size: 'sm' | 'lg';
+
 }
 
 @Component({
@@ -14,62 +20,122 @@ export interface StackItem {
   templateUrl: './stack.html',
   styleUrl: './stack.scss'
 })
-export class Stack implements OnInit {
+export class Stack {
 
-  items = signal<StackItem[]>([]);
+  stackColumns = [
 
-  loopItems = signal<StackItem[]>([]);
+    [
+      {
+        name: 'React',
+        description: 'Biblioteca moderna para interfaces reativas e escaláveis.',
+        icon: 'devicon-react-original colored',
+        size: 'sm'
+      },
+      {
+        name: 'TypeScript',
+        description: 'Superset do JavaScript com tipagem estática robusta.',
+        icon: 'devicon-typescript-plain colored',
+        size: 'sm'
+      }
+    ],
 
-  activeStack = signal<StackItem | null>(null);
+    [
+      {
+        name: 'Java',
+        description: 'Plataforma sólida para aplicações backend de alta performance.',
+        icon: 'devicon-java-plain colored',
+        size: 'lg'
+      }
+    ],
 
+    [
+      {
+        name: 'Spring Boot',
+        description: 'Framework enterprise para microsserviços e APIs escaláveis.',
+        icon: 'devicon-spring-plain colored',
+        size: 'sm'
+      },
+      {
+        name: 'NestJS',
+        description: 'Framework Node.js moderno com arquitetura escalável.',
+        icon: 'devicon-nestjs-plain colored',
+        size: 'sm'
+      }
+    ],
 
-  ngOnInit() {
+    [
+      {
+        name: 'PostgreSQL',
+        description: 'Banco relacional robusto, confiável e altamente performático.',
+        icon: 'devicon-postgresql-plain colored',
+        size: 'lg'
+      }
+    ],
 
-    const base: StackItem[] = [
+    [
+      {
+        name: 'MongoDB',
+        description: 'Banco NoSQL flexível ideal para aplicações modernas.',
+        icon: 'devicon-mongodb-plain colored',
+        size: 'sm'
+      },
+      {
+        name: 'Docker',
+        description: 'Containerização para ambientes consistentes e escaláveis.',
+        icon: 'devicon-docker-plain colored',
+        size: 'sm'
+      }
+    ],
 
-      { icon: 'devicon-angularjs-plain', label: 'Angular', url: '#' },
-      { icon: 'devicon-react-original', label: 'React', url: '#' },
-      { icon: 'devicon-typescript-plain', label: 'TypeScript', url: '#' },
-      { icon: 'devicon-javascript-plain', label: 'JavaScript', url: '#' },
-      { icon: 'devicon-tailwindcss-plain', label: 'Tailwind', url: '#' },
+    [
+      {
+        name: 'Tailwind CSS',
+        description: 'Framework CSS utilitário para interfaces modernas.',
+        icon: 'devicon-tailwindcss-plain colored',
+        size: 'lg'
+      }
+    ],
 
-      { icon: 'devicon-java-plain', label: 'Java', url: '#' },
-      { icon: 'devicon-spring-plain', label: 'Spring Boot', url: '#' },
-      { icon: 'devicon-nestjs-plain', label: 'NestJS', url: '#' },
-      { icon: 'devicon-php-plain', label: 'PHP', url: '#' },
+    [
+      {
+        name: 'JavaScript',
+        description: 'Linguagem essencial para aplicações web modernas.',
+        icon: 'devicon-javascript-plain colored',
+        size: 'sm'
+      },
+      {
+        name: 'PHP',
+        description: 'Linguagem backend amplamente utilizada em sistemas web.',
+        icon: 'devicon-php-plain colored',
+        size: 'sm'
+      }
+    ],
 
-      { icon: 'devicon-postgresql-plain', label: 'PostgreSQL', url: '#' },
-      { icon: 'devicon-mongodb-plain', label: 'MongoDB', url: '#' },
-      { icon: 'devicon-docker-plain', label: 'Docker', url: '#' },
-      { icon: 'devicon-nginx-original', label: 'Nginx', url: '#' },
-      { icon: 'devicon-linux-plain', label: 'Linux', url: '#' },
-      { icon: 'devicon-github-original', label: 'GitHub', url: '#' }
+    [
+      {
+        name: 'Nginx',
+        description: 'Servidor web de alta performance e proxy reverso.',
+        icon: 'devicon-nginx-original colored',
+        size: 'sm'
+      },
+      {
+        name: 'Linux',
+        description: 'Sistema operacional confiável para ambientes de produção.',
+        icon: 'devicon-linux-plain ',
+        size: 'sm'
+      }
+    ],
 
-    ];
+    [
+      {
+        name: 'GitHub',
+        description: 'Plataforma de versionamento e colaboração de código.',
+        icon: 'devicon-github-original ',
+        size: 'lg'
+      }
+    ]
 
-    this.items.set(base);
-
-    // duplicação obrigatória para loop infinito
-    this.loopItems.set([...base, ...base]);
-
-    this.activeStack.set(base[0]);
-
-  }
-
-
-  setActive(item: StackItem) {
-
-    this.activeStack.set(item);
-
-  }
-
-  goTo(item: StackItem): void {
-
-  if (!item?.url) return;
-
-  window.open(item.url, '_blank', 'noopener,noreferrer');
-
-}
+  ];
 
 
 }

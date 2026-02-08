@@ -1,28 +1,7 @@
 @import "tailwindcss";
-
 @import "primeicons/primeicons.css";
-
-/* DEFINIÇÃO DAS CORES */
-@theme {
-
-  --color-bg: #0B1220;
-
-  --color-surface: #111F33;
-
-  --color-surface2: #16263F;
-
-  --color-primary: #2ECF70;
-
-  --color-primarySoft: #2ECF7020;
-
-  --color-text: #E6EDF3;
-
-  --color-textMuted: #8B9BB3;
-
-  --color-border: #1F2F4A;
-
-}
-
+@import "../src/app/style/theme.tokens.scss";
+@import "../src/app/style/keyframe.scss";
 
 .hero-anim {
 
@@ -33,7 +12,6 @@
   animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
 }
-
 
 .hero-anim-1 { animation-delay: 0.1s; }
 

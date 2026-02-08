@@ -1,77 +1,131 @@
-<section class="bg-bg py-32">
+<section class="bg-bg py-32 overflow-hidden">
 
-  <div class="mx-auto max-w-6xl px-6">
+  <div class="mx-auto max-w-7xl px-6">
 
-    <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] items-center gap-12">
+    <!-- HEADER -->
+    <div class="mb-16">
 
-      <!-- TEXTO -->
-      <div>
+      <p class="text-xs tracking-widest text-primary  mb-4">
+        STACK TECNOLÓGICA
+      </p>
 
-        <p class="text-textMuted text-sm mb-2">
-          Use com
-        </p>
+      <h2 class="text-2xl md:text-3xl font-semibold text-white leading-tight max-w-2xl">
+        Tecnologias modernas para aplicações escaláveis
+      </h2>
 
-        <h2 class="text-4xl font-semibold text-text tracking-tight transition-all duration-300">
-          {{ activeStack()?.label }}
-        </h2>
+      <p class="text-white/50 mt-4 max-w-xl">
+        Utilizo ferramentas modernas para construir sistemas robustos, performáticos e escaláveis.
+      </p>
 
-      </div>
+    </div>
 
 
-      <!-- CAROUSEL WRAPPER -->
-      <div class="relative overflow-hidden">
+    <!-- CAROUSEL -->
+    <div class="relative p15 ">
 
-        <!-- FADE ESQUERDA -->
-        <div class="carousel-fade-left"></div>
+      <!-- fades -->
+      <div class=" absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none"></div>
 
-        <!-- FADE DIREITA -->
-        <div class="carousel-fade-right"></div>
+      <div class="  absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none"></div>
 
+
+      <!-- viewport -->
+      <div class="overflow-hidden">
 
         <!-- TRACK -->
-        <div class="carousel-track flex gap-6">
+        <div class="flex gap-6 w-max animate-stack-scroll hover:[animation-play-state:paused]">
 
-          <div
-            *ngFor="let item of loopItems()"
-            (mouseenter)="setActive(item)"
-            (click)="goTo(item)"
+          <!-- ORIGINAL -->
+          <ng-container *ngFor="let column of stackColumns">
 
-            class="group flex items-center justify-center
+            <div class="flex flex-col gap-6 min-w-[280px]">
 
-                   w-[120px] h-[80px] min-w-[120px]
+              <div
+                *ngFor="let stack of column"
 
-                   bg-surface/40
+                [ngClass]="
+                  stack.size === 'lg'
+                  ? 'h-[280px]'
+                  : 'h-[130px]'
+                "
 
-                   backdrop-blur-sm
+                class="group flex flex-col justify-end
 
-                   border border-white/10
+                       p-6
 
-                   rounded-xl
+                       rounded-2xl
 
-                   cursor-pointer
+                       bg-gradient-to-b
+                       from-white/[0.06]
+                       to-white/[0.02]
 
-                   transition-all duration-300
+                       border border-white/[0.08]
+                       transition-all duration-500
+                       hover:-translate-y-1.3
+                       hover:border-white/[0.18]
+                       hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+                       cursor-pointer "
+              >
 
-                   hover:bg-surface
-                   hover:border-white/20
-                   hover:-translate-y-1"
-          >
+                <i
+                  [class]="stack.icon"
+                  class="text-xl mb-4"
+                ></i>
 
-            <i
-              [class]="item.icon"
 
-              class="text-[28px]
+                <span class="text-white text-lg font-medium">
+                  {{ stack.name }}
+                </span>
 
-                     text-white/60
 
-                     transition-all duration-300
+                <p
+                  *ngIf="stack.description"
+                  class="text-white/50 text-sm mt-2"
+                >
+                  {{ stack.description }}
+                </p>
 
-                     group-hover:text-white
+              </div>
 
-                     group-hover:scale-110"
-            ></i>
+            </div>
 
-          </div>
+          </ng-container>
+
+
+          <!-- DUPLICADO PARA LOOP -->
+          <ng-container *ngFor="let column of stackColumns">
+
+            <div class=" flex flex-col gap-6 min-w-[280px]">
+
+              <div
+                *ngFor="let stack of column"
+
+                [ngClass]="
+                  stack.size === 'lg'
+                  ? 'h-[280px]'
+                  : 'h-[130px]'
+                "
+
+                class="flex flex-col justify-end
+                       p-6
+                       rounded-2xl
+                       bg-gradient-to-b
+                       from-white/[0.06]
+                       to-white/[0.02]
+                       border border-white/[0.08]"
+              >
+
+                <i [class]="stack.icon" class="text-3xl mb-4"></i>
+
+                <span class="text-white text-lg font-medium">
+                  {{ stack.name }}
+                </span>
+
+              </div>
+
+            </div>
+
+          </ng-container>
 
         </div>
 
