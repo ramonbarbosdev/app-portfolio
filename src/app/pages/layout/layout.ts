@@ -10,7 +10,7 @@ import { Experience } from "../../features/experience/experience";
 
 @Component({
   selector: 'app-layout',
-  imports: [Home, About, Projects, Stack, Contact, Footer, Experience],
+  imports: [Home, About, Projects, Stack, Contact, Footer, Experience, BackgroundSuface],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
