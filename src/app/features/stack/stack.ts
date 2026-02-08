@@ -22,6 +22,13 @@ interface StackItem {
 })
 export class Stack {
 
+
+  viewMode: 'grid' | 'carousel' = 'carousel';
+
+setView(mode: 'grid' | 'carousel') {
+  this.viewMode = mode;
+}
+
   stackColumns = [
 
     [

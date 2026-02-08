@@ -1,17 +1,7 @@
-.reveal {
-
-  opacity: 0;
-
-  transform: translateY(24px);
-
-  transition: opacity 700ms ease, transform 700ms ease;
-
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
-.reveal.visible {
-
-  opacity: 1;
-
-  transform: translateY(0);
-
+.scrollbar-none {
+  scrollbar-width: none;
 }
