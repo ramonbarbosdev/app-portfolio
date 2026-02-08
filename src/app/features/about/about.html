@@ -1,79 +1,130 @@
-<section class="min-h-[100svh] py-28 md:py-36">
-  <div appScrollReveal [animation]="'fade-up'" class="mx-auto max-w-6xl px-6 md:px-8">
+<section class="relative bg-bg py-28 md:py-36 overflow-hidden">
+
+  <!-- glow sutil -->
+  <div class="pointer-events-none absolute inset-0 flex justify-center">
+    <div class="w-[500px] h-[500px] bg-primary opacity-[0.04] blur-[140px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-6 md:px-8">
 
     <div class="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-16 items-center">
 
+      <!-- TEXTO -->
       <div>
 
         <span class="mb-8 block text-[11px] sm:text-xs font-medium uppercase
-                 tracking-[0.38em] text-sky-400/90">
+                     tracking-[0.38em] text-primary">
           Sobre
         </span>
 
         <p class="max-w-3xl text-[15px] md:text-[17px]
-         leading-[1.75] md:leading-[1.8]
-         text-white/90 text-justify">
+                  leading-[1.75] md:leading-[1.85]
+                  text-textMuted text-justify">
 
-          Sou graduado em <span class="text-white font-medium">Sistema de informação</span> e desenvolvedor com foco em
-          <span class="text-white font-medium">Backend</span> e
-          <span class="text-white font-medium">Arquitetura de Sistemas</span>,
-          com experiência na construção
-          <span class="text-white font-medium">APIs REST</span>,
-          <span class="text-white font-medium">aplicações SaaS</span> e
-          <span class="text-white font-medium">sistemas escaláveis</span>.
+          Sou graduado em
+          <span class="text-text font-medium">Sistema de informação</span>
+          e desenvolvedor com foco em
 
-          Atuo desde
-          <span class="text-white font-medium">definição da arquitetura</span>
+          <span class="text-text font-medium">Backend</span>
+          e
+          <span class="text-text font-medium">Arquitetura de Sistemas</span>,
+
+          com experiência na construção de
+
+          <span class="text-text font-medium">APIs REST</span>,
+          <span class="text-text font-medium">aplicações SaaS</span>
+          e
+          <span class="text-text font-medium">sistemas escaláveis</span>.
+
+          Atuo desde a
+          <span class="text-text font-medium">definição da arquitetura</span>
           até a
-          <span class="text-white font-medium">implementação e entrega em produção</span>,
+
+          <span class="text-text font-medium">implementação e entrega em produção</span>,
+
           utilizando tecnologias como
-          <span class="text-white font-medium">Java</span>,
-          <span class="text-white font-medium">Spring Boot</span>,
-          <span class="text-white font-medium">Node.js</span> e
-          <span class="text-white font-medium">Angular</span>.
+
+          <span class="text-text font-medium">Java</span>,
+          <span class="text-text font-medium">Spring Boot</span>,
+          <span class="text-text font-medium">Node.js</span>
+          e
+          <span class="text-text font-medium">Angular</span>.
 
           Tenho como prioridade escrever
-          <span class="text-white font-medium">código limpo</span>,
+          <span class="text-text font-medium">código limpo</span>,
           criar sistemas
-          <span class="text-white font-medium">bem estruturados</span> e
-          desenvolver soluções preparadas para
-          <span class="text-white font-medium">crescer com segurança e evoluir continuamente</span>.
+
+          <span class="text-text font-medium">bem estruturados</span>
+          e desenvolver soluções preparadas para
+
+          <span class="text-text font-medium">
+            crescer com segurança e evoluir continuamente
+          </span>.
         </p>
 
-        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2
-                 text-[11px] uppercase tracking-[0.28em]
-                 text-white/40 text-justify">
-          <span>Backend</span>
-          <span>Java</span>
-          <span>Spring</span>
-          <span>Node.js</span>
-          <span>APIs REST</span>
-          <span>SaaS</span>
-          <span>Arquitetura</span>
-          <span>Escalabilidade</span>
+        <!-- TAGS -->
+        <div class="mt-8 flex flex-wrap gap-3">
+
+          <span class="px-3 py-1 text-xs rounded-md
+                       bg-surface border border-border
+                       text-textMuted">
+            Backend
+          </span>
+
+          <span class="px-3 py-1 text-xs rounded-md bg-surface border border-border text-textMuted">
+            Java
+          </span>
+
+          <span class="px-3 py-1 text-xs rounded-md bg-surface border border-border text-textMuted">
+            Spring
+          </span>
+
+          <span class="px-3 py-1 text-xs rounded-md bg-surface border border-border text-textMuted">
+            Node.js
+          </span>
+
+          <span class="px-3 py-1 text-xs rounded-md bg-surface border border-border text-textMuted">
+            APIs REST
+          </span>
+
+          <span class="px-3 py-1 text-xs rounded-md bg-surface border border-border text-textMuted">
+            SaaS
+          </span>
+
+          <span class="px-3 py-1 text-xs rounded-md bg-surface border border-border text-textMuted">
+            Arquitetura
+          </span>
+
         </div>
 
       </div>
 
 
+      <!-- FOTO -->
       <div class="flex justify-center md:justify-end">
 
         <div class="relative">
 
           <div class="absolute inset-0 rounded-full
-                   bg-sky-400/10 blur-2xl scale-110">
+                      bg-primary/10 blur-2xl scale-110">
           </div>
 
+          <img
+            src="/perfil.jpeg"
+            alt="Foto de perfil"
+            class="relative
+                   w-48 h-48 md:w-56 md:h-56
+                   object-cover
+                   object-[center_20%]
+                   rounded-full
 
-          <img src="/perfil.jpeg" alt="Foto de perfil" class="relative
-         w-48 h-48 md:w-56 md:h-56
-         object-cover
-         object-[center_20%]
-         rounded-full
-         border border-white/10
-         shadow-xl
-         transition duration-500
-         hover:scale-105" />
+                   border border-border
+
+                   transition duration-500
+                   hover:scale-105
+
+                   shadow-[0_0_40px_-15px_rgba(46,207,112,0.25)]"
+          />
 
         </div>
 
@@ -82,63 +133,93 @@
     </div>
 
 
-    <!-- DIVISOR -->
-    <div class="my-10 sm:my-14 md:my-16 h-px w-16 sm:w-20
-                  bg-gradient-to-r from-transparent md:via-sky-400/70 to-transparent">
+    <!-- Divider -->
+    <div class="my-16 h-px w-20
+                bg-gradient-to-r
+                from-transparent
+                via-primary/60
+                to-transparent">
     </div>
 
-    <div class="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-16">
 
-      <div class="space-y-4 flex justify-center items-center flex-col">
-        <h3 class="text-[12px] font-semibold uppercase tracking-[0.22em]
-                 text-sky-400/90">
+    <!-- CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="bg-surface border border-border rounded-xl p-6
+                  hover:border-primary/60
+                  transition-all duration-300">
+
+        <h3 class="text-xs font-semibold uppercase tracking-[0.22em]
+                   text-primary mb-3">
           Experiência
         </h3>
 
-        <p class="text-[13.5px] leading-relaxed text-white/65">
+        <p class="text-sm leading-relaxed text-textMuted">
+
           Desenvolvimento de
-          <span class="text-white/90">APIs REST</span>,
-          <span class="text-white/90">sistemas SaaS</span> e
-          <span class="text-white/90">integrações backend</span>,
-          com foco em
-          <span class="text-white/90">performance</span> e
-          <span class="text-white/90">escalabilidade</span>.
+          <span class="text-text">APIs REST</span>,
+          <span class="text-text">sistemas SaaS</span>
+          e integrações backend com foco em
+
+          <span class="text-text">performance</span>
+          e
+          <span class="text-text">escalabilidade</span>.
+
         </p>
+
       </div>
 
 
-      <div class="space-y-4 flex justify-center items-center flex-col">
-        <h3 class="text-[12px] font-semibold uppercase tracking-[0.22em]
-                 text-emerald-400/90">
+      <!-- Card 2 -->
+      <div class="bg-surface border border-border rounded-xl p-6
+                  hover:border-primary/60
+                  transition-all duration-300">
+
+        <h3 class="text-xs font-semibold uppercase tracking-[0.22em]
+                   text-primary mb-3">
           Inglês
         </h3>
 
-        <p class="text-[13.5px] leading-relaxed text-white/65 text-justify">
-          <span class="text-white/90">Leitura técnica</span>,
-          uso diário com
-          <span class="text-white/90">documentação</span>,
-          <span class="text-white/90">APIs</span> e
-          <span class="text-white/90">troubleshooting</span>.
+        <p class="text-sm leading-relaxed text-textMuted">
+
+          Leitura técnica e uso diário com
+
+          <span class="text-text">documentação</span>,
+          <span class="text-text">APIs</span>
+          e troubleshooting.
+
         </p>
+
       </div>
 
 
-      <div class="space-y-4 flex justify-center items-center flex-col">
-        <h3 class="text-[12px] font-semibold uppercase tracking-[0.22em]
-                 text-violet-400/90">
+      <!-- Card 3 -->
+      <div class="bg-surface border border-border rounded-xl p-6
+                  hover:border-primary/60
+                  transition-all duration-300">
+
+        <h3 class="text-xs font-semibold uppercase tracking-[0.22em]
+                   text-primary mb-3">
           Foco atual
         </h3>
 
-        <p class="text-[13.5px] leading-relaxed text-white/65 text-justify">
-          <span class="text-white/90">Backend com Java e Spring Boot</span>,
+        <p class="text-sm leading-relaxed text-textMuted">
+
+          Backend com
+          <span class="text-text">Java e Spring Boot</span>,
           desenvolvimento de
-          <span class="text-white/90">APIs REST</span> e
-          aprofundamento em
-          <span class="text-white/90">Inteligência Artificial</span>.
+          <span class="text-text">APIs REST</span>
+          e aprofundamento em
+
+          <span class="text-text">Arquitetura e IA</span>.
+
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>

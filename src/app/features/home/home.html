@@ -1,9 +1,13 @@
-<section class=" md:min-h-[90svh] md:flex md:items-center pt-40 md:pt-0">
+<section class="relative bg-bg md:min-h-[90svh] md:flex md:items-center pt-40 md:pt-0 overflow-hidden">
+
+  <!-- glow sutil estilo supabase -->
+  <div class="pointer-events-none absolute inset-0 flex justify-center">
+    <div class="w-[600px] h-[600px] bg-primary opacity-[0.06] blur-[140px]"></div>
+  </div>
 
   <div
-    appScrollReveal
-    [animation]="'fade'"
-    class="container mx-auto max-w-6xl
+   
+    class="relative container mx-auto max-w-6xl
            px-6 sm:px-6 md:px-8
            py-24 sm:py-28 md:py-32"
   >
@@ -13,35 +17,40 @@
                 text-center sm:text-left
                 gap-6 sm:gap-8">
 
+
       <!-- Label -->
-      <span class="block
+      <span class="hero-anim hero-anim-1 block
                    text-[11px] sm:text-xs
                    tracking-[0.35em]
                    uppercase
-                   text-sky-400">
+                   text-primary
+                   font-medium">
         Olá, eu sou
       </span>
 
 
       <!-- Nome -->
-      <h1
-        class="font-semibold tracking-tight text-white
-               text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-               leading-[1.1]
-               max-w-[90vw] sm:max-w-none"
-      >
-        Ramon Barbosa<span class="text-emerald-400">.</span>
+      <h1 class="hero-anim hero-anim-2
+                 font-semibold
+                 tracking-tight
+                 text-text
+                 text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+                 leading-[1.1]
+                 max-w-[90vw] sm:max-w-none">
+
+        Ramon Barbosa<span class="text-primary">.</span>
+
       </h1>
 
 
       <!-- Subtitle -->
       <p
-        class="flex flex-wrap
+        class="hero-anim hero-anim-3 flex flex-wrap
                justify-center sm:justify-start
                items-center
                gap-x-3 gap-y-1.5
                text-sm sm:text-lg md:text-xl
-               text-white/80
+               text-textMuted
                max-w-[95vw] sm:max-w-xl"
       >
 
@@ -49,39 +58,46 @@
           Desenvolvedor Full Stack
         </span>
 
-        <span class="hidden sm:inline h-4 w-px bg-white/20"></span>
+        <span class="hidden sm:inline h-4 w-px bg-border"></span>
 
-        <span class="text-emerald-400 whitespace-nowrap">
+        <span class="text-primary whitespace-nowrap">
           Spring Boot
         </span>
 
-        <span class="hidden sm:inline h-4 w-px bg-white/20"></span>
+        <span class="hidden sm:inline h-4 w-px bg-border"></span>
 
-        <span class="whitespace-nowrap">Angular</span>
+        <span class="whitespace-nowrap">
+          Angular
+        </span>
 
-        <span class="hidden sm:inline h-4 w-px bg-white/20"></span>
+        <span class="hidden sm:inline h-4 w-px bg-border"></span>
 
-        <span class="whitespace-nowrap">React</span>
+        <span class="whitespace-nowrap">
+          React
+        </span>
 
-        <span class="hidden sm:inline h-4 w-px bg-white/20"></span>
+        <span class="hidden sm:inline h-4 w-px bg-border"></span>
 
-        <span class="whitespace-nowrap">PHP</span>
+        <span class="whitespace-nowrap">
+          PHP
+        </span>
 
       </p>
 
 
       <!-- Divider -->
-      <div class="h-px w-16 sm:w-20
+      <div class="hero-anim hero-anim-4
+                  h-px w-16 sm:w-20
                   bg-gradient-to-r
                   from-transparent
-                  via-sky-400/70
+                  via-primary/60
                   to-transparent">
       </div>
 
 
       <!-- Botões + ícones -->
       <div
-        class="flex flex-col sm:flex-row
+        class="hero-anim hero-anim-5 flex flex-col sm:flex-row
                items-stretch sm:items-center
                gap-3 sm:gap-5
                w-full sm:w-auto
@@ -91,13 +107,24 @@
         <!-- Botão Projetos -->
         <button
           (click)="scrollToId('projetos')"
-          class="btn-primary cinematic-button
-                 w-full sm:w-auto
+          class="w-full sm:w-auto
                  justify-center
                  px-6 py-3.5
-                 rounded-md
+                 rounded-lg
                  text-sm sm:text-base
-                 flex items-center gap-2"
+                 flex items-center gap-2
+
+                 bg-primary
+                 text-[#0B1220]
+                 font-medium
+
+                 hover:brightness-110
+                 hover:scale-[1.02]
+
+                 active:scale-[0.98]
+
+                 transition-all duration-300"
+
         >
           Ver projetos
           <i class="pi pi-arrow-right text-sm"></i>
@@ -107,13 +134,22 @@
         <!-- Botão Contato -->
         <button
           (click)="scrollToId('contato')"
-          class="btn-outline
-                 w-full sm:w-auto
+          class="w-full sm:w-auto
                  justify-center
                  px-6 py-3.5
-                 rounded-md
+                 rounded-lg
                  text-sm sm:text-base
-                 flex items-center gap-2"
+                 flex items-center gap-2
+
+                 border border-border
+                 text-text
+                 font-medium
+
+                 hover:border-primary
+                 hover:text-primary
+                 hover:bg-primary/5
+
+                 transition-all duration-300"
         >
           <i class="pi pi-envelope text-sm"></i>
           Entre em contato
@@ -133,7 +169,8 @@
             href="https://github.com/ramonbarbosdev"
             target="_blank"
             aria-label="GitHub"
-            class="text-white/60 hover:text-white
+            class="text-textMuted
+                   hover:text-primary
                    transition-all duration-300
                    hover:scale-110"
           >
@@ -144,7 +181,8 @@
             href="https://linkedin.com/in/ramon-barbosa-8b9427223"
             target="_blank"
             aria-label="LinkedIn"
-            class="text-white/60 hover:text-white
+            class="text-textMuted
+                   hover:text-primary
                    transition-all duration-300
                    hover:scale-110"
           >

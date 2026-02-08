@@ -1,59 +1,59 @@
 @import "tailwindcss";
+
 @import "primeicons/primeicons.css";
-@import '../src/app/style/theme.tokens.scss';
-@import '../src/app/style/theme.utilities.scss';
 
+/* DEFINIÇÃO DAS CORES */
+@theme {
 
-@keyframes apple-drift-1 {
-  0%   { background-position: 20% 40%; }
-  50%  { background-position: 60% 55%; }
-  100% { background-position: 20% 40%; }
-}
+  --color-bg: #0B1220;
 
-@keyframes apple-drift-2 {
-  0%   { background-position: 80% 60%; }
-  50%  { background-position: 40% 45%; }
-  100% { background-position: 80% 60%; }
-}
+  --color-surface: #111F33;
 
-@keyframes apple-drift-ambient {
-  0%   { background-position: 50% 50%; }
-  50%  { background-position: 48% 60%; }
-  100% { background-position: 50% 50%; }
-}
+  --color-surface2: #16263F;
 
-.animate-apple-1 {
-  animation: apple-drift-1 38s ease-in-out infinite;
-  background-size: 240% 240%;
-}
+  --color-primary: #2ECF70;
 
-.animate-apple-2 {
-  animation: apple-drift-2 44s ease-in-out infinite;
-  background-size: 240% 240%;
-}
+  --color-primarySoft: #2ECF7020;
 
-.animate-apple-ambient {
-  animation: apple-drift-ambient 60s ease-in-out infinite;
-  background-size: 200% 200%;
-}
+  --color-text: #E6EDF3;
 
-@keyframes apple-focus {
-  0%   { transform: translate(0,0); }
-  50%  { transform: translate(-60px, 40px); }
-  100% { transform: translate(0,0); }
-}
+  --color-textMuted: #8B9BB3;
 
-.animate-apple-focus {
-  animation: apple-focus 36s ease-in-out infinite;
+  --color-border: #1F2F4A;
+
 }
 
 
-.text-shadow-glow {
-  text-shadow:
-    0 0 40px rgba(var(--bg-glow-primary), 0.18);
+.hero-anim {
+
+  opacity: 0;
+
+  transform: translate3d(0, 24px, 0);
+
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
 }
 
-.subtitle-glow {
-  text-shadow:
-    0 0 18px rgba(255,255,255,0.06);
+
+.hero-anim-1 { animation-delay: 0.1s; }
+
+.hero-anim-2 { animation-delay: 0.2s; }
+
+.hero-anim-3 { animation-delay: 0.35s; }
+
+.hero-anim-4 { animation-delay: 0.5s; }
+
+.hero-anim-5 { animation-delay: 0.65s; }
+
+
+@keyframes heroFadeUp {
+
+  to {
+
+    opacity: 1;
+
+    transform: translate3d(0, 0, 0);
+
+  }
+
 }

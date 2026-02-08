@@ -1,67 +1,76 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 export interface StackItem {
   icon: string;
   label: string;
-  accent: 'sky' | 'emerald' | 'violet';
+  url: string;
 }
 
 @Component({
   selector: 'app-stack',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './stack.html',
-  styleUrl: './stack.scss',
-  imports: [CommonModule, ScrollRevealDirective]
+  styleUrl: './stack.scss'
 })
-export class Stack {
+export class Stack implements OnInit {
 
-  stackItems = signal<StackItem[]>([]);
+  items = signal<StackItem[]>([]);
+
+  loopItems = signal<StackItem[]>([]);
+
+  activeStack = signal<StackItem | null>(null);
+
 
   ngOnInit() {
 
-    this.stackItems.set([
+    const base: StackItem[] = [
 
-      { icon: 'devicon-angularjs-plain', label: 'Angular', accent: 'sky' },
-      { icon: 'devicon-react-original', label: 'React', accent: 'sky' },
-      { icon: 'devicon-typescript-plain', label: 'TypeScript', accent: 'sky' },
-      { icon: 'devicon-javascript-plain', label: 'JavaScript', accent: 'sky' },
-      { icon: 'devicon-tailwindcss-plain', label: 'Tailwind', accent: 'sky' },
+      { icon: 'devicon-angularjs-plain', label: 'Angular', url: '#' },
+      { icon: 'devicon-react-original', label: 'React', url: '#' },
+      { icon: 'devicon-typescript-plain', label: 'TypeScript', url: '#' },
+      { icon: 'devicon-javascript-plain', label: 'JavaScript', url: '#' },
+      { icon: 'devicon-tailwindcss-plain', label: 'Tailwind', url: '#' },
 
-      { icon: 'devicon-java-plain', label: 'Java', accent: 'emerald' },
-      { icon: 'devicon-spring-plain', label: 'Spring Boot', accent: 'emerald' },
-      { icon: 'devicon-nestjs-plain', label: 'NestJS', accent: 'emerald' },
-      { icon: 'devicon-php-plain', label: 'PHP', accent: 'emerald' },
+      { icon: 'devicon-java-plain', label: 'Java', url: '#' },
+      { icon: 'devicon-spring-plain', label: 'Spring Boot', url: '#' },
+      { icon: 'devicon-nestjs-plain', label: 'NestJS', url: '#' },
+      { icon: 'devicon-php-plain', label: 'PHP', url: '#' },
 
-      { icon: 'devicon-postgresql-plain', label: 'PostgreSQL', accent: 'violet' },
-      { icon: 'devicon-microsoftsqlserver-plain', label: 'SQLServer', accent: 'violet' },
-      { icon: 'devicon-mongodb-plain', label: 'MongoDB', accent: 'violet' },
-      { icon: 'devicon-docker-plain', label: 'Docker', accent: 'violet' },
-      { icon: 'devicon-nginx-original', label: 'Nginx', accent: 'violet' },
-      { icon: 'devicon-linux-plain', label: 'Linux', accent: 'violet' },
-      { icon: 'devicon-github-original', label: 'Git', accent: 'violet' }
+      { icon: 'devicon-postgresql-plain', label: 'PostgreSQL', url: '#' },
+      { icon: 'devicon-mongodb-plain', label: 'MongoDB', url: '#' },
+      { icon: 'devicon-docker-plain', label: 'Docker', url: '#' },
+      { icon: 'devicon-nginx-original', label: 'Nginx', url: '#' },
+      { icon: 'devicon-linux-plain', label: 'Linux', url: '#' },
+      { icon: 'devicon-github-original', label: 'GitHub', url: '#' }
 
-    ]);
+    ];
+
+    this.items.set(base);
+
+    // duplicação obrigatória para loop infinito
+    this.loopItems.set([...base, ...base]);
+
+    this.activeStack.set(base[0]);
+
+  }
+
+
+  setActive(item: StackItem) {
+
+    this.activeStack.set(item);
 
   }
 
-  getBg(accent: StackItem['accent']): string {
+  goTo(item: StackItem): void {
 
-    switch (accent) {
+  if (!item?.url) return;
 
-      case 'sky':
-        return 'rgba(56,189,248,0.18)';
-
-      case 'emerald':
-        return 'rgba(52,211,153,0.18)';
-
-      case 'violet':
-        return 'rgba(167,139,250,0.18)';
-
-      default:
-        return 'rgba(255,255,255,0.08)';
-    }
-
-  }
+  window.open(item.url, '_blank', 'noopener,noreferrer');
 
 }
+
+
+}
+

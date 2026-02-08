@@ -1,0 +1,23 @@
+.carousel-track {
+
+  animation: carousel-scroll 30s linear infinite;
+
+}
+
+.carousel-track:hover {
+
+  animation-play-state: paused;
+
+}
+
+@keyframes carousel-scroll {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+}
