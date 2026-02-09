@@ -1,122 +1,70 @@
 import {
   Directive,
   ElementRef,
+  AfterViewInit,
   Renderer2,
-  OnInit,
   Input
 } from '@angular/core';
 
-export type ScrollAnimation =
-  | 'fade'
-  | 'fade-up'
-  | 'slide-left'
-  | 'slide-right'
-  | 'zoom';
-
 @Directive({
-  selector: '[appScrollReveal]',
+  selector: '[appReveal]',
   standalone: true
 })
-export class ScrollRevealDirective implements OnInit {
+export class RevealDirective implements AfterViewInit {
 
-  @Input() animation: ScrollAnimation = 'fade-up';
-  @Input() delay = 0;
+  @Input() delay: number = 0;
 
   constructor(
-    private el: ElementRef<HTMLElement>,
+    private el: ElementRef,
     private renderer: Renderer2
   ) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
 
     const element = this.el.nativeElement;
 
-    // this.renderer.setStyle(element, 'display', 'block');
+    // estado inicial
+    this.renderer.setStyle(element, 'opacity', '0');
+    this.renderer.setStyle(element, 'transform', 'translateY(24px) scale(0.98)');
+    this.renderer.setStyle(element, 'filter', 'blur(6px)');
+
     this.renderer.setStyle(
       element,
       'transition',
-      `opacity 700ms ease ${this.delay}ms, transform 700ms ease ${this.delay}ms`
+      `
+        opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 700ms cubic-bezier(0.16, 1, 0.3, 1)
+      `
     );
 
-    this.renderer.setStyle(element, 'will-change', 'transform, opacity');
-
-    // aplica estado inicial
-    this.applyInitialState(element);
+    this.renderer.setStyle(
+      element,
+      'transition-delay',
+      `${this.delay}ms`
+    );
 
     const observer = new IntersectionObserver(
       ([entry]) => {
 
         if (entry.isIntersecting) {
-          this.applyFinalState(element);
-        } else {
-          this.applyInitialState(element);
+
+          this.renderer.setStyle(element, 'opacity', '1');
+          this.renderer.setStyle(element, 'transform', 'translateY(0) scale(1)');
+          this.renderer.setStyle(element, 'filter', 'blur(0)');
+
+          observer.disconnect();
+
         }
 
       },
       {
-        threshold: 0.35
+        threshold: 0.15
       }
     );
 
     observer.observe(element);
+
   }
 
-  // ======================
-  // ESTADO INICIAL
-  // ======================
-
-  private applyInitialState(element: HTMLElement) {
-
-    this.renderer.setStyle(element, 'opacity', '0');
-
-    switch (this.animation) {
-
-      case 'slide-left':
-        this.renderer.setStyle(element, 'transform', 'translateX(-40px)');
-        break;
-
-      case 'slide-right':
-        this.renderer.setStyle(element, 'transform', 'translateX(40px)');
-        break;
-
-      case 'zoom':
-        this.renderer.setStyle(element, 'transform', 'scale(0.9)');
-        break;
-
-      case 'fade':
-        this.renderer.removeStyle(element, 'transform');
-        break;
-
-      case 'fade-up':
-      default:
-        this.renderer.setStyle(element, 'transform', 'translateY(30px)');
-        break;
-    }
-  }
-
-  // ======================
-  // ESTADO FINAL
-  // ======================
-
-  private applyFinalState(element: HTMLElement) {
-
-    this.renderer.setStyle(element, 'opacity', '1');
-
-    switch (this.animation) {
-
-      case 'slide-left':
-      case 'slide-right':
-      case 'fade-up':
-        this.renderer.setStyle(element, 'transform', 'translate(0,0)');
-        break;
-
-      case 'zoom':
-        this.renderer.setStyle(element, 'transform', 'scale(1)');
-        break;
-
-      case 'fade':
-        this.renderer.removeStyle(element, 'transform');
-        break;
-    }
-  }
 }

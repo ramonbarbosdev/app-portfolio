@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ProjectCard } from "./project-card/project-card";
 import { ProjectDialog } from "./project-dialog/project-dialog";
 import { CommonModule } from '@angular/common';
-import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 import { HeaderPadrao } from "../../components/header-padrao/header-padrao";
+import { RevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 export interface Project {
   id: string;
@@ -25,41 +25,41 @@ export interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [ProjectCard, ProjectDialog, CommonModule, ScrollRevealDirective, HeaderPadrao],
+  imports: [ProjectCard, ProjectDialog, CommonModule, HeaderPadrao, RevealDirective],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
 export class Projects {
   projects: Project[] = [
 
-    {
-      id: '1',
+    // {
+    //   id: '1',
 
-      title: 'Sistema de Gestão Pública',
+    //   title: 'Sistema de Gestão Pública',
 
-      type: 'professional',
+    //   type: 'professional',
 
-      company: 'Empresa confidencial',
+    //   company: 'Empresa confidencial',
 
-      description: 'Sistema completo de gestão pública municipal',
+    //   description: 'Sistema completo de gestão pública municipal',
 
-      longDescription: `
-      Desenvolvimento de sistema completo para prefeituras com múltiplos módulos,
-      incluindo administração, finanças e relatórios. Projeto realizado em equipe sob contrato de confidencialidade.
-      `,
+    //   longDescription: `
+    //   Desenvolvimento de sistema completo para prefeituras com múltiplos módulos,
+    //   incluindo administração, finanças e relatórios. Projeto realizado em equipe sob contrato de confidencialidade.
+    //   `,
 
-      coverImage: '/assets/sipec.png',
+    //   coverImage: '/assets/sipec.png',
 
-      technologies: [
-        'php',
-        'postgresql',
-        'linux'
-      ],
+    //   technologies: [
+    //     'php',
+    //     'postgresql',
+    //     'linux'
+    //   ],
 
-      githubUrl: undefined,
-      liveUrl: 'https://sipec.w5i.com.br'
+    //   githubUrl: undefined,
+    //   liveUrl: 'https://sipec.w5i.com.br'
 
-    },
+    // },
 
 
     {
@@ -112,28 +112,28 @@ export class Projects {
       company: 'Projeto comercial próprio',
 
     },
-    {
-      id: '4',
-      title: 'Sistema de Business Intelligence',
-      description: '',
-      longDescription: `
-      Desenvolvimento de dashboards interativos para análise e visualização de 
-      dados públicos. Solução moderna e responsiva, pensada para facilitar a leitura 
-      de informações por gestores municipais. Projeto realizado em equipe sob 
-      contrato de confidencialidade. Projeto realizado em equipe sob contrato de confidencialidade.
-      `,
-      coverImage: '/assets/bi.png',
-      technologies: [
-        'react',
-        'nestjs',
-        'mongodb',
-      ],
-      githubUrl: undefined,
-      liveUrl: 'https://bi.w5i.com.br',
-      type: 'professional',
-      company: 'Empresa confidencial',
+    // {
+    //   id: '4',
+    //   title: 'Sistema de Business Intelligence',
+    //   description: '',
+    //   longDescription: `
+    //   Desenvolvimento de dashboards interativos para análise e visualização de 
+    //   dados públicos. Solução moderna e responsiva, pensada para facilitar a leitura 
+    //   de informações por gestores municipais. Projeto realizado em equipe sob 
+    //   contrato de confidencialidade. Projeto realizado em equipe sob contrato de confidencialidade.
+    //   `,
+    //   coverImage: '/assets/bi.png',
+    //   technologies: [
+    //     'react',
+    //     'nestjs',
+    //     'mongodb',
+    //   ],
+    //   githubUrl: undefined,
+    //   liveUrl: 'https://bi.w5i.com.br',
+    //   type: 'professional',
+    //   company: 'Empresa confidencial',
 
-    },
+    // },
     {
       id: '5',
       title: 'Sistema de Orçamentos SaaS',
@@ -157,26 +157,26 @@ export class Projects {
     },
 
 
-    {
-      id: '6',
-      title: 'Portal Transparência',
-      description: 'Sistema público de consulta de dados',
-      longDescription: 'Sistema público de consulta de dados, solução moderna e responsiva, pensada para facilitar a leitura de informações por gestores municipais. Projeto realizado em equipe sob contrato de confidencialidade.',
-      coverImage: '/assets/portal.png',
-      technologies: [
-        'nestjs',
-        'react',
-        'postgresql',
-        'mongodb'
-      ],
+    // {
+    //   id: '6',
+    //   title: 'Portal Transparência',
+    //   description: 'Sistema público de consulta de dados',
+    //   longDescription: 'Sistema público de consulta de dados, solução moderna e responsiva, pensada para facilitar a leitura de informações por gestores municipais. Projeto realizado em equipe sob contrato de confidencialidade.',
+    //   coverImage: '/assets/portal.png',
+    //   technologies: [
+    //     'nestjs',
+    //     'react',
+    //     'postgresql',
+    //     'mongodb'
+    //   ],
 
-      githubUrl: undefined,
-      liveUrl: 'https://apresentacao.w5i.com.br',
-      type: 'professional',
-      company: 'Empresa confidencial',
+    //   githubUrl: undefined,
+    //   liveUrl: 'https://apresentacao.w5i.com.br',
+    //   type: 'professional',
+    //   company: 'Empresa confidencial',
 
 
-    }
+    // }
 
 
 

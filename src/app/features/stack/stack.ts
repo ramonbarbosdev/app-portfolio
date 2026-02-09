@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HeaderPadrao } from "../../components/header-padrao/header-padrao";
+import { RevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 interface StackItem {
   name: string;
@@ -12,7 +13,7 @@ interface StackItem {
 @Component({
   selector: 'app-stack',
   standalone: true,
-  imports: [CommonModule, HeaderPadrao],
+  imports: [CommonModule, HeaderPadrao, RevealDirective],
   templateUrl: './stack.html',
   styleUrl: './stack.scss'
 })

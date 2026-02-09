@@ -4,20 +4,18 @@
 
   <div class="relative max-w-4xl px-6 text-center">
 
-    <!-- BADGE -->
     <div class="mb-6 flex items-center justify-center gap-3 text-white/60">
 
-      <i class="devicon-angularjs-plain text-lg"></i>
+      <i appReveal [delay]="100" class="devicon-angularjs-plain text-lg"></i>
 
-      <span class="text-sm">
+      <span appReveal [delay]="200" class="  text-sm">
         Olá, Eu Sou
       </span>
 
     </div>
 
 
-    <!-- HEADLINE -->
-    <h1 class="
+    <h1 appReveal [delay]="300" class="
       text-white
       font-semibold
 
@@ -35,13 +33,12 @@
 
       Ramon Barbosa<br>
 
-      Full Stack Developer<span class="text-primary">.</span>
+      Full Stack Developer<span appReveal [delay]="1000"  class="text-primary">.</span>
 
     </h1>
 
 
-    <!-- DESCRIPTION -->
-    <p class="
+    <p appReveal [delay]="400" class="
       text-white/60
 
       text-base
@@ -62,11 +59,9 @@
     </p>
 
 
-    <!-- BUTTONS -->
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
 
-      <!-- primary -->
-      <button (click)="scrollToId('projetos')" class="
+      <button  appReveal [delay]="500"  (click)="scrollToId('projetos')" class="
           px-7 py-3.5
 
           rounded-full
@@ -89,8 +84,7 @@
       </button>
 
 
-      <!-- secondary -->
-      <button (click)="scrollToId('contato')" class="
+      <button appReveal [delay]="550"  (click)="scrollToId('contato')" class="
           px-7 py-3.5
 
           rounded-full
@@ -115,14 +109,13 @@
     </div>
 
 
-    <!-- SOCIAL -->
     <div class="mt-10 flex justify-center gap-6">
 
-      <a href="https://github.com/ramonbarbosdev" target="_blank" class="text-white/50 hover:text-white transition">
+      <a appReveal [delay]="600" href="https://github.com/ramonbarbosdev" target="_blank" class="text-white/50 hover:text-white transition">
         <i class="devicon-github-original text-2xl"></i>
       </a>
 
-      <a href="https://linkedin.com/in/ramon-barbosa-8b9427223" target="_blank"
+      <a appReveal [delay]="650" href="https://linkedin.com/in/ramon-barbosa-8b9427223" target="_blank"
         class="text-white/50 hover:text-white transition">
         <i class="devicon-linkedin-plain text-2xl"></i>
       </a>

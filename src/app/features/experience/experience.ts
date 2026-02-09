@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 import { HeaderPadrao } from "../../components/header-padrao/header-padrao";
+import { RevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 @Component({
   selector: 'app-experience',
-  imports: [ScrollRevealDirective, HeaderPadrao],
+  imports: [ HeaderPadrao,RevealDirective],
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
 })

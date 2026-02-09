@@ -2,14 +2,14 @@
 
   <div class="mx-auto max-w-7xl px-6">
 
-    <app-header-padrao [titulo]="' Experiência profissional'" [subtitulo]="'Minha trajetória'"></app-header-padrao>
+    <app-header-padrao appReveal  [titulo]="' Experiência profissional'" [subtitulo]="'Minha trajetória'"></app-header-padrao>
 
 
     <!-- timeline -->
     <div class="relative">
 
       <!-- linha mobile -->
-      <div class="absolute left-3 top-0 h-full w-px
+      <div appReveal [delay]="100"  class="absolute left-3 top-0 h-full w-px
                   bg-gradient-to-b
                   from-transparent
                   via-white/20
@@ -18,7 +18,7 @@
       </div>
 
       <!-- linha desktop -->
-      <div class="hidden md:block absolute left-1/2 top-0 h-full w-px
+      <div appReveal [delay]="100" class="hidden md:block absolute left-1/2 top-0 h-full w-px
                   bg-gradient-to-b
                   from-transparent
                   via-white/20
@@ -48,7 +48,7 @@
 
 
         <!-- conteúdo -->
-        <div class="pl-10 md:pl-0 md:mr-[55%] md:text-right">
+        <div  appReveal [delay]="200" class="pl-10 md:pl-0 md:mr-[55%] md:text-right">
 
           <span class="text-[11px] text-white/40 tracking-wider uppercase">
             2025 — Atual
@@ -73,7 +73,7 @@
 
 
       <!-- ITEM -->
-      <div class="relative mb-14 md:mb-16">
+      <div appReveal [delay]="300" class="relative mb-14 md:mb-16">
 
         <div class="absolute left-3 top-1.5 w-2.5 h-2.5
                     bg-sky-400 rounded-full
@@ -116,7 +116,7 @@
 
 
       <!-- ITEM -->
-      <div class="relative">
+      <div appReveal [delay]="400" class="relative">
 
         <div class="absolute left-3 top-1.5 w-2.5 h-2.5
                     bg-violet-400 rounded-full

@@ -1,10 +1,10 @@
 <section class="relative  py-32 overflow-hidden ">
 
-  <div class="relative max-w-7xl mx-auto px-6">
+  <div  class="relative max-w-7xl mx-auto px-6">
 
     <div class="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
 
-      <app-header-padrao [titulo]="'Sobre mim'"
+      <app-header-padrao  appReveal [titulo]="'Sobre mim'"
         [subtitulo]="'  Focado em construir sistemas confiáveis.'"></app-header-padrao>
 
       <div class="relative flex-shrink-0 flex itens-center justify-center ">
@@ -32,7 +32,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Formação -->
-      <div class="group rounded-2xl p-6
+      <div appReveal [delay]="200" class="group rounded-2xl p-6
               bg-white/[0.03]
               border border-white/[0.08]
               hover:border-white/[0.18]
@@ -52,7 +52,7 @@
 
 
       <!-- Especialidade -->
-      <div class="group rounded-2xl p-6
+      <div   appReveal [delay]="300"  class="group rounded-2xl p-6
               bg-white/[0.03]
               border border-white/[0.08]
               hover:border-white/[0.18]
@@ -72,7 +72,7 @@
 
 
       <!-- Arquitetura -->
-      <div class="group rounded-2xl p-6
+      <div  appReveal [delay]="400" class="group rounded-2xl p-6
               bg-white/[0.03]
               border border-white/[0.08]
               hover:border-white/[0.18]
@@ -92,7 +92,7 @@
 
 
       <!-- Tecnologias -->
-      <div class="group rounded-2xl p-6
+      <div  appReveal [delay]="500" class="group rounded-2xl p-6
               bg-white/[0.03]
               border border-white/[0.08]
               hover:border-white/[0.18]
@@ -112,7 +112,7 @@
 
 
       <!-- Qualidade -->
-      <div class="group rounded-2xl p-6
+      <div  appReveal [delay]="600" class="group rounded-2xl p-6
               bg-white/[0.03]
               border border-white/[0.08]
               hover:border-white/[0.18]
@@ -132,7 +132,7 @@
 
 
       <!-- Escalabilidade -->
-      <div class="group rounded-2xl p-6
+      <div appReveal [delay]="700"  class="group rounded-2xl p-6
               bg-white/[0.03]
               border border-white/[0.08]
               hover:border-white/[0.18]

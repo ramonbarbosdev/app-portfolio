@@ -3,6 +3,7 @@
   <div class="mx-auto max-w-7xl px-6">
 
     <app-header-padrao
+    appReveal
       [titulo]="'Contato'"
       [subtitulo]="''">
     </app-header-padrao>
@@ -12,7 +13,7 @@
 
 
       <!-- LOCALIZAÇÃO -->
-      <div class="group flex flex-col items-center text-center
+      <div appReveal [delay]="200" class="group flex flex-col items-center text-center
                   p-8 rounded-2xl
                   border border-border
                   bg-surface/40
@@ -59,7 +60,7 @@
 
 
       <!-- EMAIL -->
-      <div class="group flex flex-col items-center text-center
+      <div appReveal [delay]="300"  class="group flex flex-col items-center text-center
 
                   p-8 rounded-2xl
 
@@ -112,7 +113,7 @@
 
 
       <!-- WHATSAPP -->
-      <div class="group flex flex-col items-center text-center
+      <div appReveal [delay]="400"  class="group flex flex-col items-center text-center
 
                   p-8 rounded-2xl
 

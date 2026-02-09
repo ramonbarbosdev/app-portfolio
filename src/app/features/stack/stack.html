@@ -2,7 +2,7 @@
 
   <div class="mx-auto max-w-7xl px-6">
 
-    <app-header-padrao [titulo]="'Tecnologias'" [subtitulo]="'Ferramentas que utilizo no desenvolvimento'">
+    <app-header-padrao appReveal [titulo]="'Tecnologias'" [subtitulo]="'Ferramentas que utilizo no desenvolvimento'">
 
       <div actions>
 
@@ -23,12 +23,12 @@
     </app-header-padrao>
 
     <!-- GRID -->
-    <div *ngIf="viewMode === 'grid'" class="relative overflow-hidden transition-[max-height] duration-700 ease-in-out"
-      [ngClass]="animationClass">
+    <div appReveal [delay]=" 200" *ngIf="viewMode === 'grid'"
+      class="relative overflow-hidden transition-[max-height] duration-700 ease-in-out" [ngClass]="animationClass">
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 
-        <ng-container *ngFor="let column of stackColumns">
+        <ng-container *ngFor="let column of stackColumns; let i = index">
 
           <ng-container *ngFor="let stack of column">
 
@@ -89,7 +89,7 @@
 
 
     <!-- CAROUSEL -->
-    <div *ngIf="viewMode === 'carousel'" class="hidden sm:block mt-16">
+    <div appReveal [delay]=" 200" *ngIf="viewMode === 'carousel'" class="hidden sm:block mt-16">
 
       <div class="relative">
 
