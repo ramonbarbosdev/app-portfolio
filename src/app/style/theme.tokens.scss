@@ -1,21 +1,19 @@
   @theme {
+   --color-bg: #121212;
 
-    --color-bg: #121212;
-
-    --color-surface: #111F33;
-
-    --color-surface2: #16263F;
-
+  --color-surface: #111F33;
+  --color-surface2: #16263F;
     --color-primary: #2ECF70;
-
     --color-primarySoft: #2ECF7020;
 
     --color-text: #E6EDF3;
+    --color-textMuted: #9CA3AF;
 
-    --color-textMuted: #8B9BB3;
-
-    --color-border: #1F2F4A;
+    --color-border: #2A2A2A;
 
     --animate-stack-scroll: stack-scroll 40s linear infinite;
+
+    --bg-glow-primary: 22,38,63;
+    --bg-glow-secondary: 31, 38, 63;
 
   }

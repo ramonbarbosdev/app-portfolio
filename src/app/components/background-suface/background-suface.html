@@ -1,19 +1,36 @@
-<div class="fixed inset-0 -z-10 pointer-events-none">
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
 
-     <!-- <div class="
-      absolute inset-0
-
-      bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,var(--color-surface2),transparent)]
-    "></div>
+  <!-- base -->
+  <div class="absolute inset-0 bg-bg"></div>
 
 
+  <!-- glow superior principal -->
+  <div class="absolute inset-0 blur-[160px]
+       bg-[radial-gradient(circle_at_50%_0%,rgba(var(--bg-glow-primary),0.55),transparent_60%)]">
+  </div>
 
- -->
+
+  <!-- glow lateral esquerdo -->
+  <div class="absolute inset-0 blur-[220px]
+       bg-[radial-gradient(circle_at_0%_50%,rgba(var(--bg-glow-primary),0.45),transparent_65%)]">
+  </div>
 
 
-  <div class="
-    absolute inset-0
+  <!-- glow lateral direito -->
+  <div class="absolute inset-0 blur-[220px]
+       bg-[radial-gradient(circle_at_100%_50%,rgba(var(--bg-glow-secondary),0.45),transparent_65%)]">
+  </div>
 
-    bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,var(--color-surface2),transparent)]
-  "></div>
+
+  <!-- glow inferior -->
+  <div class="absolute inset-0 blur-[260px]
+       bg-[radial-gradient(circle_at_50%_100%,rgba(var(--bg-glow-primary),0.35),transparent_70%)]">
+  </div>
+
+
+  <!-- vignette elegante -->
+  <div class="absolute inset-0
+       bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.80)_100%)]">
+  </div>
+
 </div>
