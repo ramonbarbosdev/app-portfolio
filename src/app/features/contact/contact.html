@@ -2,10 +2,7 @@
 
   <div class="mx-auto max-w-7xl px-6">
 
-    <app-header-padrao
-    appReveal
-      [titulo]="'Contato'"
-      [subtitulo]="''">
+    <app-header-padrao appReveal [titulo]="'Contato'" [subtitulo]="''">
     </app-header-padrao>
 
 
@@ -14,14 +11,25 @@
 
       <!-- LOCALIZAÇÃO -->
       <div appReveal [delay]="200" class="group flex flex-col items-center text-center
-                  p-8 rounded-2xl
-                  border border-border
-                  bg-surface/40
-                  backdrop-blur-sm
-                  transition-all duration-500
-                  hover:border-primary/40
-                  hover:bg-primarySoft
-                  hover:shadow-[0_0_40px_var(--color-primarySoft)]">
+
+         p-8 rounded-2xl
+
+         border border-border
+
+         bg-gradient-to-b
+         from-surface
+         to-surface2
+
+         backdrop-blur-md
+
+         transition-all duration-500 ease-out
+
+         hover:border-primary/50
+
+         hover:-translate-y-1
+
+         hover:shadow-[0_10px_50px_rgba(56,189,248,0.12)]">
+
 
         <div class="flex h-14 w-14
                     items-center justify-center
@@ -59,20 +67,26 @@
 
 
 
-      <!-- EMAIL -->
-      <div appReveal [delay]="300"  class="group flex flex-col items-center text-center
+      <div appReveal [delay]="300" class="group flex flex-col items-center text-center
 
-                  p-8 rounded-2xl
+         p-8 rounded-2xl
 
-                  border border-border
-                  bg-surface/40
-                  backdrop-blur-sm
+         border border-border
 
-                  transition-all duration-500
+         bg-gradient-to-b
+         from-surface
+         to-surface2
 
-                  hover:border-primary/40
-                  hover:bg-primarySoft
-                  hover:shadow-[0_0_40px_var(--color-primarySoft)]">
+         backdrop-blur-md
+
+         transition-all duration-500 ease-out
+
+         hover:border-primary/50
+
+         hover:-translate-y-1
+
+         hover:shadow-[0_10px_50px_rgba(56,189,248,0.12)]">
+
 
         <div class="flex h-14 w-14
                     items-center justify-center
@@ -98,9 +112,7 @@
         </h3>
 
 
-        <a href="mailto:ramonlegendario21@gmail.com"
-
-           class="text-textMuted hover:text-text
+        <a href="mailto:ramonlegendario21@gmail.com" class="text-textMuted hover:text-text
                   transition-all duration-300
                   text-[15px]">
 
@@ -113,19 +125,26 @@
 
 
       <!-- WHATSAPP -->
-      <div appReveal [delay]="400"  class="group flex flex-col items-center text-center
+      <div appReveal [delay]="400" class="group flex flex-col items-center text-center
 
-                  p-8 rounded-2xl
+         p-8 rounded-2xl
 
-                  border border-border
-                  bg-surface/40
-                  backdrop-blur-sm
+         border border-border
 
-                  transition-all duration-500
+         bg-gradient-to-b
+         from-surface
+         to-surface2
 
-                  hover:border-primary/40
-                  hover:bg-primarySoft
-                  hover:shadow-[0_0_40px_var(--color-primarySoft)]">
+         backdrop-blur-md
+
+         transition-all duration-500 ease-out
+
+         hover:border-primary/50
+
+         hover:-translate-y-1
+
+         hover:shadow-[0_10px_50px_rgba(56,189,248,0.12)]">
+
 
         <div class="flex h-14 w-14
                     items-center justify-center
@@ -151,10 +170,7 @@
         </h3>
 
 
-        <a href="https://wa.me/5573982229717"
-           target="_blank"
-
-           class="text-textMuted hover:text-text
+        <a href="https://wa.me/5573982229717" target="_blank" class="text-textMuted hover:text-text
                   transition-all duration-300
                   text-[15px]">
 
