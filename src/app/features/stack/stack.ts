@@ -44,11 +44,12 @@ export class Stack {
 
     [
       {
-        name: 'React',
+        name: 'Angular',
         description: 'Biblioteca moderna para interfaces reativas e escaláveis.',
-        icon: 'devicon-react-original colored',
+        icon: 'devicon-angularjs-plain colored',
         size: 'sm'
       },
+
       {
         name: 'TypeScript',
         description: 'Superset do JavaScript com tipagem estática robusta.',
