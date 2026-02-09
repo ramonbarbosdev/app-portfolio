@@ -1,19 +1,25 @@
-  @theme {
-   --color-bg: #121212;
+@theme {
 
-  --color-surface: #111F33;
-  --color-surface2: #16263F;
-    --color-primary: #38bdf8;
-    --color-primarySoft: #2ECF7020;
+  /* base MAIS CLARA */
+  --color-bg: #16181D;
 
-    --color-text: #E6EDF3;
-    --color-textMuted: #9CA3AF;
+  /* surfaces MAIS VISÍVEIS */
+  --color-surface: #1B2230;
+  --color-surface2: #1F2937;
 
-    --color-border: #2A2A2A;
+  /* primary continua perfeito */
+  --color-primary: #38bdf8;
+  --color-primarySoft: #38bdf820;
 
-    --animate-stack-scroll: stack-scroll 40s linear infinite;
+  /* texto */
+  --color-text: #E6EDF3;
+  --color-textMuted: #9CA3AF;
 
-    --bg-glow-primary: 34, 71, 153;
-    --bg-glow-secondary: 38, 46, 74;
+  /* border mais visível */
+  --color-border: #2F3848;
 
-  }
+  /* glow ajustado */
+  --bg-glow-primary: 56,189,248;
+  --bg-glow-secondary: 34,71,153;
+
+}
