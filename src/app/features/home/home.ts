@@ -2,11 +2,10 @@ import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { fadeSlideUp } from '../../animacao/fadeSlideUp';
 import { staggerFade } from '../../animacao/staggerFade';
-import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonModule, ScrollRevealDirective],
+  imports: [ButtonModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   animations: [fadeSlideUp, staggerFade],
