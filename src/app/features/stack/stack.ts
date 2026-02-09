@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { HeaderPadrao } from "../../components/header-padrao/header-padrao";
 
 interface StackItem {
   name: string;
@@ -11,7 +12,7 @@ interface StackItem {
 @Component({
   selector: 'app-stack',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderPadrao],
   templateUrl: './stack.html',
   styleUrl: './stack.scss'
 })

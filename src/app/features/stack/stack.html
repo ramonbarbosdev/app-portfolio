@@ -2,25 +2,9 @@
 
   <div class="mx-auto max-w-7xl px-6">
 
+    <app-header-padrao [titulo]="'Tecnologias'" [subtitulo]="'Ferramentas que utilizo no desenvolvimento'">
 
-    <!-- HEADER -->
-    <div class="mb-10 flex items-end justify-between">
-
-      <div>
-
-        <p class="text-xs tracking-widest text-primary mb-4 uppercase">
-          Tecnologias
-        </p>
-
-        <h2 class="text-3xl sm:text-5xl font-semibold text-white max-w-2xl">
-          Ferramentas que utilizo no desenvolvimento
-        </h2>
-
-      </div>
-
-
-      <!-- TOGGLE -->
-      <div class="hidden sm:flex items-center gap-2">
+      <div actions>
 
         <button (click)="setView('grid')" class="p-2 rounded-lg border transition-all duration-300" [ngClass]="viewMode === 'grid'
             ? 'border-white/20 bg-white/10 text-white'
@@ -34,12 +18,9 @@
             : 'border-white/10 text-white/40 hover:text-white'">
           <i class="pi pi-bars"></i>
         </button>
-
       </div>
 
-    </div>
-
-
+    </app-header-padrao>
 
     <!-- GRID -->
     <div *ngIf="viewMode === 'grid'" class="relative overflow-hidden transition-[max-height] duration-700 ease-in-out"
@@ -82,7 +63,7 @@
                   bg-gradient-to-t from-bg to-transparent">
       </div>
 
-      
+
     </div>
 
 

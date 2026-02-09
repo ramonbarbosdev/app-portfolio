@@ -2,6 +2,12 @@
   [(visible)]="visible"
   [modal]="true"
   [style]="{ width: '800px' }"
+  [breakpoints]="{
+    '1024px': '700px',
+    '768px': '90vw',
+    '640px': '95vw',
+    '480px': '100vw'
+  }"
   (onHide)="onClose()"
 >
 

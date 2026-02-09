@@ -1,0 +1,25 @@
+<div class="mb-10 flex md:items-end md:justify-between md:text-start  text-center justify-center">
+
+  <div>
+    <p class="text-xs tracking-widest text-primary mb-4 uppercase">
+      {{titulo}}
+
+    </p>
+
+    <h2 class="text-3xl sm:text-5xl font-semibold text-white max-w-2xl">
+      {{subtitulo}}
+
+    </h2>
+
+  </div>
+
+  <div class="hidden sm:flex items-center gap-2" #formContent>
+
+    <ng-content select="[actions]">
+
+      
+    </ng-content>
+
+  </div>
+
+</div>
