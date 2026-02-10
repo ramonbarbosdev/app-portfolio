@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { HeaderPadrao } from "../../components/header-padrao/header-padrao";
 import { RevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
@@ -26,6 +26,37 @@ export class Stack {
   animationClass = 'max-h-[520px]';
 
 
+  ngOnInit() {
+    this.updateViewMode();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.updateViewMode();
+  }
+
+  private updateViewMode() {
+
+    const isMobile = window.innerWidth < 640;
+
+    if (isMobile) {
+      this.viewMode = 'grid';
+    }
+
+  }
+
+  setView(mode: 'grid' | 'carousel') {
+
+    // bloqueia carousel no mobile
+    if (window.innerWidth < 640) {
+      this.viewMode = 'grid';
+      return;
+    }
+
+    this.viewMode = mode;
+
+  }
+
   toggleStacks() {
 
     this.showAllStacks = !this.showAllStacks;
@@ -37,9 +68,6 @@ export class Stack {
   }
 
 
-  setView(mode: 'grid' | 'carousel') {
-    this.viewMode = mode;
-  }
 
 
   stackColumns: StackItem[][] = [
