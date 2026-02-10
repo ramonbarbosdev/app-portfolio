@@ -3,21 +3,25 @@ import {
   ElementRef,
   AfterViewInit,
   Renderer2,
-  Input
+  Input,
+  OnDestroy
 } from '@angular/core';
 
 @Directive({
-  selector: '[appReveal]',
+  selector: '[ScrollAppReveal]',
   standalone: true
 })
-export class RevealDirective implements AfterViewInit {
+export class ScrollRevealDirective implements AfterViewInit, OnDestroy {
 
   @Input() delay: number = 0;
+
+  private observer?: IntersectionObserver;
+  private revealed = false;
 
   constructor(
     private el: ElementRef,
     private renderer: Renderer2
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
 
@@ -32,9 +36,9 @@ export class RevealDirective implements AfterViewInit {
       element,
       'transition',
       `
-        opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
-        filter 700ms cubic-bezier(0.16, 1, 0.3, 1)
+      opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 700ms cubic-bezier(0.16, 1, 0.3, 1)
       `
     );
 
@@ -44,16 +48,18 @@ export class RevealDirective implements AfterViewInit {
       `${this.delay}ms`
     );
 
-    const observer = new IntersectionObserver(
+    this.observer = new IntersectionObserver(
       ([entry]) => {
 
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !this.revealed) {
 
           this.renderer.setStyle(element, 'opacity', '1');
           this.renderer.setStyle(element, 'transform', 'translateY(0) scale(1)');
           this.renderer.setStyle(element, 'filter', 'blur(0)');
 
-          observer.disconnect();
+          this.revealed = true;
+
+          this.observer?.disconnect();
 
         }
 
@@ -63,8 +69,11 @@ export class RevealDirective implements AfterViewInit {
       }
     );
 
-    observer.observe(element);
+    this.observer.observe(element);
 
   }
 
+  ngOnDestroy() {
+    this.observer?.disconnect();
+  }
 }

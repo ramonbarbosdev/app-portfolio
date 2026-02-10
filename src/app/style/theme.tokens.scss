@@ -1,28 +1,29 @@
 @theme {
 
-  /* FUNDO PRINCIPAL — muito mais agradável */
-  --color-bg: #1E2430;
+  /* BACKGROUND */
+  --color-bg: #0F223A;
 
-  /* SUPERFÍCIES */
-  --color-surface: #252B3B;
-  --color-surface2: #2C3446;
+  /* SURFACES */
+  --color-surface: #111827;
+  --color-surface2: #162033;
 
-  /* PRIMARY (seu azul atual, perfeito) */
-  --color-primary: #38bdf8;
-  --color-primarySoft: #38bdf820;
+  /* PRIMARY */
+  --color-primary: #38BDF8;
+  --color-primary-hover: #60A5FA;
+  --color-primarySoft: rgba(56, 189, 248, 0.12);
 
-  /* TEXTO */
-  --color-text: #EAF2FF;
-  --color-textMuted: #A7B4C8;
+  /* TEXT */
+  --color-text: #E5E7EB;
+  --color-textMuted: #94A3B8;
 
-  /* BORDAS */
-  --color-border: #3A4458;
+  /* BORDER */
+  --color-border: #1F2937;
 
-  /* GLOW */
+  /* GLOW RGB */
   --bg-glow-primary: 56, 189, 248;
-  --bg-glow-secondary: 80, 120, 200;
+  --bg-glow-secondary: 37, 99, 235;
 
-
+  /* ANIMATION */
   --animate-stack-scroll: stack-scroll 40s linear infinite;
 
 }

@@ -2,11 +2,12 @@
 
   <div class="mx-auto max-w-7xl px-6">
 
-    <app-header-padrao appReveal [titulo]="'Tecnologias'" [subtitulo]="'Ferramentas que utilizo no desenvolvimento'">
+    <app-header-padrao ScrollAppReveal [titulo]="'Tecnologias'"
+      [subtitulo]="'Ferramentas que utilizo no desenvolvimento'">
 
       <div actions>
 
-        <button (click)="setView('grid')" class="p-2 rounded-lg border transition-all duration-300" [ngClass]="viewMode === 'grid'
+        <button (click)="setView('grid')" class="mr-2 p-2 rounded-lg border transition-all duration-300" [ngClass]="viewMode === 'grid'
             ? 'border-white/20 bg-white/10 text-white'
             : 'border-white/10 text-white/40 hover:text-white'">
           <i class="pi pi-th-large"></i>
@@ -22,12 +23,11 @@
 
     </app-header-padrao>
 
-    <!-- GRID -->
-    <div appReveal [delay]=" 200" *ngIf="viewMode === 'grid'"
-      class="relative overflow-hidden transition-[max-height] duration-700 ease-in-out" [ngClass]="animationClass">
+    <div ScrollAppReveal [delay]="200" *ngIf="viewMode === 'grid'"
+      class="relative overflow-hidden transition-all duration-700 ease-in-out"
+      [ngClass]="animationClass + ' ' + gridMaskClass">
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-
         <ng-container *ngFor="let column of stackColumns; let i = index">
 
           <ng-container *ngFor="let stack of column">
@@ -58,17 +58,12 @@
       </div>
 
 
-      <!-- FADE -->
-      <div *ngIf="!showAllStacks" class="absolute bottom-0 left-0 right-0 h-32
-                  bg-gradient-to-t from-bg to-transparent">
-      </div>
 
 
     </div>
 
 
 
-    <!-- BUTTON -->
     <div *ngIf="viewMode === 'grid'" class="flex justify-center mt-6 gap-3">
 
       <button (click)="toggleStacks()" class="px-6 py-3 rounded-xl bg-white/[0.05]
@@ -88,30 +83,15 @@
 
 
 
-    <!-- CAROUSEL -->
-    <div appReveal [delay]=" 200" *ngIf="viewMode === 'carousel'" class="hidden sm:block mt-16">
+    <div ScrollAppReveal [delay]=" 200" *ngIf="viewMode === 'carousel'" class="hidden sm:block mt-16">
 
       <div class="relative">
 
-        <!-- FADE LEFT -->
         <div class="
-          absolute left-0 top-0 bottom-0 w-32
-          bg-gradient-to-r from-bg to-transparent
-          z-10 pointer-events-none">
-        </div>
-
-        <!-- FADE RIGHT -->
-        <div class="
-          absolute right-0 top-0 bottom-0 w-32
-          bg-gradient-to-l from-bg to-transparent
-          z-10 pointer-events-none">
-        </div>
-
-
-        <!-- VIEWPORT -->
-        <div class="overflow-hidden">
-
-          <!-- TRACK -->
+          overflow-hidden
+          [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]
+          [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]
+        ">
           <div class="
             flex gap-6 w-max
 
@@ -119,7 +99,6 @@
             hover:[animation-play-state:paused]
           ">
 
-            <!-- ORIGINAL -->
             <ng-container *ngFor="let column of stackColumns">
 
               <div class="flex flex-col gap-6 min-w-[280px]">
@@ -169,7 +148,6 @@
 
 
 
-            <!-- DUPLICATE FOR LOOP -->
             <ng-container *ngFor="let column of stackColumns">
 
               <div class="flex flex-col gap-6 min-w-[280px]">
