@@ -15,7 +15,6 @@ Seção 2 — Variáveis globais
     env:
         REGISTRY: Registry Docker utilizado
         IMAGE_NAME: Nome da imagem no GHCR
-        GHCR_USERNAME: Usuário do GitHub  
         HOST_PORT: Porta externa do servidor
         CONTAINER_PORT: Porta interna do container
         CONTAINER_NAME: Nome do container no Docker
