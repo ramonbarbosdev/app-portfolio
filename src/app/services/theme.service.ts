@@ -1,30 +1,68 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
+export type Theme = 'dark' | 'light';
+
+@Injectable({
+  providedIn: 'root',
+})
 export class ThemeService {
+  
+  private readonly STORAGE_KEY = 'theme';
 
-  private transitioning = false;
+  private currentTheme: Theme = 'dark';
 
-  setTheme(primary: string, secondary: string) {
+  constructor() {
+    this.init();
+  }
+
+  private init(): void {
+
+    const saved = localStorage.getItem(this.STORAGE_KEY) as Theme | null;
+
+    if (saved) {
+      this.setTheme(saved);
+      return;
+    }
+
+    // detecta preferência do sistema
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    this.setTheme(prefersLight ? 'light' : 'dark');
+
+  }
+
+  setTheme(theme: Theme): void {
+
+    this.currentTheme = theme;
 
     const root = document.documentElement;
 
-    root.style.setProperty('--bg-glow-primary-next', primary);
-    root.style.setProperty('--bg-glow-secondary-next', secondary);
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+    } else {
+      root.removeAttribute('data-theme');
+    }
 
-    this.transitioning = true;
+    localStorage.setItem(this.STORAGE_KEY, theme);
 
-    setTimeout(() => {
-
-      root.style.setProperty('--bg-glow-primary', primary);
-      root.style.setProperty('--bg-glow-secondary', secondary);
-
-      this.transitioning = false;
-
-    }, 1200);
   }
 
-  isTransitioning() {
-    return this.transitioning;
+  toggle(): void {
+
+    this.setTheme(this.currentTheme === 'dark' ? 'light' : 'dark');
+
   }
+
+  getTheme(): Theme {
+
+    return this.currentTheme;
+
+  }
+
+  isLight(): boolean {
+
+    return this.currentTheme === 'light';
+
+  }
+
 }

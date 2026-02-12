@@ -1,0 +1,89 @@
+.aurora-bg {
+
+  background:
+
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(var(--bg-glow-primary), 0.20),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(var(--bg-glow-secondary), 0.18),
+      transparent 50%
+    ),
+
+    radial-gradient(
+      circle at 30% 75%,
+      rgba(var(--bg-glow-primary), 0.12),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(var(--bg-glow-secondary), 0.10),
+      transparent 50%
+    );
+
+  filter: blur(110px);
+
+  animation: auroraMove 30s ease-in-out infinite alternate;
+
+}
+
+.aurora-bg::after {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at center,
+    transparent 40%,
+    var(--color-bg) 100%
+  );
+
+}
+
+.texture-noise {
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.035;
+
+  mix-blend-mode: soft-light;
+
+  background-image: url("data:image/svg+xml,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>\
+<filter id='noise'>\
+<feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/>\
+</filter>\
+<rect width='100%' height='100%' filter='url(%23noise)' opacity='1'/>\
+</svg>");
+
+}
+
+@keyframes auroraMove {
+
+  0% {
+
+    transform: translate(-5%, -5%) scale(1);
+
+  }
+
+  50% {
+
+    transform: translate(5%, -3%) scale(1.05);
+
+  }
+
+  100% {
+
+    transform: translate(-3%, 5%) scale(1.08);
+
+  }
+
+}

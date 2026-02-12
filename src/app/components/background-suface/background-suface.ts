@@ -10,13 +10,5 @@ import { ThemeService } from '../../services/theme.service';
 export class BackgroundSuface {
   isTransitioning = false;
 
-  constructor(private theme: ThemeService) { }
-
-  ngOnInit() {
-
-    setInterval(() => {
-      this.isTransitioning = this.theme.isTransitioning();
-    }, 50);
-
-  }
+ 
 }

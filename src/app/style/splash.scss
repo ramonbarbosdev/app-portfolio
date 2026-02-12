@@ -1,0 +1,25 @@
+@keyframes splashFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.splash-fade-out {
+  animation: splashFadeOut 0.7s forwards;
+}
+
+@keyframes splashFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.splash-title {
+  animation: splashFadeInUp 1s ease;
+}
