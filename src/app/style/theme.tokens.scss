@@ -1,48 +1,76 @@
 @theme {
 
-  /* DARK THEME (default) */
+  /* BACKGROUND */
+  --color-bg: #0B1220;
 
-  --color-bg: #0F223A;
-
+  /* SURFACES */
   --color-surface: #111827;
-  --color-surface2: #162033;
+  --color-surface2: #0F172A;
 
+  /* PRIMARY */
   --color-primary: #38BDF8;
   --color-primary-hover: #60A5FA;
   --color-primarySoft: rgba(56, 189, 248, 0.12);
 
-  --color-text: #E5E7EB;
+  /* TEXT */
+  --color-text: #E6EDF3;
   --color-textMuted: #94A3B8;
 
-  --color-border: #1F2937;
+  /* BORDER */
+  --color-border: #1E293B;
 
-  --bg-glow-primary: 56, 189, 248;
-  --bg-glow-secondary: 37, 99, 235;
+  /* GLOW */
+  --bg-glow-primary: 56,189,248;
+  --bg-glow-secondary: 59,130,246;
+  --bg-glow-tertiary: 34,197,94;
+  --bg-glow-warm: 251,191,36;
 
-  --animate-stack-scroll: stack-scroll 40s linear infinite;
+  --aurora-opacity-1: 0.25;
+  --aurora-opacity-2: 0.22;
+  --aurora-opacity-3: 0.18;
+  --aurora-opacity-4: 0.12;
+
+  --aurora-blur: 110px;
+  --noise-opacity: 0.035;
 
 }
 
-
-/* LIGHT THEME OVERRIDE */
-
 [data-theme="light"] {
 
+  /* BACKGROUND */
   --color-bg: #F8FAFC;
 
+  /* SURFACES */
   --color-surface: #FFFFFF;
   --color-surface2: #F1F5F9;
 
+  /* PRIMARY */
   --color-primary: #0284C7;
   --color-primary-hover: #0369A1;
   --color-primarySoft: rgba(2, 132, 199, 0.12);
 
+  /* TEXT */
   --color-text: #0F172A;
   --color-textMuted: #64748B;
 
+  /* BORDER */
   --color-border: #E2E8F0;
 
-  --bg-glow-primary: 2, 132, 199;
-  --bg-glow-secondary: 59, 130, 246;
+  /* GLOW — cores ligeiramente mais frias */
+  --bg-glow-primary: 59,130,246;
+  --bg-glow-secondary: 99,102,241;
+  --bg-glow-tertiary: 16,185,129;
+  --bg-glow-warm: 245,158,11;
+
+  /* AURORA — MUITO MAIS SUTIL */
+  --aurora-opacity-1: 0.10;
+  --aurora-opacity-2: 0.08;
+  --aurora-opacity-3: 0.06;
+  --aurora-opacity-4: 0.05;
+
+  /* CRÍTICO: blur menor no light */
+  --aurora-blur: 80px;
+
+  --noise-opacity: 0.015;
 
 }

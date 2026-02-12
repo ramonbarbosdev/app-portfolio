@@ -31,124 +31,30 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Formação -->
-      <div ScrollAppReveal [delay]="200" class="group rounded-2xl p-6
-              bg-white/[0.03]
-              border border-white/[0.08]
-              hover:border-white/[0.18]
-              transition-all duration-500">
+      <app-card-about ScrollAppReveal [delay]="200" [titulo]="'Formação'"
+        [subtitulo]="'Graduado em Sistemas de Informação, com base sólida em desenvolvimento de software e arquitetura de sistemas.'"
+        [icon]="'pi pi-graduation-cap'"></app-card-about>
 
-        <i class="pi pi-graduation-cap text-2xl text-primary mb-4"></i>
+      <app-card-about ScrollAppReveal [delay]="300" [titulo]="'Especialidade'"
+        [subtitulo]="'Foco em backend e arquitetura, desenvolvendo APIs REST, aplicações SaaS e sistemas escaláveis.'"
+        [icon]="'devicon-java-plain'"></app-card-about>
+      <app-card-about ScrollAppReveal [delay]="400" [titulo]="'Arquitetura'"
+        [subtitulo]="'Experiência desde a definição da arquitetura até a implementação e entrega em produção.'"
+        [icon]="'pi pi-sitemap '"></app-card-about>
 
-        <h3 class="text-white text-lg font-medium mb-2">
-          Formação
-        </h3>
+         <app-card-about ScrollAppReveal [delay]="500" [titulo]="'Tecnologias'"
+        [subtitulo]="'Experiência com Java, Spring Boot, Node.js e Angular no desenvolvimento de aplicações modernas.'"
+        [icon]="'devicon-spring-plain'"></app-card-about>
 
-        <p class="text-white/60 text-sm leading-relaxed">
-          Graduado em Sistemas de Informação, com base sólida em desenvolvimento de software e arquitetura de sistemas.
-        </p>
+        
+         <app-card-about ScrollAppReveal [delay]="600" [titulo]="'Qualidade'"
+        [subtitulo]="'Prioridade em código limpo, organização e desenvolvimento de sistemas bem estruturados.'"
+        [icon]="'pi pi-check-circle'"></app-card-about>
 
-      </div>
-
-
-      <!-- Especialidade -->
-      <div ScrollAppReveal [delay]="300" class="group rounded-2xl p-6
-              bg-white/[0.03]
-              border border-white/[0.08]
-              hover:border-white/[0.18]
-              transition-all duration-500">
-
-        <i class="devicon-java-plain text-3xl text-primary mb-4"></i>
-
-        <h3 class="text-white text-lg font-medium mb-2">
-          Especialidade
-        </h3>
-
-        <p class="text-white/60 text-sm leading-relaxed">
-          Foco em backend e arquitetura, desenvolvendo APIs REST, aplicações SaaS e sistemas escaláveis.
-        </p>
-
-      </div>
-
-
-      <!-- Arquitetura -->
-      <div ScrollAppReveal [delay]="400" class="group rounded-2xl p-6
-              bg-white/[0.03]
-              border border-white/[0.08]
-              hover:border-white/[0.18]
-              transition-all duration-500">
-
-        <i class="pi pi-sitemap text-2xl text-primary mb-4"></i>
-
-        <h3 class="text-white text-lg font-medium mb-2">
-          Arquitetura
-        </h3>
-
-        <p class="text-white/60 text-sm leading-relaxed">
-          Experiência desde a definição da arquitetura até a implementação e entrega em produção.
-        </p>
-
-      </div>
-
-
-      <!-- Tecnologias -->
-      <div ScrollAppReveal [delay]="500" class="group rounded-2xl p-6
-              bg-white/[0.03]
-              border border-white/[0.08]
-              hover:border-white/[0.18]
-              transition-all duration-500">
-
-        <i class="devicon-spring-plain text-3xl text-primary mb-4"></i>
-
-        <h3 class="text-white text-lg font-medium mb-2">
-          Tecnologias
-        </h3>
-
-        <p class="text-white/60 text-sm leading-relaxed">
-          Experiência com Java, Spring Boot, Node.js e Angular no desenvolvimento de aplicações modernas.
-        </p>
-
-      </div>
-
-
-      <!-- Qualidade -->
-      <div ScrollAppReveal [delay]="600" class="group rounded-2xl p-6
-              bg-white/[0.03]
-              border border-white/[0.08]
-              hover:border-white/[0.18]
-              transition-all duration-500">
-
-        <i class="pi pi-check-circle text-2xl text-primary mb-4"></i>
-
-        <h3 class="text-white text-lg font-medium mb-2">
-          Qualidade
-        </h3>
-
-        <p class="text-white/60 text-sm leading-relaxed">
-          Prioridade em código limpo, organização e desenvolvimento de sistemas bem estruturados.
-        </p>
-
-      </div>
-
-
-      <!-- Escalabilidade -->
-      <div ScrollAppReveal [delay]="700" class="group rounded-2xl p-6
-              bg-white/[0.03]
-              border border-white/[0.08]
-              hover:border-white/[0.18]
-              transition-all duration-500">
-
-        <i class="pi pi-chart-line text-2xl text-primary mb-4"></i>
-
-        <h3 class="text-white text-lg font-medium mb-2">
-          Escalabilidade
-        </h3>
-
-        <p class="text-white/60 text-sm leading-relaxed">
-          Desenvolvimento de soluções preparadas para crescer com segurança e evoluir continuamente.
-        </p>
-
-      </div>
+           <app-card-about ScrollAppReveal [delay]="700" [titulo]="'Escalabilidade'"
+        [subtitulo]="' Desenvolvimento de soluções preparadas para crescer com segurança e evoluir continuamente.'"
+        [icon]="'pi pi-chart-line'"></app-card-about>
+     
 
     </div>
 
