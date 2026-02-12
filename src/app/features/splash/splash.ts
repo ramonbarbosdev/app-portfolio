@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { BackgroundSuface } from '../../components/background-suface/background-suface';
+import { RevealService } from '../../services/reveal.service';
 
 @Component({
   selector: 'app-splash',
@@ -9,23 +10,27 @@ import { BackgroundSuface } from '../../components/background-suface/background-
 })
 export class Splash {
 
-   @Output() finished = new EventEmitter<void>();
+ 
+  constructor(private revealService: RevealService) {}
+
+  @Output() finished = new EventEmitter<void>();
 
   fadeOut = false;
 
   ngOnInit(): void {
 
-    setTimeout(() => {
+   setTimeout(() => {
 
-      this.fadeOut = true;
+  this.fadeOut = true;
 
-      setTimeout(() => {
+  setTimeout(() => {
 
-        this.finished.emit();
+    this.revealService.unlock();
+    this.finished.emit();
 
-      }, 1500);
+  }, 500);
 
-    }, 1500);
+}, 1000);
 
   }
 }
