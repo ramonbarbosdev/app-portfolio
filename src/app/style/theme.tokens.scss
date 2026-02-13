@@ -33,6 +33,9 @@
   --aurora-blur: 110px;
   --noise-opacity: 0.035;
 
+    --animate-stack-scroll: stack-scroll 40s linear infinite;
+
+
 }
 
 [data-theme="light"] {
@@ -72,5 +75,8 @@
   --aurora-blur: 80px;
 
   --noise-opacity: 0.015;
+
+    --animate-stack-scroll: stack-scroll 40s linear infinite;
+
 
 }
