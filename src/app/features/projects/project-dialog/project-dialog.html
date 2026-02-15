@@ -1,108 +1,179 @@
 <p-dialog
   [(visible)]="visible"
   [modal]="true"
-  [style]="{ width: '800px' }"
+  [dismissableMask]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '820px' }"
   [breakpoints]="{
     '1024px': '700px',
-    '768px': '90vw',
-    '640px': '95vw',
+    '768px': '92vw',
+    '640px': '96vw',
     '480px': '100vw'
   }"
   (onHide)="onClose()"
 >
 
-  <img
-    *ngIf="project?.coverImage"
-    [src]="project?.coverImage"
-    class="w-full rounded mb-5"
-  />
+  <div class="flex flex-col">
+
+    <!-- HERO IMAGE -->
+    <div
+      *ngIf="project?.coverImage"
+      class="mb-6 overflow-hidden rounded-xl border border-white/10"
+    >
+      <img
+        [src]="project?.coverImage"
+        class="w-full h-auto object-cover"
+      />
+    </div>
 
 
-  <div class="mb-2">
+    <!-- TYPE BADGE -->
+    <div class="mb-3">
 
-    <span
-      *ngIf="project?.type"
-      class="text-[11px]
-             uppercase
-             tracking-wider
-             font-semibold
-             px-2 py-1
-             rounded-md
-             border"
+      <span
+        *ngIf="project?.type"
+        class="text-[11px]
+               uppercase
+               tracking-wider
+               font-medium
+               px-2.5 py-1
+               rounded-md
+               border"
 
-      [ngClass]="{
+        [ngClass]="{
 
-        'text-emerald-400 border-emerald-400/30 bg-emerald-400/10':
-          project?.type === 'personal',
+          'text-emerald-400 border-emerald-400/30 bg-emerald-400/10':
+            project?.type === 'personal',
 
-        'text-sky-400 border-sky-400/30 bg-sky-400/10':
+          'text-sky-400 border-sky-400/30 bg-sky-400/10':
+            project?.type === 'professional'
+
+        }"
+      >
+        {{
           project?.type === 'professional'
+            ? 'Projeto profissional'
+            : 'Projeto pessoal'
+        }}
+      </span>
 
-      }"
+    </div>
+
+
+    <!-- TITLE -->
+    <h2 class="text-3xl font-semibold text-white mb-2 leading-tight">
+      {{ project?.title }}
+    </h2>
+
+
+    <!-- COMPANY -->
+    <p
+      *ngIf="project?.company"
+      class="text-white/40 text-sm mb-5"
     >
-      {{ project?.type === 'professional' ? 'Projeto profissional' : 'Projeto pessoal' }}
-    </span>
-
-  </div>
+      {{ project?.company }}
+    </p>
 
 
-  <h2 class="text-2xl font-semibold mb-2">
-    {{ project?.title }}
-  </h2>
-
-
-  <p
-    *ngIf="project?.company"
-    class="text-white/40 text-sm mb-3"
-  >
-    {{ project?.company }}
-  </p>
-
-
-  <p class="text-white/70 mb-6 whitespace-pre-line">
-    {{ project?.longDescription }}
-  </p>
-
-
-  <div class="flex gap-3 mb-6">
-
-    <i
-      *ngFor="let tech of project?.technologies"
-      [class]="'devicon-' + tech + '-plain text-[22px]'"
-      class="text-white/80"
-    ></i>
-
-  </div>
-
-
-  <div class="flex items-center gap-3 flex-wrap">
-
-    <a
-      *ngIf="project?.liveUrl"
-      [href]="project?.liveUrl"
-      target="_blank"
-      class="btn-primary"
+    <!-- DESCRIPTION -->
+    <p
+      class="text-white/70 leading-relaxed mb-7 whitespace-pre-line"
     >
-      Ver sistema
-    </a>
+      {{ project?.longDescription }}
+    </p>
 
 
-    <a
-      *ngIf="project?.githubUrl"
-      [href]="project?.githubUrl"
-      target="_blank"
-       class="btn-primary"
+    <!-- TECHNOLOGIES -->
+    <div
+      *ngIf="project?.technologies?.length"
+      class="flex flex-wrap gap-2 mb-8"
     >
-      Ver código
-    </a>
+
+      <div
+        *ngFor="let tech of project?.technologies"
+        class="
+          flex items-center gap-2
+          px-3 py-1.5
+          rounded-lg
+          bg-white/5
+          border border-white/10
+          text-white/80
+          text-sm
+        "
+      >
+
+        <i
+          [class]="'devicon-' + tech + '-plain text-[16px]'"
+        ></i>
+
+        <span class="capitalize">
+          {{ tech }}
+        </span>
+
+      </div>
+
+    </div>
 
 
-    <span
-      *ngIf="project?.type === 'professional' && !project?.githubUrl"
-      class="text-white/40 text-sm border border-white/10 px-3 py-2 rounded-md"
-    >
-      Código privado
-    </span>
+    <!-- ACTIONS -->
+    <div class="flex items-center gap-3 flex-wrap pt-2">
+
+      <a
+        *ngIf="project?.liveUrl"
+        [href]="project?.liveUrl"
+        target="_blank"
+        class="
+          px-5 py-2.5
+          rounded-lg
+            bg-white
+          text-black
+
+          font-medium
+
+          hover:bg-white/90
+          hover:scale-[1.03]
+          text-sm
+          transition
+        "
+      >
+        Ver sistema
+      </a>
+
+
+      <a
+        *ngIf="project?.githubUrl"
+        [href]="project?.githubUrl"
+        target="_blank"
+        class="
+          px-5 py-2.5
+          rounded-lg
+          border border-white/15
+          hover:border-white/30
+          text-white/90
+          font-medium
+          text-sm
+          transition
+        "
+      >
+        Ver código
+      </a>
+
+
+      <span
+        *ngIf="project?.type === 'professional' && !project?.githubUrl"
+        class="
+          text-white/40
+          text-sm
+          border border-white/10
+          px-4 py-2
+          rounded-lg
+        "
+      >
+        Código privado
+      </span>
+
+    </div>
 
   </div>
 
