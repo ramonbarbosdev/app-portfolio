@@ -177,6 +177,39 @@ export class Projects {
 
 
     // }
+    {
+      id: '7',
+      title: 'Memorix AI',
+
+      description: 'Assistente de IA com memória persistente, capaz de manter contexto entre conversas e oferecer respostas contínuas e personalizadas.',
+
+      longDescription: `
+Memorix AI é um assistente de inteligência artificial com memória persistente, desenvolvido para simular interações contínuas e contextuais, semelhante a plataformas como ChatGPT, porém com arquitetura própria e controle completo de backend e frontend.
+
+O sistema utiliza Angular no frontend para fornecer uma interface moderna, responsiva e otimizada, com gerenciamento reativo de estado, simulação de respostas, e experiência de chat fluida. O backend foi construído com Spring Boot e Spring AI, integrando modelos de linguagem e implementando um sistema de memória persistente baseado em PostgreSQL.
+`,
+
+      coverImage: '/assets/portal.png',
+
+      technologies: [
+        'angular',
+        'spring',
+        'springai',
+        'postgresql',
+        'docker',
+        'nginx',
+        'github'
+      ],
+
+      githubUrl: 'https://github.com/ramonbarbosdev/api-ai',
+
+      liveUrl: 'https://memorixai.ramoncode.com.br/',
+
+      type: 'personal',
+
+      company: 'Projeto comercial próprio'
+    }
+
 
 
 
