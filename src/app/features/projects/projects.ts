@@ -189,7 +189,7 @@ Memorix AI é um assistente de inteligência artificial com memória persistente
 O sistema utiliza Angular no frontend para fornecer uma interface moderna, responsiva e otimizada, com gerenciamento reativo de estado, simulação de respostas, e experiência de chat fluida. O backend foi construído com Spring Boot e Spring AI, integrando modelos de linguagem e implementando um sistema de memória persistente baseado em PostgreSQL.
 `,
 
-      coverImage: '/assets/portal.png',
+      coverImage: '/assets/ai.png',
 
       technologies: [
         'angular',
