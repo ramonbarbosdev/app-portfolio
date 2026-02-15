@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { HeaderPadrao } from "../../components/header-padrao/header-padrao";
-import { RevealDirective } from '../../core/directives/scroll-reaveal-directive';
+import { ScrollRevealDirective } from '../../core/directives/scroll-reaveal-directive';
 
 interface StackItem {
   name: string;
@@ -13,7 +13,7 @@ interface StackItem {
 @Component({
   selector: 'app-stack',
   standalone: true,
-  imports: [CommonModule, HeaderPadrao, RevealDirective],
+  imports: [CommonModule, HeaderPadrao, ScrollRevealDirective],
   templateUrl: './stack.html',
   styleUrl: './stack.scss'
 })
@@ -185,5 +185,12 @@ export class Stack {
     ]
 
   ];
+
+
+  get gridMaskClass(): string {
+    return this.showAllStacks
+      ? ''
+      : '[mask-image:linear-gradient(to_bottom,black_75%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_75%,transparent)]';
+  }
 
 }

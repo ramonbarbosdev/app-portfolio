@@ -2,7 +2,7 @@
 
   <div class="max-w-7xl mx-auto  px-6 ">
 
-    <app-header-padrao appReveal [titulo]="' Projetos Destaques'" [subtitulo]="''">
+    <app-header-padrao ScrollAppReveal [titulo]="' Projetos Destaques'" [subtitulo]="''">
 
 
     </app-header-padrao>
@@ -13,8 +13,8 @@
                 lg:grid-cols-3
                 gap-6">
 
-      <app-project-card appReveal [delay]="i * 200" *ngFor="let project of projects; let i = index" [project]="project"
-        (view)="openProject(project)">
+      <app-project-card ScrollAppReveal [delay]="i * 200" *ngFor="let project of projects; let i = index"
+        [project]="project" (view)="openProject(project)">
 
       </app-project-card>
 

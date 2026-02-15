@@ -1,28 +1,82 @@
 @theme {
 
-  /* FUNDO PRINCIPAL — muito mais agradável */
-  --color-bg: #1E2430;
+  /* BACKGROUND */
+  --color-bg: #0B1220;
 
-  /* SUPERFÍCIES */
-  --color-surface: #252B3B;
-  --color-surface2: #2C3446;
+  /* SURFACES */
+  --color-surface: #111827;
+  --color-surface2: #0F172A;
 
-  /* PRIMARY (seu azul atual, perfeito) */
-  --color-primary: #38bdf8;
-  --color-primarySoft: #38bdf820;
+  /* PRIMARY */
+  --color-primary: #38BDF8;
+  --color-primary-hover: #60A5FA;
+  --color-primarySoft: rgba(56, 189, 248, 0.12);
 
-  /* TEXTO */
-  --color-text: #EAF2FF;
-  --color-textMuted: #A7B4C8;
+  /* TEXT */
+  --color-text: #E6EDF3;
+  --color-textMuted: #94A3B8;
 
-  /* BORDAS */
-  --color-border: #3A4458;
+  /* BORDER */
+  --color-border: #1E293B;
 
   /* GLOW */
   --bg-glow-primary: 56, 189, 248;
-  --bg-glow-secondary: 80, 120, 200;
+  --bg-glow-secondary: 59, 130, 246;
+  --bg-glow-tertiary: 34, 197, 94;
+  --bg-glow-warm: 251, 191, 36;
 
+  --aurora-opacity-1: 0.25;
+  --aurora-opacity-2: 0.22;
+  --aurora-opacity-3: 0.18;
+  --aurora-opacity-4: 0.12;
+
+  --aurora-blur: 110px;
+  --noise-opacity: 0.035;
 
   --animate-stack-scroll: stack-scroll 40s linear infinite;
+
+
+}
+
+[data-theme="light"] {
+
+  /* BACKGROUND */
+  --color-bg: #F8FAFC;
+
+  /* SURFACES */
+  --color-surface: #FFFFFF;
+  --color-surface2: #F1F5F9;
+
+  /* PRIMARY */
+  --color-primary: #0284C7;
+  --color-primary-hover: #0369A1;
+  --color-primarySoft: rgba(2, 132, 199, 0.12);
+
+  /* TEXT */
+  --color-text: #0F172A;
+  --color-textMuted: #64748B;
+
+  /* BORDER */
+  --color-border: #E2E8F0;
+
+  /* GLOW — cores ligeiramente mais frias */
+  --bg-glow-primary: 59, 130, 246;
+  --bg-glow-secondary: 99, 102, 241;
+  --bg-glow-tertiary: 16, 185, 129;
+  --bg-glow-warm: 245, 158, 11;
+
+  /* AURORA — MUITO MAIS SUTIL */
+  --aurora-opacity-1: 0.10;
+  --aurora-opacity-2: 0.08;
+  --aurora-opacity-3: 0.06;
+  --aurora-opacity-4: 0.05;
+
+  /* CRÍTICO: blur menor no light */
+  --aurora-blur: 80px;
+
+  --noise-opacity: 0.015;
+
+  --animate-stack-scroll: stack-scroll 40s linear infinite;
+
 
 }
