@@ -6,9 +6,9 @@
 
     <div class="mb-6 flex items-center justify-center gap-3 text-white/60">
 
-      <i appReveal [delay]="300" class="devicon-powershell-plain text-lg"></i>
+      <i appReveal [delay]="300" class="devicon-powershell-plain text-lg text-[var(--color-textMuted)]"></i>
 
-      <span appReveal [delay]="400" class="  text-sm">
+      <span appReveal [delay]="400" class="  text-[var(--color-textMuted)]  text-sm">
         Disponível para trabalho freelance
       </span>
 
@@ -16,30 +16,26 @@
 
 
     <h1 appReveal [delay]="500" class="
-      text-white
+     text-[var(--color-text)] 
       font-semibold
-
       text-[42px]
       sm:text-[56px]
       md:text-[72px]
       lg:text-[88px]
-
       leading-[1.05]
-
       tracking-tight
-
       mb-6
     ">
 
       Olá, eu sou <br>
-      <span class="text-primary">Ramon Barbosa</span> <span appReveal [delay]="1500" class="">.</span>
+
+      <span class="  text-[var(--color-primary)] ">Ramon Barbosa</span> <span appReveal [delay]="1500" class="">.</span>
 
     </h1>
 
 
     <p appReveal [delay]="600" class="
-      text-white/60
-
+    text-[var(--color-textMuted)]
       text-base
       sm:text-lg
 
@@ -58,17 +54,12 @@
 
       <button appReveal [delay]="700" (click)="scrollToId('projetos')" class="
           px-7 py-3.5
-
           rounded-full
-
-          bg-white
-          text-black
-
+          bg-[var(--color-text)] 
+          text-[var(--color-suface)] 
           font-medium
-
-          hover:bg-white/90
+          hover:bg-[var(--color-primary-)] 
           hover:scale-[1.03]
-
           active:scale-[0.98]
 
           transition-all duration-300
