@@ -182,6 +182,20 @@ export class Stack {
         icon: 'devicon-github-original ',
         size: 'lg'
       }
+    ],
+    [
+      {
+        name: 'React native',
+        description: 'Utilizado para desenvolver aplicativos nativos para Android e iOS usando JavaScript e React',
+        icon: 'devicon-reactnative-original',
+        size: 'lg'
+      },
+      {
+        name: 'Android Studio',
+        description: 'Ambiente de desenvolvimento integrado para desenvolver para o sistema Android',
+        icon: 'devicon-androidstudio-plain',
+        size: 'lg'
+      },
     ]
 
   ];

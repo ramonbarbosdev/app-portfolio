@@ -32,35 +32,28 @@ export interface Project {
 export class Projects {
   projects: Project[] = [
 
-    // {
-    //   id: '1',
+    {
+      id: '1',
+      title: 'Questify Go',
+      type: 'personal',
+      company: 'Projeto comercial próprio',
+      description: 'Aplicativo mobile de desafio diário',
+      longDescription: `
+      Questify Go é um aplicativo mobile de desafio diário focado em estimular o raciocínio lógico de forma simples, rápida e intuitiva.
+      A proposta é criar um hábito diário de estímulo mental, com uma experiência minimalista e sem distrações.
+      `,
+      coverImage: '/assets/questify.png',
+      technologies: [
+        'expo',
+        'postgresql',
+        'spring',
+        'github',
+       
+      ],
+      githubUrl: 'https://github.com/ramonbarbosdev/app-questify',
+      liveUrl: undefined,
 
-    //   title: 'Sistema de Gestão Pública',
-
-    //   type: 'professional',
-
-    //   company: 'Empresa confidencial',
-
-    //   description: 'Sistema completo de gestão pública municipal',
-
-    //   longDescription: `
-    //   Desenvolvimento de sistema completo para prefeituras com múltiplos módulos,
-    //   incluindo administração, finanças e relatórios. Projeto realizado em equipe sob contrato de confidencialidade.
-    //   `,
-
-    //   coverImage: '/assets/sipec.png',
-
-    //   technologies: [
-    //     'php',
-    //     'postgresql',
-    //     'linux'
-    //   ],
-
-    //   githubUrl: undefined,
-    //   liveUrl: 'https://sipec.w5i.com.br'
-
-    // },
-
+    },
 
     {
       id: '2',
@@ -81,6 +74,7 @@ export class Projects {
         'java',
         'docker',
         'postgresql',
+
 
       ],
       githubUrl: undefined,
@@ -105,10 +99,11 @@ export class Projects {
         'angular',
         'mongodb',
 
+
       ],
       githubUrl: 'https://github.com/ramonbarbosdev/app-sincdb',
       liveUrl: undefined,
-      type: 'personal',
+      type: 'professional',
       company: 'Projeto comercial próprio',
 
     },
@@ -146,7 +141,8 @@ export class Projects {
         'spring',
         'angular',
         'postgresql',
-        'docker'
+        'docker',
+
       ],
 
       githubUrl: 'https://github.com/ramonbarbosdev/api-orcafacil',
@@ -194,11 +190,11 @@ O sistema utiliza Angular no frontend para fornecer uma interface moderna, respo
       technologies: [
         'angular',
         'spring',
-        'springai',
         'postgresql',
         'docker',
         'nginx',
-        'github'
+        'github',
+
       ],
 
       githubUrl: 'https://github.com/ramonbarbosdev/api-ai',
