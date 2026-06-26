@@ -36,11 +36,14 @@ export class Projects {
       id: '1',
       title: 'Questify Go',
       type: 'personal',
-      company: 'Projeto comercial próprio',
-      description: 'Aplicativo mobile de desafio diário',
+      company: 'Produto próprio em desenvolvimento',
+      description: 'Aplicativo mobile de desafios diários com backend próprio e persistência em PostgreSQL',
       longDescription: `
-      Questify Go é um aplicativo mobile de desafio diário focado em estimular o raciocínio lógico de forma simples, rápida e intuitiva.
-      A proposta é criar um hábito diário de estímulo mental, com uma experiência minimalista e sem distrações.
+      Aplicativo mobile criado para estimular o raciocínio lógico por meio de desafios diários rápidos e objetivos.
+
+      Atuei na construção da solução fullstack, com aplicativo em Expo, backend em Spring Boot e persistência em PostgreSQL. A proposta é criar uma experiência simples, recorrente e sem distrações, com estrutura preparada para evolução de conteúdo, usuários e histórico de respostas.
+
+      Destaques: produto autoral, backend próprio, banco relacional e experiência mobile focada em uso diário.
       `,
       coverImage: '/assets/questify.png',
       technologies: [
@@ -58,14 +61,13 @@ export class Projects {
     {
       id: '2',
       title: 'Crédito Rural e Financeiro',
-      description: '',
+      description: 'Sistema web para gestão de operações financeiras, anexos e relatórios gerenciais',
       longDescription: `
-        Desenvolvimento de sistema para crédito rural, consórcios e crédito pessoal, 
-        atuando como Desenvolvedor Full Stack com Spring Boot, Angular. Responsável 
-        também pela hospedagem em VPS, com banco de dados separado da aplicação 
-        e storage dedicado para anexos, garantindo organização, segurança e 
-        escalabilidade, além da criação e manutenção de relatórios gerenciais e 
-        operacionais utilizando JasperSoft. 
+        Sistema web para gestão de crédito rural, consórcios e crédito pessoal, desenvolvido para organizar operações, clientes, anexos e relatórios de uma empresa do setor financeiro.
+
+        Atuei como desenvolvedor fullstack, criando funcionalidades no backend com Spring Boot, frontend em Angular, modelagem de dados e relatórios operacionais com JasperSoft. Também participei da hospedagem em VPS, com banco de dados separado da aplicação e storage dedicado para anexos.
+
+        Destaques: sistema em produção, cliente privado, relatórios gerenciais, separação entre aplicação, banco e arquivos, além de responsabilidade técnica em backend, frontend e deploy.
       `,
       coverImage: '/assets/agrotech.png',
       technologies: [
@@ -87,11 +89,13 @@ export class Projects {
     {
       id: '3',
       title: 'SyncDb',
-      description: '',
+      description: 'Ferramenta para sincronização de dados entre ambientes locais e nuvem',
       longDescription: `
-      Projeto autoral para sincronizar dados entre bancos locais e na nuvem. Devido à 
-      sua utilidade, foi estendido para uma versão desktop e adotado internamente 
-      pela empresa para auxiliar o ambiente de testes.
+      Ferramenta autoral criada para sincronizar dados entre bancos locais e ambiente em nuvem, reduzindo trabalho manual em cenários de teste, homologação e atualização de bases.
+
+      Desenvolvi a solução com backend em Spring Boot e interface em Angular. Pela utilidade prática, o projeto evoluiu para uma versão desktop e passou a ser usado internamente na empresa para apoiar ambientes de teste.
+
+      Destaques: automação de processo técnico, sincronização entre ambientes, uso interno real e evolução de projeto pessoal para ferramenta operacional.
       `,
       coverImage: '/assets/syncdb2.png',
       technologies: [
@@ -104,7 +108,7 @@ export class Projects {
       githubUrl: 'https://github.com/ramonbarbosdev/app-sincdb',
       liveUrl: undefined,
       type: 'professional',
-      company: 'Projeto comercial próprio',
+      company: 'Ferramenta autoral',
 
     },
     // {
@@ -132,9 +136,13 @@ export class Projects {
     {
       id: '5',
       title: 'Orçafácil',
-      description: 'Plataforma de orçamentos multiusuário, com geração de relatórios e gestão de clientes',
+      description: 'SaaS para criação de orçamentos, gestão de clientes e geração de relatórios',
       longDescription: `
-      Sistema geração e gestão de orçamentos desenvolvido para permitir, simular e gerenciar orçamentos de forma estruturada, rápida e escalável.
+      Plataforma SaaS para criação e gestão de orçamentos comerciais, com cadastro de clientes, controle de informações e base preparada para múltiplos usuários.
+
+      Atuei na construção do backend com Spring Boot, estruturação do banco PostgreSQL, organização das regras de negócio e integração com frontend Angular. O projeto foi pensado para transformar um processo comercial manual em um fluxo mais organizado, rastreável e escalável.
+
+      Destaques: arquitetura SaaS, API REST, PostgreSQL, Docker e foco em operação comercial.
       `,
       coverImage: '/assets/saas.png',
       technologies: [
@@ -148,42 +156,44 @@ export class Projects {
       githubUrl: 'https://github.com/ramonbarbosdev/api-orcafacil',
       liveUrl: undefined,
       type: 'professional',
-      company: 'Projeto comercial próprio',
+      company: 'Produto próprio em desenvolvimento',
 
     },
 
 
-    // {
-    //   id: '6',
-    //   title: 'Portal Transparência',
-    //   description: 'Sistema público de consulta de dados',
-    //   longDescription: 'Sistema público de consulta de dados, solução moderna e responsiva, pensada para facilitar a leitura de informações por gestores municipais. Projeto realizado em equipe sob contrato de confidencialidade.',
-    //   coverImage: '/assets/portal.png',
-    //   technologies: [
-    //     'nestjs',
-    //     'react',
-    //     'postgresql',
-    //     'mongodb'
-    //   ],
+    {
+      id: '6',
+      title: 'Portal Transparência',
+      description: 'Sistema público de consulta de dados',
+      longDescription: 'Sistema público de consulta de dados, solução moderna e responsiva, pensada para facilitar a leitura de informações por gestores municipais. Projeto realizado em equipe sob contrato de confidencialidade.',
+      coverImage: '/assets/portal.png',
+      technologies: [
+        'nestjs',
+        'react',
+        'postgresql',
+        'mongodb'
+      ],
 
-    //   githubUrl: undefined,
-    //   liveUrl: 'https://apresentacao.w5i.com.br',
-    //   type: 'professional',
-    //   company: 'Empresa confidencial',
+      githubUrl: undefined,
+      liveUrl: 'https://apresentacao.w5i.com.br',
+      type: 'professional',
+      company: 'Empresa confidencial',
 
 
-    // }
+    },
     {
       id: '7',
       title: 'Memorix AI',
 
-      description: 'Assistente de IA com memória persistente, capaz de manter contexto entre conversas e oferecer respostas contínuas e personalizadas.',
+      description: 'Assistente de IA com memória persistente, contexto entre conversas e arquitetura fullstack própria.',
 
       longDescription: `
-Memorix AI é um assistente de inteligência artificial com memória persistente, desenvolvido para simular interações contínuas e contextuais, semelhante a plataformas como ChatGPT, porém com arquitetura própria e controle completo de backend e frontend.
+Memorix AI é um assistente de inteligência artificial com memória persistente, criado para manter contexto entre conversas e oferecer interações mais contínuas e personalizadas.
 
-O sistema utiliza Angular no frontend para fornecer uma interface moderna, responsiva e otimizada, com gerenciamento reativo de estado, simulação de respostas, e experiência de chat fluida. O backend foi construído com Spring Boot e Spring AI, integrando modelos de linguagem e implementando um sistema de memória persistente baseado em PostgreSQL.
-`,
+Desenvolvi o frontend em Angular com experiência de chat responsiva e backend em Spring Boot/Spring AI, integrando modelo de linguagem com persistência em PostgreSQL. O foco técnico foi estruturar histórico, contexto e memória para permitir respostas mais relevantes ao longo do uso.
+
+Destaques: integração com IA, memória persistente, PostgreSQL, arquitetura fullstack própria e deploy com Docker/nginx.
+      `,
 
       coverImage: '/assets/ai.png',
 
@@ -203,7 +213,7 @@ O sistema utiliza Angular no frontend para fornecer uma interface moderna, respo
 
       type: 'personal',
 
-      company: 'Projeto comercial próprio'
+      company: 'Produto pr?prio em desenvolvimento'
     }
 
 
