@@ -147,7 +147,7 @@ export class Projects {
 
       githubUrl: 'https://github.com/ramonbarbosdev/api-orcafacil',
       liveUrl: undefined,
-      type: 'personal',
+      type: 'professional',
       company: 'Projeto comercial próprio',
 
     },
