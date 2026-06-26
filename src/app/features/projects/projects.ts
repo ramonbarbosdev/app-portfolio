@@ -131,10 +131,10 @@ export class Projects {
     // },
     {
       id: '5',
-      title: 'Sistema de Orçamentos SaaS',
-      description: 'Plataforma SaaS com precificação dinâmica',
+      title: 'Orçafácil',
+      description: 'Plataforma de orçamentos multiusuário, com geração de relatórios e gestão de clientes',
       longDescription: `
-      Sistema SaaS de geração e gestão de orçamentos desenvolvido para permitir que empresas criem, simulem e gerenciem orçamentos de forma estruturada, rápida e escalável.
+      Sistema geração e gestão de orçamentos desenvolvido para permitir, simular e gerenciar orçamentos de forma estruturada, rápida e escalável.
       `,
       coverImage: '/assets/saas.png',
       technologies: [
