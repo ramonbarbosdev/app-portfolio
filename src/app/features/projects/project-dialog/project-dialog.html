@@ -76,12 +76,11 @@
     </p>
 
 
-    <!-- DESCRIPTION -->
-    <p
-      class="text-white/70 leading-relaxed mb-7 whitespace-pre-line"
-    >
-      {{ project?.longDescription }}
-    </p>
+    <!-- DESCRIPTION (Markdown) -->
+    <div
+      class="project-md text-white/70 leading-relaxed mb-7"
+      [innerHTML]="project?.longDescription | markdown"
+    ></div>
 
 
     <!-- TECHNOLOGIES -->
