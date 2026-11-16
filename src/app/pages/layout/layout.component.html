@@ -58,44 +58,37 @@
 
     <section id="cases" class="section">
       <h2>{{ casesIntro.title }}</h2>
-      <p class="section-lead">{{ casesIntro.lead }}</p>
+      <p class="section-lead" *ngIf="casesIntro.lead">{{ casesIntro.lead }}</p>
 
-      <article class="featured" *ngIf="featured as f">
-        <div class="featured-head">
-          <div>
-            <p class="meta">{{ f.label }}</p>
-            <h3>{{ f.title }}</h3>
+      <div class="projects-grid projects-grid--primary">
+        <article class="project-card" *ngFor="let item of primaryProjects">
+          <div class="project-preview">
+            <div class="browser">
+              <div class="browser-chrome">
+                <span class="browser-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </span>
+                <span class="browser-url">{{ previewUrl(item) }}</span>
+              </div>
+              <div class="browser-viewport">
+                <img [src]="item.image" [alt]="'Tela de ' + item.title" loading="lazy" />
+              </div>
+            </div>
           </div>
-          <p class="proof">{{ f.proof }}</p>
-        </div>
-        <img [src]="f.image" [alt]="'Tela do sistema ' + f.title" loading="lazy" />
-        <dl class="story">
-          <div>
-            <dt>Contexto</dt>
-            <dd>{{ f.challenge }}</dd>
-          </div>
-          <div>
-            <dt>O que fiz</dt>
-            <dd>{{ f.solution }}</dd>
-          </div>
-          <div>
-            <dt>Hoje</dt>
-            <dd>{{ f.result }}</dd>
-          </div>
-        </dl>
-        <p class="tech">{{ f.technologies }}</p>
-        <a *ngIf="f.link" class="text-link" [href]="f.link" target="_blank" rel="noopener">
-          {{ f.linkLabel }}
-        </a>
-      </article>
-
-      <div class="case-grid">
-        <article class="case" *ngFor="let item of cases">
-          <img [src]="item.image" [alt]="'Tela de ' + item.title" loading="lazy" />
-          <div class="case-body">
+          <div class="project-body">
             <p class="meta">{{ item.label }}</p>
             <h3>{{ item.title }}</h3>
-            <dl class="story">
+            <p class="project-proof" *ngIf="item.proof">{{ item.proof }}</p>
+            <p class="project-summary">{{ item.result }}</p>
+            <button
+              type="button"
+              class="story-toggle"
+              (click)="toggleStory(item.title)"
+              [attr.aria-expanded]="isStoryOpen(item.title)"
+            >
+              Como foi {{ isStoryOpen(item.title) ? '−' : '+' }}
+            </button>
+            <dl class="story story-accordion" *ngIf="isStoryOpen(item.title)">
               <div>
                 <dt>Contexto</dt>
                 <dd>{{ item.challenge }}</dd>
@@ -104,13 +97,66 @@
                 <dt>O que fiz</dt>
                 <dd>{{ item.solution }}</dd>
               </div>
+            </dl>
+            <p class="tech">{{ item.technologies }}</p>
+            <a
+              *ngIf="item.link"
+              class="project-cta"
+              [href]="item.link"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ item.linkLabel }}
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="projects-grid projects-grid--secondary" *ngIf="secondaryProjects.length">
+        <article class="project-card" *ngFor="let item of secondaryProjects">
+          <div class="project-preview">
+            <div class="browser">
+              <div class="browser-chrome">
+                <span class="browser-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </span>
+                <span class="browser-url">{{ previewUrl(item) }}</span>
+              </div>
+              <div class="browser-viewport">
+                <img [src]="item.image" [alt]="'Tela de ' + item.title" loading="lazy" />
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="meta">{{ item.label }}</p>
+            <h3>{{ item.title }}</h3>
+            <p class="project-summary">{{ item.result }}</p>
+            <button
+              type="button"
+              class="story-toggle"
+              (click)="toggleStory(item.title)"
+              [attr.aria-expanded]="isStoryOpen(item.title)"
+            >
+              Como foi {{ isStoryOpen(item.title) ? '−' : '+' }}
+            </button>
+            <dl class="story story-accordion" *ngIf="isStoryOpen(item.title)">
               <div>
-                <dt>Hoje</dt>
-                <dd>{{ item.result }}</dd>
+                <dt>Contexto</dt>
+                <dd>{{ item.challenge }}</dd>
+              </div>
+              <div>
+                <dt>O que fiz</dt>
+                <dd>{{ item.solution }}</dd>
               </div>
             </dl>
             <p class="tech">{{ item.technologies }}</p>
-            <a *ngIf="item.link" class="text-link" [href]="item.link" target="_blank" rel="noopener">
+            <a
+              *ngIf="item.link"
+              class="project-cta"
+              [href]="item.link"
+              target="_blank"
+              rel="noopener"
+            >
               {{ item.linkLabel }}
             </a>
           </div>

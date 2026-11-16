@@ -16,6 +16,7 @@ interface CaseStudy {
   technologies: string;
   link?: string;
   linkLabel?: string;
+  proof?: string;
 }
 
 interface FeaturedCase extends CaseStudy {
@@ -45,6 +46,7 @@ type Theme = 'light' | 'dark';
 export class Layout {
   menuOpen = false;
   theme: Theme = 'light';
+  private readonly expandedStories = new Set<string>();
 
   constructor() {
     this.theme = this.initialTheme();
@@ -89,7 +91,7 @@ export class Layout {
       'Relatórios de várias páginas levavam de 2 a 4 minutos. Hoje saem em até 10 segundos.',
     challenge:
       'A operação rodava em planilha, documentos se perdiam e cada linha de crédito (rural, pessoal, consórcio) tinha regra própria.',
-      solution:
+    solution:
       'Fui líder técnico no time do cliente. Conduzi a API principal, uma segunda API só para relatórios com fila, anexos no S3, login com JWT e perfis, e um Kanban por produto. O Jasper pesava na memória e deixava a API lenta, então propus tirá-lo da API principal.',
     result:
       'Cerca de um ano no ar, umas 10 pessoas usando todo dia. É pouca gente, mas eles dependem dele.',
@@ -147,7 +149,7 @@ export class Layout {
       result:
         'Dá para montar a proposta e formalizar o serviço sem trocar de ferramenta.',
       technologies: 'Spring Boot, React, PostgreSQL',
-      link: '',
+      link: 'https://nexfiscal.ramoncode.com.br/',
       linkLabel: 'Abrir o NexFiscal',
     },
     {
@@ -229,6 +231,45 @@ export class Layout {
   readonly footer = {
     tagline: 'Full stack · liderança técnica · consultoria',
   };
+
+  get primaryProjects(): CaseStudy[] {
+    const { proof, ...agrotech } = this.featured;
+    return [
+      { ...agrotech, proof },
+      ...this.cases.filter((item) =>
+        ['API de notificação WhatsApp', 'NexFiscal'].includes(item.title),
+      ),
+    ];
+  }
+
+  get secondaryProjects(): CaseStudy[] {
+    return this.cases.filter((item) =>
+      ['eSimples', 'SyncDb', 'SIPEC Mobile'].includes(item.title),
+    );
+  }
+
+  isStoryOpen(title: string): boolean {
+    return this.expandedStories.has(title);
+  }
+
+  toggleStory(title: string): void {
+    if (this.expandedStories.has(title)) {
+      this.expandedStories.delete(title);
+      return;
+    }
+    this.expandedStories.add(title);
+  }
+
+  previewUrl(item: CaseStudy): string {
+    if (!item.link) {
+      return 'app.local';
+    }
+    try {
+      return new URL(item.link).hostname;
+    } catch {
+      return item.link.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    }
+  }
 
   toggleTheme(): void {
     this.theme = this.theme === 'dark' ? 'light' : 'dark';

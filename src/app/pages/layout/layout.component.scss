@@ -12,6 +12,9 @@
 .site-shell {
   --bg: #fbfbfd;
   --surface: #f2f2f5;
+  --preview-frame: #dfe6f0;
+  --browser-chrome: #ffffff;
+  --browser-url-bg: #f3f4f6;
   --ink: #17171a;
   --muted: #5d5e66;
   --line: #dedee3;
@@ -28,6 +31,9 @@
 .site-shell[data-theme='dark'] {
   --bg: #0a0a0b;
   --surface: #161618;
+  --preview-frame: #24262e;
+  --browser-chrome: #f4f4f6;
+  --browser-url-bg: #e4e6ea;
   --ink: #f4f4f6;
   --muted: #9b9ba4;
   --line: #2a2a2e;
@@ -259,55 +265,137 @@ h3 {
   letter-spacing: -0.025em;
 }
 
-.featured,
-.case {
+.projects-grid {
+  display: grid;
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.projects-grid--primary {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.projects-grid--secondary {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 28px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border-radius: 28px;
+  overflow: hidden;
 }
 
-.featured {
-  margin-top: 56px;
-  padding: 48px;
+.project-preview {
+  background: var(--preview-frame);
+  padding: 22px 22px 0;
 }
 
-.featured-head {
+.browser {
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(10, 16, 30, 0.08);
+}
+
+.site-shell[data-theme='dark'] .browser {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.browser-chrome {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
-  align-items: end;
-  margin-bottom: 36px;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--browser-chrome);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.featured h3 {
-  margin-top: 6px;
-  font-size: clamp(28px, 3vw, 40px);
+.browser-dots {
+  display: flex;
+  gap: 6px;
 }
 
-.proof {
-  font-size: clamp(24px, 2.7vw, 36px);
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+.browser-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c5c9d1;
 }
 
-.featured > img,
-.case > img {
+.browser-url {
+  display: block;
+  max-width: 100%;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--browser-url-bg);
+  color: #6b7280;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.browser-viewport img {
   display: block;
   width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 14px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
   background: #fff;
+}
+
+.project-body {
+  padding: 28px 28px 32px;
+}
+
+.project-body h3 {
+  margin-top: 6px;
+  font-size: clamp(22px, 2.2vw, 30px);
+}
+
+.project-proof {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.project-summary {
+  margin-top: 12px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.story-toggle {
+  margin-top: 18px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.story-toggle:hover {
+  text-decoration: underline;
 }
 
 .story {
   display: grid;
-  gap: 18px;
+  gap: 16px;
+  margin-top: 14px;
 }
 
-.featured .story {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-  margin-top: 36px;
+.story-accordion {
+  padding-top: 4px;
+  border-top: 1px solid var(--line);
 }
 
 dt {
@@ -323,47 +411,22 @@ dd {
 }
 
 .tech {
-  margin-top: 28px;
+  margin-top: 22px;
   font-size: 14px;
   color: var(--muted);
 }
 
-.text-link {
+.project-cta {
   display: inline-block;
   margin-top: 14px;
   color: var(--accent);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   text-decoration: none;
 }
 
-.text-link:hover {
+.project-cta:hover {
   text-decoration: underline;
-}
-
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.case {
-  padding: 20px 20px 32px;
-}
-
-.case > img {
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top left;
-}
-
-.case-body {
-  padding: 28px 12px 0;
-}
-
-.case h3 {
-  margin: 4px 0 22px;
 }
 
 .more-title {
@@ -550,21 +613,11 @@ dd {
     padding-top: 80px;
   }
 
-  .featured {
-    padding: 24px 20px 32px;
-    border-radius: 24px;
-  }
-
-  .featured-head,
-  .featured .story,
-  .case-grid,
+  .projects-grid--primary,
+  .projects-grid--secondary,
   .about,
   .stack-row {
     grid-template-columns: 1fr;
-  }
-
-  .featured-head {
-    gap: 20px;
   }
 
   .about,
