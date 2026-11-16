@@ -39,8 +39,8 @@ type Theme = 'light' | 'dark';
 @Component({
   selector: 'app-layout',
   imports: [CommonModule],
-  templateUrl: './layout.html',
-  styleUrl: './layout.scss',
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss',
 })
 export class Layout {
   menuOpen = false;
@@ -65,20 +65,20 @@ export class Layout {
 
   readonly hero = {
     name: 'Ramon Barbosa',
-    role: 'Desenvolvedor full stack, líder de equipe e consultor. Java, Spring Boot e Angular.',
+    role: 'Desenvolvedor full stack e líder técnico. Java, PHP, Angular, React e React Native.',
     lead:
-      'Trabalho em equipe e com clientes: arquitetura, API, front, banco e deploy. Lidero entregas, alinho expectativa com negócio e ajudo o time quando produção ou escopo travam.',
+      'Trabalho com times e clientes, da conversa sobre o problema até a API, as telas, o banco e o deploy. Também lidero entregas e entro quando produção ou escopo travam.',
     note:
-      'Trabalho recente: Agrotech, eSimples e a API própria de WhatsApp (notificacao.ramoncode.com.br). Aberto a pleno, sênior, liderança técnica ou consultoria remota.',
+      '',
     primaryCta: 'Ver projetos',
     secondaryCta: 'Falar comigo',
-    photo: "/assets/perfil.jpeg",
+    photo: '/assets/perfil.jpeg',
   };
-
+  
   readonly casesIntro = {
     title: 'Projetos',
     lead:
-      'A maior parte é trabalho para cliente; entre os meus está a API de WhatsApp para integrar em sistemas, bots e agents. O destaque em cima é o que mais me ensinou em produção.',
+      'Quase tudo é trabalho para cliente. A API de WhatsApp é minha. O primeiro projeto é o que mais me ensinou em produção.',
   };
 
   readonly featured: FeaturedCase = {
@@ -89,8 +89,8 @@ export class Layout {
       'Relatórios de várias páginas levavam de 2 a 4 minutos. Hoje saem em até 10 segundos.',
     challenge:
       'A operação rodava em planilha, documentos se perdiam e cada linha de crédito (rural, pessoal, consórcio) tinha regra própria.',
-    solution:
-      'Atuei no time do cliente como líder técnico e consultor. Conduzi a API principal, a segunda API só para relatórios com fila, anexos no S3, JWT com perfis e Kanban por produto. Quando o Jasper pesava na memória e deixava a API lenta, propus tirá-lo da API principal.',
+      solution:
+      'Fui líder técnico no time do cliente. Conduzi a API principal, uma segunda API só para relatórios com fila, anexos no S3, login com JWT e perfis, e um Kanban por produto. O Jasper pesava na memória e deixava a API lenta, então propus tirá-lo da API principal.',
     result:
       'Cerca de um ano no ar, umas 10 pessoas usando todo dia. É pouca gente, mas eles dependem dele.',
     technologies: 'Spring Boot, Angular, PostgreSQL, S3, Jasper, Docker',
@@ -147,7 +147,7 @@ export class Layout {
       result:
         'Dá para montar a proposta e formalizar o serviço sem trocar de ferramenta.',
       technologies: 'Spring Boot, React, PostgreSQL',
-      link: 'https://nexfiscal.ramoncode.com.br/',
+      link: '',
       linkLabel: 'Abrir o NexFiscal',
     },
     {
