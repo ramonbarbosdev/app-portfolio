@@ -1,15 +1,253 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-interface CaseStudy { title: string; label: string; image: string; challenge: string; solution: string; result: string; technologies: string; link?: string; linkLabel?: string; }
+interface NavItem {
+  label: string;
+  targetId: string;
+}
 
-@Component({ selector: 'app-layout', imports: [CommonModule], templateUrl: './layout.html', styleUrl: './layout.scss' })
+interface CaseStudy {
+  title: string;
+  label: string;
+  image: string;
+  challenge: string;
+  solution: string;
+  result: string;
+  technologies: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+interface FeaturedCase extends CaseStudy {
+  proof: string;
+}
+
+interface MoreItem {
+  title: string;
+  text: string;
+  image: string;
+}
+
+interface StackGroup {
+  label: string;
+  items: string;
+  where: string;
+}
+
+type Theme = 'light' | 'dark';
+
+@Component({
+  selector: 'app-layout',
+  imports: [CommonModule],
+  templateUrl: './layout.html',
+  styleUrl: './layout.scss',
+})
 export class Layout {
   menuOpen = false;
-  cases: CaseStudy[] = [
-    { title: 'Plataforma de crédito e gestão financeira', label: 'Sistema sob medida', image: '/assets/agrotech.png', challenge: 'A operação dependia de planilhas, documentos dispersos e fluxos diferentes para cada linha de crédito.', solution: 'Uma plataforma centralizada com processos específicos, permissões por perfil, anexos, notificações e relatórios.', result: 'Sistema em uso diário, com mais controle operacional e rastreabilidade para uma operação antes manual.', technologies: 'Spring Boot · Angular · PostgreSQL · Docker' },
-    { title: 'NexFiscal — escritório digital', label: 'Sistema de gestão comercial', image: '/assets/nexfiscal.png', challenge: 'Criar propostas, orçamentos e documentos fiscais com agilidade, sem comprometer a experiência de quem trabalha no computador ou no celular.', solution: 'Um sistema de gestão comercial para produtos e serviços, com geração rápida de propostas, orçamentos e notas fiscais em uma interface adaptada para desktop e mobile.', result: 'Processo comercial e fiscal reunido em uma única plataforma, pensado para reduzir o tempo entre montar uma proposta e formalizar a prestação de serviço.', technologies: 'React · Spring Boot · PostgreSQL', link: 'https://nexfiscal.ramoncode.com.br/', linkLabel: 'Conhecer o NexFiscal' },
-    { title: 'SIPEC Mobile', label: 'Aplicativo publicado', image: 'https://play-lh.googleusercontent.com/X6OjCg0Tesy0ErCQ_YxNk8xG8sgaEiDl_sEN5VxaS9Aa8_6q0IiskhOfC3XExXY_FsUnzTzYH7sgEHjflGnftw=w832-h470-rw', challenge: 'Levar uma operação baseada em backend legado para iOS e Android, preservando regras de negócio e adaptando integrações a novos ambientes.', solution: 'Evolução do backend em APIs reutilizáveis e desenvolvimento mobile com gestão de versões, testes e administração de usuários.', result: 'Produto disponível publicamente para instalação na Google Play.', technologies: 'React Native · PHP · Expo · PostgreSQL', link: 'https://play.google.com/store/apps/details?id=br.com.w5i.sipecmobile&hl=pt_BR', linkLabel: 'Ver na Google Play' },
+  theme: Theme = 'light';
+
+  constructor() {
+    this.theme = this.initialTheme();
+  }
+
+  readonly links = {
+    email: 'ramonlegendario21@gmail.com',
+    github: 'https://github.com/ramonbarbosdev',
+    linkedin: 'https://www.linkedin.com/in/ramonbarbosdev',
+  };
+
+  readonly nav: NavItem[] = [
+    { label: 'Projetos', targetId: 'cases' },
+    { label: 'Sobre', targetId: 'sobre' },
+    { label: 'Stack', targetId: 'stack' },
+    { label: 'Contato', targetId: 'contato' },
   ];
-  scrollTo(id: string): void { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); this.menuOpen = false; }
+
+  readonly hero = {
+    name: 'Ramon Barbosa',
+    role: 'Desenvolvedor full stack, líder de equipe e consultor. Java, Spring Boot e Angular.',
+    lead:
+      'Trabalho em equipe e com clientes: arquitetura, API, front, banco e deploy. Lidero entregas, alinho expectativa com negócio e ajudo o time quando produção ou escopo travam.',
+    note:
+      'Trabalho recente: Agrotech, eSimples e a API própria de WhatsApp (notificacao.ramoncode.com.br). Aberto a pleno, sênior, liderança técnica ou consultoria remota.',
+    primaryCta: 'Ver projetos',
+    secondaryCta: 'Falar comigo',
+    photo: "/assets/perfil.jpeg",
+  };
+
+  readonly casesIntro = {
+    title: 'Projetos',
+    lead:
+      'A maior parte é trabalho para cliente; entre os meus está a API de WhatsApp para integrar em sistemas, bots e agents. O destaque em cima é o que mais me ensinou em produção.',
+  };
+
+  readonly featured: FeaturedCase = {
+    title: 'Agrotech, crédito rural e financeiro',
+    label: 'Cliente, em produção',
+    image: '/assets/agrotech.png',
+    proof:
+      'Relatórios de várias páginas levavam de 2 a 4 minutos. Hoje saem em até 10 segundos.',
+    challenge:
+      'A operação rodava em planilha, documentos se perdiam e cada linha de crédito (rural, pessoal, consórcio) tinha regra própria.',
+    solution:
+      'Atuei no time do cliente como líder técnico e consultor. Conduzi a API principal, a segunda API só para relatórios com fila, anexos no S3, JWT com perfis e Kanban por produto. Quando o Jasper pesava na memória e deixava a API lenta, propus tirá-lo da API principal.',
+    result:
+      'Cerca de um ano no ar, umas 10 pessoas usando todo dia. É pouca gente, mas eles dependem dele.',
+    technologies: 'Spring Boot, Angular, PostgreSQL, S3, Jasper, Docker',
+    link: 'https://sistema.agrotechcredito.com.br',
+    linkLabel: 'Ver o sistema',
+  };
+
+  readonly cases: CaseStudy[] = [
+    {
+      title: 'eSimples',
+      label: 'Cliente · multi-organização',
+      image: '/assets/esimples.png',
+      challenge:
+        'Várias organizações no mesmo produto, cada uma com seus planos, módulos e contratos, sem misturar dado.',
+      solution:
+        'Presto serviço na API do cliente: banco central, database por organização, Flyway nos dois lados, JWT e módulos habilitáveis por tenant. Atuo com o time em arquitetura e evolução do backend.',
+      result:
+        'Plataforma em evolução, com isolamento real de dados entre organizações e módulo de contratos no schema dedicado.',
+      technologies: 'Java 21, Spring Boot, PostgreSQL, Flyway, Docker',
+    },
+    {
+      title: 'API de notificação WhatsApp',
+      label: 'Produto próprio · integração',
+      image: '/assets/notificacao.png',
+      challenge:
+        'Cada sistema do cliente precisava de WhatsApp sem montar gateway, sessão e fila do zero — e ainda controlar uso por empresa.',
+      solution:
+        'API própria em Spring Boot: sessões por organização, planos de uso, fila de envio e integração via API key nos sistemas dos clientes, bots e agents.',
+      result:
+        'Plataforma no ar com gestão multi-organização e cobrança por plano; os clientes consomem a API sem acoplar o gateway ao ERP deles.',
+      technologies: 'Java, Spring Boot, PostgreSQL, Docker, WhatsApp gateway',
+      link: 'https://notificacao.ramoncode.com.br/',
+      linkLabel: 'Ver a plataforma',
+    },
+    {
+      title: 'SyncDb',
+      label: 'App de desktop',
+      image: '/assets/syncdb2.png',
+      challenge:
+        'Manter os dados das tabelas de apoio iguais entre ambientes, numa base com mais de 480 tabelas.',
+      solution:
+        'Ferramenta desktop (evolução de um projeto Spring + Angular) que compara duas bases, mostra pendências e sincroniza, com progresso e cancelamento.',
+      result: 'A verificação e a sincronização da base inteira rodam numa tela só.',
+      technologies: 'Spring Boot, Angular, MongoDB, PostgreSQL',
+    },
+    {
+      title: 'NexFiscal',
+      label: 'Gestão comercial',
+      image: '/assets/nexfiscal.png',
+      challenge:
+        'Orçamento, proposta e nota fiscal ficavam em lugares diferentes, e o sistema precisava funcionar no celular.',
+      solution:
+        'Spring Boot no backend e React no front, com o fluxo comercial e o fiscal no mesmo sistema.',
+      result:
+        'Dá para montar a proposta e formalizar o serviço sem trocar de ferramenta.',
+      technologies: 'Spring Boot, React, PostgreSQL',
+      link: 'https://nexfiscal.ramoncode.com.br/',
+      linkLabel: 'Abrir o NexFiscal',
+    },
+    {
+      title: 'SIPEC Mobile',
+      label: 'App publicado',
+      image: '/assets/sipec-mobile.png',
+      challenge:
+        'O sistema vinha de um backend legado e precisava virar app Android e iOS mantendo as regras de negócio.',
+      solution:
+        'Criei APIs reaproveitáveis e fiz o app em React Native com Expo, incluindo versionamento, testes e gestão de usuários.',
+      result: 'Está publicado na Google Play e App Store.',
+      technologies: 'React Native, Expo, PHP, PostgreSQL',
+      link: 'https://play.google.com/store/apps/details?id=br.com.w5i.sipecmobile&hl=pt_BR',
+      linkLabel: 'Ver na Play Store',
+    },
+   
+  ];
+
+  readonly moreTitle = 'Outras Projetos';
+
+  readonly more: MoreItem[] = [
+    {
+      title: 'Questify',
+      text: 'App de desafio diário com quizzes e perguntas de cálculo, com taxa de vitória.',
+      image: '/assets/questify.png',
+    },
+    {
+      title: 'BI de despesas',
+      text: 'Painel com despesas por classe e por ano. Os dados são atualizados todo dia.',
+      image: '/assets/bi.png',
+    },
+    {
+      title: 'Portal de consulta',
+      text: 'Consulta de empenhos, receitas, repasses e emendas.',
+      image: '/assets/portal.png',
+    },
+  ];
+
+  readonly aboutTitle = 'Sobre';
+
+  readonly about: string[] = [
+    'Sou desenvolvedor full stack, líder de equipe e consultor. Com Java/Spring Boot e Angular atuo do alinhamento com cliente e produto até API, telas, modelagem e deploy. Também mantenho uma API própria de WhatsApp (organização, planos e fila) que integro em sistemas de clientes, bots e agents — além de e-mail, S3 e pipeline no GitHub Actions.',
+    'O sistema da Agrotech é o que mais me ensinou: produção com poucos usuários, mas com dependência total do sistema. Como líder técnico, coordenei parte das entregas e ainda precisei revisar o que cada endpoint devolvia quando as listagens travaram com volume real.',
+    'No eSimples, produto do cliente em que presto serviço, cada organização tem o próprio banco — modelo que também orienta outras entregas SaaS. Em equipe, priorizo PR enxuto, code review objetivo e registro de decisão quando é difícil voltar atrás. Na consultoria, entro para destravar arquitetura, escopo ou performance — não só para codar tela.',
+  ];
+
+  readonly stackTitle = 'Stack';
+
+  readonly stack: StackGroup[] = [
+    {
+      label: 'Backend',
+      items: 'Java 21, Spring Boot, Security, JPA, Flyway',
+      where: '',
+    },
+    {
+      label: 'Frontend',
+      items: 'Angular, React, React Native',
+      where: '',
+    },
+    {
+      label: 'Dados',
+      items: 'PostgreSQL, MongoDB',
+      where: '',
+    },
+    {
+      label: 'Infra',
+      items: 'Docker, nginx, GitHub Actions, JWT, RBAC',
+      where: '',
+    },
+  ];
+
+  readonly contact = {
+    title: 'Contato',
+    lead:
+      'Procuro vaga pleno, sênior ou liderança técnica em Java/Spring Boot, remoto. Também faço consultoria em projetos. Parte do código está no GitHub. Sistemas de clientes são privados, mas explico arquitetura e papel do time numa conversa.',
+  };
+
+  readonly footer = {
+    tagline: 'Full stack · liderança técnica · consultoria',
+  };
+
+  toggleTheme(): void {
+    this.theme = this.theme === 'dark' ? 'light' : 'dark';
+    try {
+      localStorage.setItem('theme', this.theme);
+    } catch {}
+  }
+
+  scrollTo(id: string): void {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.menuOpen = false;
+  }
+
+  private initialTheme(): Theme {
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } catch {
+      return 'light';
+    }
+  }
 }
