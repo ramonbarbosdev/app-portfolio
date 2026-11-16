@@ -78,7 +78,7 @@ export class Layout {
   readonly casesIntro = {
     title: 'Projetos',
     lead:
-      'Quase tudo é trabalho para cliente. A API de WhatsApp é minha. O primeiro projeto é o que mais me ensinou em produção.',
+      '',
   };
 
   readonly featured: FeaturedCase = {
@@ -189,9 +189,10 @@ export class Layout {
   readonly aboutTitle = 'Sobre';
 
   readonly about: string[] = [
-    'Sou desenvolvedor full stack, líder de equipe e consultor. Com Java/Spring Boot e Angular atuo do alinhamento com cliente e produto até API, telas, modelagem e deploy. Também mantenho uma API própria de WhatsApp (organização, planos e fila) que integro em sistemas de clientes, bots e agents — além de e-mail, S3 e pipeline no GitHub Actions.',
-    'O sistema da Agrotech é o que mais me ensinou: produção com poucos usuários, mas com dependência total do sistema. Como líder técnico, coordenei parte das entregas e ainda precisei revisar o que cada endpoint devolvia quando as listagens travaram com volume real.',
-    'No eSimples, produto do cliente em que presto serviço, cada organização tem o próprio banco — modelo que também orienta outras entregas SaaS. Em equipe, priorizo PR enxuto, code review objetivo e registro de decisão quando é difícil voltar atrás. Na consultoria, entro para destravar arquitetura, escopo ou performance — não só para codar tela.',
+    'Desenvolvedor Full Stack com foco em backend Java/Spring Boot e PHP. Atuo no desenvolvimento de soluções web e mobile com forte orientação a produto, buscando transformar problemas reais em sistemas funcionais, intuitivos e de fácil evolução.',
+    'Tenho experiência no desenvolvimento de APIs REST, sistemas multi-tenant, integrações entre serviços e aplicações full stack utilizando Java, PHP, Angular e TypeScript. Trabalho desde a modelagem da solução até a entrega em produção, sempre com foco em organização arquitetural, experiência do usuário e escalabilidade.',
+    'Também possuo vivência com infraestrutura e deploy utilizando Docker, Linux e ambientes VPS, participando ativamente do ciclo completo de desenvolvimento e entrega de aplicações.'
+
   ];
 
   readonly stackTitle = 'Stack';
