@@ -1,5 +1,41 @@
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, NgZone, OnDestroy, inject } from '@angular/core';
+import { RevealOnScrollDirective } from '../../core/directives/reveal-on-scroll.directive';
+
+const heroEnter = trigger('heroEnter', [
+  transition(':enter', [
+    query(
+      '.hero-reveal',
+      [
+        style({ opacity: 0, transform: 'translateY(18px)' }),
+        stagger(65, [
+          animate(
+            '620ms cubic-bezier(0.22, 1, 0.36, 1)',
+            style({ opacity: 1, transform: 'translateY(0)' }),
+          ),
+        ]),
+      ],
+      { optional: true },
+    ),
+  ]),
+]);
+
+const storyAccordion = trigger('storyAccordion', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateY(-8px)' }),
+    animate(
+      '420ms cubic-bezier(0.22, 1, 0.36, 1)',
+      style({ opacity: 1, transform: 'translateY(0)' }),
+    ),
+  ]),
+  transition(':leave', [
+    animate(
+      '320ms cubic-bezier(0.22, 1, 0.36, 1)',
+      style({ opacity: 0, transform: 'translateY(-6px)' }),
+    ),
+  ]),
+]);
 
 interface NavItem {
   label: string;
@@ -39,17 +75,49 @@ type Theme = 'light' | 'dark';
 
 @Component({
   selector: 'app-layout',
-  imports: [CommonModule],
+  imports: [CommonModule, RevealOnScrollDirective],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
+  animations: [heroEnter, storyAccordion],
 })
-export class Layout {
+export class Layout implements AfterViewInit, OnDestroy {
+  private readonly ngZone = inject(NgZone);
+
   menuOpen = false;
   theme: Theme = 'light';
+  headerScrolled = false;
+  readonly reduceMotion =
+    typeof globalThis !== 'undefined' &&
+    globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   private readonly expandedStories = new Set<string>();
 
   constructor() {
     this.theme = this.initialTheme();
+  }
+
+  ngAfterViewInit(): void {
+    this.syncHeaderScroll();
+    this.ngZone.runOutsideAngular(() => {
+      window.addEventListener('scroll', this.onWindowScroll, { passive: true });
+    });
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onWindowScroll);
+  }
+
+  private readonly onWindowScroll = (): void => {
+    const scrolled = window.scrollY > 12;
+    if (scrolled === this.headerScrolled) {
+      return;
+    }
+    this.ngZone.run(() => {
+      this.headerScrolled = scrolled;
+    });
+  };
+
+  private syncHeaderScroll(): void {
+    this.headerScrolled = window.scrollY > 12;
   }
 
   readonly links = {
@@ -130,7 +198,7 @@ export class Layout {
     {
       title: 'SyncDb',
       label: 'App de desktop',
-      image: '/assets/syncdb2.png',
+      image: '/assets/sync.png',
       challenge:
         'Manter os dados das tabelas de apoio iguais entre ambientes, numa base com mais de 480 tabelas.',
       solution:
@@ -279,7 +347,13 @@ export class Layout {
   }
 
   scrollTo(id: string): void {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.getElementById(id);
+    if (!target) {
+      return;
+    }
+    const offset = 68;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     this.menuOpen = false;
   }
 
