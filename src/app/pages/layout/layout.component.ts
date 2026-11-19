@@ -202,9 +202,11 @@ export class Layout implements AfterViewInit, OnDestroy {
       challenge:
         'Manter os dados das tabelas de apoio iguais entre ambientes, numa base com mais de 480 tabelas.',
       solution:
-        'Ferramenta desktop (evolução de um projeto Spring + Angular) que compara duas bases, mostra pendências e sincroniza, com progresso e cancelamento.',
+        'Ferramenta desktop que compara duas bases, mostra pendências e sincroniza, com progresso e cancelamento.',
       result: 'A verificação e a sincronização da base inteira rodam numa tela só.',
       technologies: 'Spring Boot, Angular, MongoDB, PostgreSQL',
+      link: 'https://syncdb.ramoncode.com.br',
+      linkLabel: 'Abrir o SyncDb',
     },
     {
       title: 'NexFiscal',
@@ -217,7 +219,7 @@ export class Layout implements AfterViewInit, OnDestroy {
       result:
         'Dá para montar a proposta e formalizar o serviço sem trocar de ferramenta.',
       technologies: 'Spring Boot, React, PostgreSQL',
-      link: 'https://nexfiscal.ramoncode.com.br/',
+      link: '',
       linkLabel: 'Abrir o NexFiscal',
     },
     {
