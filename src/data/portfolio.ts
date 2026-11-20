@@ -13,12 +13,6 @@ export type CaseStudy = {
 
 export type FeaturedCase = CaseStudy & { proof: string };
 
-export type MoreItem = {
-  title: string;
-  text: string;
-  image: string;
-};
-
 export type Tool = {
   name: string;
   icon?: string;
@@ -70,7 +64,7 @@ export const casesIntro = {
 export const featured: FeaturedCase = {
   title: 'Agrotech, crédito rural e financeiro',
   label: 'Cliente, em produção',
-  image: '/assets/agrotech.png',
+  image: '/assets/agrotech-mock.png',
   proof: 'Relatórios de várias páginas levavam de 2 a 4 minutos. Hoje saem em até 10 segundos.',
   challenge:
     'A operação rodava em planilha, documentos se perdiam e cada linha de crédito (rural, pessoal, consórcio) tinha regra própria.',
@@ -147,26 +141,6 @@ export const cases: CaseStudy[] = [
     technologies: 'React Native, Expo, PHP, PostgreSQL',
     link: 'https://play.google.com/store/apps/details?id=br.com.w5i.sipecmobile&hl=pt_BR',
     linkLabel: 'Ver na Play Store',
-  },
-];
-
-export const moreTitle = 'Outras Projetos';
-
-export const more: MoreItem[] = [
-  {
-    title: 'Questify',
-    text: 'App de desafio diário com quizzes e perguntas de cálculo, com taxa de vitória.',
-    image: '/assets/questify.png',
-  },
-  {
-    title: 'BI de despesas',
-    text: 'Painel com despesas por classe e por ano. Os dados são atualizados todo dia.',
-    image: '/assets/bi.png',
-  },
-  {
-    title: 'Portal de consulta',
-    text: 'Consulta de empenhos, receitas, repasses e emendas.',
-    image: '/assets/portal.png',
   },
 ];
 

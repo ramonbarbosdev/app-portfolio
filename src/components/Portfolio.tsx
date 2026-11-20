@@ -18,8 +18,6 @@ import {
   links,
   mailto,
   marqueeTools,
-  more,
-  moreTitle,
   nav,
   primaryProjects,
   secondaryProjects,
@@ -271,7 +269,7 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <span className="status-dot size-2 rounded-full bg-[#16a34a]" aria-hidden="true" />
+                  <span className="status-dot size-2 rounded-full bg-accent" aria-hidden="true" />
                   Aberto a vagas, desenvolvimento e consultoria
                 </motion.p>
 
@@ -343,8 +341,8 @@ export default function Portfolio() {
                     size={160}
                     duration={9}
                     borderWidth={1.5}
-                    colorFrom={dark ? '#6aa6ff' : '#0a56d6'}
-                    colorTo={dark ? '#0a56d6' : '#6aa6ff'}
+                    colorFrom={dark ? '#f07030' : '#e8590c'}
+                    colorTo={dark ? '#e8590c' : '#f5a574'}
                   />
                 </div>
 
@@ -393,31 +391,6 @@ export default function Portfolio() {
                 </Reveal>
               ))}
             </div>
-
-            <Reveal className="mt-20">
-              <h3 className="text-[22px] font-bold tracking-tight">{moreTitle}</h3>
-              <ul className="mt-5 grid gap-4 md:grid-cols-3">
-                {more.map((item) => (
-                  <li
-                    key={item.title}
-                    className="group overflow-hidden rounded-2xl border border-line bg-surface/60 transition duration-200 hover:-translate-y-0.5 hover:border-ink/20"
-                  >
-                    <div className="overflow-hidden border-b border-line bg-white">
-                      <img
-                        src={item.image}
-                        alt={`Tela de ${item.title}`}
-                        className="aspect-[16/9] w-full object-cover object-left-top transition-transform duration-[600ms] group-hover:scale-[1.03]"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <strong className="block text-[17px] font-bold">{item.title}</strong>
-                      <span className="mt-1.5 block text-[15px] leading-relaxed text-muted">{item.text}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
           </section>
 
           <section id="sobre" className={cn(wrap, 'scroll-mt-20 pb-8 pt-24 md:pt-32')}>
@@ -475,12 +448,9 @@ export default function Portfolio() {
           <section id="contato" className={cn(wrap, 'scroll-mt-20 pb-24 pt-24 md:pt-32')}>
             <Reveal>
               <div className="contact-glow relative overflow-hidden rounded-[36px] px-6 py-14 text-white sm:px-12 md:px-16 md:py-20">
-                <div
-                  aria-hidden="true"
-                  className="hero-grid pointer-events-none absolute inset-0 opacity-60 [--color-ink:#ffffff]"
-                />
+                <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
                 <div className="relative">
-                  <p className="font-mono text-[13px] uppercase tracking-[0.12em] text-[#9cc3ff]">05</p>
+                  <p className="font-mono text-[13px] uppercase tracking-[0.12em] text-accent-soft">05</p>
                   <h2 className="mt-3 text-[clamp(2.5rem,6vw,4.75rem)] font-bold leading-[1] tracking-[-0.045em]">
                     {contact.title}
                   </h2>
@@ -492,7 +462,7 @@ export default function Portfolio() {
                     <span className="link-draw break-all">{links.email}</span>
                     <span
                       aria-hidden="true"
-                      className="grid size-11 shrink-0 place-items-center rounded-full bg-white text-lg text-[#0b0d12] transition-transform duration-150 group-hover:translate-x-1"
+                      className="grid size-11 shrink-0 place-items-center rounded-full bg-on-accent text-lg text-ink transition-transform duration-150 group-hover:translate-x-1"
                     >
                       →
                     </span>

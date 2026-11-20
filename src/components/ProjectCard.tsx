@@ -18,7 +18,7 @@ export function ProjectCard({ item, dark, featured = false }: Props) {
   return (
     <SpotlightCard
       theme={dark ? 'dark' : 'light'}
-      spotlightColor={dark ? '#6aa6ff' : '#0a56d6'}
+      spotlightColor={dark ? '#f07030' : '#e8590c'}
       intensity={dark ? 0.12 : 0.08}
       spotlightSize={featured ? 420 : 280}
       borderGlow={0.4}

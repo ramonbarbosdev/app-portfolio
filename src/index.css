@@ -5,28 +5,28 @@
 @theme {
   --font-sans: 'Schibsted Grotesk', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --color-bg: #fbfbfd;
-  --color-surface: #f2f2f5;
-  --color-ink: #17171a;
-  --color-muted: #5d5e66;
-  --color-line: #dedee3;
-  --color-accent: #0a56d6;
-  --color-accent-soft: #6aa6ff;
-  --color-on-accent: #ffffff;
-  --color-preview: #dfe6f0;
+  --color-bg: #efeae0;
+  --color-surface: #e6dfd3;
+  --color-ink: #1a1814;
+  --color-muted: #5c564d;
+  --color-line: #1a18141f;
+  --color-accent: #e8590c;
+  --color-accent-soft: #f07030;
+  --color-on-accent: #fff8f2;
+  --color-preview: #ddd5c8;
   --animate-marquee: marquee var(--duration) infinite linear;
 }
 
 .dark {
-  --color-bg: #0a0a0b;
-  --color-surface: #161618;
-  --color-ink: #f4f4f6;
-  --color-muted: #9b9ba4;
-  --color-line: #2a2a2e;
-  --color-accent: #6aa6ff;
-  --color-accent-soft: #0a56d6;
-  --color-on-accent: #07101f;
-  --color-preview: #1d2029;
+  --color-bg: #1a1814;
+  --color-surface: #242019;
+  --color-ink: #efeae0;
+  --color-muted: #a8a094;
+  --color-line: #efeae024;
+  --color-accent: #f07030;
+  --color-accent-soft: #e8590c;
+  --color-on-accent: #1a1814;
+  --color-preview: #2e2a24;
 }
 
 @keyframes marquee {
@@ -41,32 +41,47 @@
 @keyframes pulse-dot {
   0%,
   100% {
-    box-shadow: 0 0 0 0 color-mix(in oklab, #16a34a 55%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 45%, transparent);
   }
   50% {
-    box-shadow: 0 0 0 6px color-mix(in oklab, #16a34a 0%, transparent);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--color-accent) 0%, transparent);
   }
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--color-ink) 7%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--color-ink) 7%, transparent) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 80%);
+    linear-gradient(to right, #1a181414 1px, transparent 1px),
+    linear-gradient(to bottom, #1a181414 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 28%, #000 25%, transparent 82%);
+}
+
+.dark .hero-grid {
+  background-image:
+    linear-gradient(to right, #efeae014 1px, transparent 1px),
+    linear-gradient(to bottom, #efeae014 1px, transparent 1px);
 }
 
 .hero-glow {
   background:
-    radial-gradient(40% 50% at 18% 20%, color-mix(in oklab, var(--color-accent) 18%, transparent), transparent 70%),
-    radial-gradient(35% 45% at 82% 45%, color-mix(in oklab, var(--color-accent-soft) 22%, transparent), transparent 70%);
+    radial-gradient(45% 55% at 12% 18%, color-mix(in oklab, var(--color-accent) 9%, transparent), transparent 68%),
+    radial-gradient(38% 48% at 88% 42%, color-mix(in oklab, var(--color-ink) 6%, transparent), transparent 72%);
 }
 
 .contact-glow {
   background:
-    radial-gradient(60% 80% at 15% 0%, color-mix(in oklab, #6aa6ff 32%, transparent), transparent 70%),
-    radial-gradient(50% 70% at 100% 100%, color-mix(in oklab, #0a56d6 40%, transparent), transparent 70%),
-    #0b0d12;
+    radial-gradient(55% 75% at 12% 0%, color-mix(in oklab, var(--color-accent) 28%, transparent), transparent 68%),
+    radial-gradient(48% 65% at 100% 100%, color-mix(in oklab, var(--color-accent-soft) 18%, transparent), transparent 72%),
+    var(--color-ink);
+}
+
+.contact-glow .hero-grid {
+  background-image:
+    linear-gradient(to right, #efeae014 1px, transparent 1px),
+    linear-gradient(to bottom, #efeae014 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: none;
+  opacity: 0.85;
 }
 
 .status-dot {
