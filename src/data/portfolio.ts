@@ -19,10 +19,21 @@ export type MoreItem = {
   image: string;
 };
 
+export type Tool = {
+  name: string;
+  icon?: string;
+};
+
 export type StackGroup = {
   label: string;
-  items: string;
-  where: string;
+  tools: Tool[];
+};
+
+export type TimelineEntry = {
+  period: string;
+  role: string;
+  place: string;
+  text: string;
 };
 
 export const links = {
@@ -34,6 +45,7 @@ export const links = {
 export const nav = [
   { label: 'Projetos', targetId: 'cases' },
   { label: 'Sobre', targetId: 'sobre' },
+  { label: 'Trajetória', targetId: 'trajetoria' },
   { label: 'Stack', targetId: 'stack' },
   { label: 'Contato', targetId: 'contato' },
 ] as const;
@@ -44,6 +56,7 @@ export const hero = {
   lead:
     'Trabalho com times e clientes, da conversa sobre o problema até a API, as telas, o banco e o deploy. Também lidero entregas e entro quando produção ou escopo travam.',
   note: '',
+  tagline: 'Pego o problema difícil e levo até produção.',
   primaryCta: 'Ver projetos',
   secondaryCta: 'Falar comigo',
   photo: '/assets/perfil.jpeg',
@@ -168,10 +181,82 @@ export const about = [
 export const stackTitle = 'Stack';
 
 export const stack: StackGroup[] = [
-  { label: 'Backend', items: 'Java 21, Spring Boot, Security, JPA, Flyway', where: '' },
-  { label: 'Frontend', items: 'Angular, React, React Native', where: '' },
-  { label: 'Dados', items: 'PostgreSQL, MongoDB', where: '' },
-  { label: 'Infra', items: 'Docker, nginx, GitHub Actions, JWT, RBAC', where: '' },
+  {
+    label: 'Backend',
+    tools: [
+      { name: 'Java 21', icon: '/icons/java.svg' },
+      { name: 'Spring Boot', icon: '/icons/spring.svg' },
+      { name: 'PHP', icon: '/icons/php.svg' },
+      { name: 'Security' },
+      { name: 'JPA' },
+      { name: 'Flyway' },
+    ],
+  },
+  {
+    label: 'Frontend',
+    tools: [
+      { name: 'Angular', icon: '/icons/angular.svg' },
+      { name: 'React', icon: '/icons/react.svg' },
+      { name: 'React Native', icon: '/icons/react.svg' },
+      { name: 'TypeScript', icon: '/icons/typescript.svg' },
+    ],
+  },
+  {
+    label: 'Dados',
+    tools: [
+      { name: 'PostgreSQL', icon: '/icons/postgres.svg' },
+      { name: 'MongoDB', icon: '/icons/mongodb.svg' },
+    ],
+  },
+  {
+    label: 'Infra',
+    tools: [
+      { name: 'Docker', icon: '/icons/docker.svg' },
+      { name: 'nginx', icon: '/icons/nginx.svg' },
+      { name: 'GitHub Actions', icon: '/icons/github-actions.svg' },
+      { name: 'Linux', icon: '/icons/linux-tux.svg' },
+      { name: 'JWT' },
+      { name: 'RBAC' },
+    ],
+  },
+];
+
+export const marqueeTools: Tool[] = [
+  { name: 'Java', icon: '/icons/java.svg' },
+  { name: 'Spring Boot', icon: '/icons/spring.svg' },
+  { name: 'Angular', icon: '/icons/angular.svg' },
+  { name: 'React', icon: '/icons/react.svg' },
+  { name: 'TypeScript', icon: '/icons/typescript.svg' },
+  { name: 'PostgreSQL', icon: '/icons/postgres.svg' },
+  { name: 'MongoDB', icon: '/icons/mongodb.svg' },
+  { name: 'Docker', icon: '/icons/docker.svg' },
+  { name: 'nginx', icon: '/icons/nginx.svg' },
+  { name: 'GitHub Actions', icon: '/icons/github-actions.svg' },
+  { name: 'PHP', icon: '/icons/php.svg' },
+  { name: 'Expo', icon: '/icons/expo.svg' },
+];
+
+export const timelineTitle = 'Trajetória';
+
+export const timeline: TimelineEntry[] = [
+  {
+    period: '2025 até hoje',
+    role: 'Desenvolvedor Freelancer',
+    place: 'Projetos independentes · Remoto',
+    text: 'Desenvolvimento de sistemas sob demanda com atuação de ponta a ponta: levantamento de necessidades, modelagem do banco, APIs em Spring Boot, interfaces Angular ou React, deploy e suporte inicial.',
+  },
+  {
+    period: '2024 até hoje',
+    role: 'Programador de Internet',
+    place: 'W5i Tecnologia · Salvador/BA',
+    text: 'Atuação no desenvolvimento e manutenção de sistemas web, APIs REST e ferramentas internas. Trabalho com PHP em sistemas existentes e Java/Spring Boot em serviços backend, participando de entregas Scrum, homologações e evolução de funcionalidades usadas por clientes reais.',
+  },
+  {
+    period: '2022 a 2023',
+    role: 'Programador Júnior',
+    place: 'GPI Sistemas · Salvador/BA',
+    text: 'Atuação em migração de dados, scripts ETL e automações para conversão, validação e homologação de bases, apoiando a implantação de sistemas em ambientes de cliente.',
+  },
 ];
 
 export const contact = {
@@ -184,11 +269,13 @@ export const footer = {
 } as const;
 
 export function primaryProjects(): CaseStudy[] {
-  return [featured, ...cases.filter((item) => ['API de notificação WhatsApp', 'NexFiscal'].includes(item.title))];
+  return cases.filter((item) => ['SyncDb', 'SIPEC Mobile'].includes(item.title));
 }
 
 export function secondaryProjects(): CaseStudy[] {
-  return cases.filter((item) => ['eSimples', 'SyncDb', 'SIPEC Mobile'].includes(item.title));
+  return cases.filter((item) =>
+    ['eSimples', 'API de notificação WhatsApp', 'NexFiscal'].includes(item.title),
+  );
 }
 
 export function previewUrl(item: CaseStudy): string {
